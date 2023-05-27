@@ -7,23 +7,23 @@
         <p><strong>Mau kemana?</strong></p>
     </div>
     <div>
-        <form method="post" action="{{}}">
+        <form method="GET" action="{{route('step1')}}">
             @csrf
             <div>
-                <label for="from">Dari</label>
-                <input type="text" name="from" id="from">
+                <label for="dari">Dari</label>
+                <input type="text" name="dari" id="dari">
             </div>
             <div>
-                <label for="to">Ke</label>
-                <input type="text" name="to" id="to">
+                <label for="ke">Ke</label>
+                <input type="text" name="ke" id="ke">
             </div>
             <div>
-                <label for="date">Tanggal Keberangkatan</label>
-                <input type="date" name="date" id="date">
+                <label for="tanggal">Tanggal Keberangkatan</label>
+                <input type="date" name="tanggal" id="tanggal">
             </div>
             <div>
-                <label for="passengers">Penumpang</label>
-                <select name="passengers" id="passengers">
+                <label for="penumpang">Penumpang</label>
+                <select name="penumpang" id="penumpang">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -37,11 +37,11 @@
                 </select>
             </div>
             <div>
-                <label for="class">Kelas</label>
-                <select name="class" id="class">
-                    <option value="ekonomi">Ekonomi</option>
-                    <option value="bisnis">Bisnis</option>
-                    <option value="eksekutif">Eksekutif</option>
+                <label for="kelas">Kelas</label>
+                <select name="kelas" id="kelas">
+                    <option value="1">Ekonomi</option>
+                    <option value="2">Bisnis</option>
+                    <option value="3">Eksekutif</option>
                 </select>
             </div>
             <div>

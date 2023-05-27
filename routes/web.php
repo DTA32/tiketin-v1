@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminBandara;
 use App\Http\Controllers\AdminKursiPenerbangan;
 use App\Http\Controllers\AdminKelasPenerbangan;
 use App\Http\Controllers\Step1Controller;
+use App\Http\Controllers\Step2Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +35,5 @@ Route::post('/admin/kursipenerbangan', [AdminKursiPenerbangan::class, 'add'])->n
 Route::get('/admin/kelaspenerbangan', [AdminKelasPenerbangan::class, 'get'])->name('admin.kelaspenerbangan');
 Route::post('/admin/kelaspenerbangan', [AdminKelasPenerbangan::class, 'add'])->name('admin.kelaspenerbangan.add');
 
-Route::post('/step1', [Step1Controller::class, 'step1'])->name('step1');
+Route::get('/step1', [Step1Controller::class, 'search'])->name('step1');
+Route::get('/step2', [Step2Controller::class, 'get'])->name('step2');
