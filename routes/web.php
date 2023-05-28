@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminKelasPenerbangan;
 use App\Http\Controllers\Step1Controller;
 use App\Http\Controllers\Step2Controller;
 use App\Http\Controllers\Step4Controller;
+use App\Http\Controllers\Step5Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +40,6 @@ Route::post('/admin/kelaspenerbangan', [AdminKelasPenerbangan::class, 'add'])->n
 Route::get('/step1', [Step1Controller::class, 'search'])->name('step1');
 Route::get('/step2', [Step2Controller::class, 'get'])->name('step2');
 Route::post('/step4', [Step4Controller::class, 'get'])->name('step4');
-
+Route::post('/step5', [Step5Controller::class, 'post'])->name('step5');
+Route::get('/step5/bayar', [Step5Controller::class, 'get'])->name('step5.bayar');
+Route::put('/final', [Step5Controller::class, 'update'])->name('home.finalized');

@@ -41,9 +41,8 @@
         <p>Biaya Layanan : {{$detail_harga->biaya_layanan}}</p>
         <p>Total : {{$detail_harga->total}}</p>
     </div>
-    <form method="POST" action="">
+    <form method="POST" action="{{route('step5', ['penerbangan_id' => $penerbangan->id, 'penumpang' => $penumpang, 'kelas' => $kelas, 'harga_id' => $detail_harga->id])}}">
         @csrf
-        <input type="hidden" name="penerbangan_id" value="{{$penerbangan->id}}">
         <button type="submit">Lanjutkan</button>
     </form>
 </body>
