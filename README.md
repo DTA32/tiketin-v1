@@ -1,5 +1,7 @@
 # Software Engineering Project
 
+Main Page: localhost:8000/home
+
 Management Admin:
 DB Penerbangan: localhost:8000/admin/penerbangan
 DB Bandara: localhost:8000/admin/bandara

@@ -41,12 +41,13 @@
                 <select name="kelas" id="kelas">
                     <option value="1">Ekonomi</option>
                     <option value="2">Bisnis</option>
-                    <option value="3">Eksekutif</option>
+                    <option value="3">First</option>
                 </select>
             </div>
             <div>
                 <button type="submit">Cari</button>
             </div>
+            <p>{{dd(searchPenerbanganFull(0))}}</p>
     </div>
 </body>
 </html>

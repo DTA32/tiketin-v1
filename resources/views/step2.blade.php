@@ -10,13 +10,16 @@
     <p>{{$penerbangan->waktu_sampai->format('H:i')}}</p>
     </div>
     <p>Detail Penumpang</p>
-    <form method="POST" action="">
+    <form method="POST" action="{{route('step4')}}">
+        @csrf
+        <input type="hidden" name="penerbangan_id" value="{{$penerbangan->id}}">
+        <input type="hidden" name="penumpang" value="{{$penumpang}}">
+        <input type="hidden" name="kelas" value="{{$kelas}}">
         @for ($i = 1; $i <= $penumpang; $i++)
             <div>
                 <p>Penumpang {{$i}}</p>
-                <label for="nama_{{$i}}">Nama Penumpang {{$i}}</label>
-                <input type="text" name="nama_depan_{{$i}}" id="nama_depan_{{$i}}">
-                <input type="text" name="nama_belakang_{{$i}}" id="nama_belakang_{{$i}}">
+                <label for="nama_lengkap[]">Nama Lengkap</label>
+                <input type="text" name="nama_lengkap[]" id="nama_lengkap[]">
             </div>
         @endfor
         <div>
