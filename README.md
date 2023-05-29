@@ -3,9 +3,13 @@
 Main Page: localhost:8000/home
 
 Management Admin:
+
 DB Penerbangan: localhost:8000/admin/penerbangan
+
 DB Bandara: localhost:8000/admin/bandara
+
 DB Kelas_Penerbangan: localhost:8000/admin/kelaspenerbangan
+
 DB Kursi_Penerbangan: localhost:8000/admin/kursipenerbangan
 
 ---

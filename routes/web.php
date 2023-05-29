@@ -9,6 +9,7 @@ use App\Http\Controllers\Step1Controller;
 use App\Http\Controllers\Step2Controller;
 use App\Http\Controllers\Step4Controller;
 use App\Http\Controllers\Step5Controller;
+use App\Http\Controllers\HistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +44,5 @@ Route::post('/step4', [Step4Controller::class, 'get'])->name('step4');
 Route::post('/step5', [Step5Controller::class, 'post'])->name('step5');
 Route::get('/step5/bayar', [Step5Controller::class, 'get'])->name('step5.bayar');
 Route::put('/final', [Step5Controller::class, 'update'])->name('home.finalized');
+Route::get('/history', [HistoryController::class, 'get'])->name('history');
+Route::post('/history/{id}', [HistoryController::class, 'getDetail'])->name('history.detail');
