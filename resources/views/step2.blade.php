@@ -2,7 +2,7 @@
 <html lang="en">
 @include('includes.head')
 <body>
-    <x-header></x-header>
+    <x-headerBack></x-headerBack>
     <div class="search-box" style="margin-top: 8px; padding-top:8px; border: 1px solid #868686">
         <p class="fs-5 text-center">Penerbangan</p>
         <div class="container">

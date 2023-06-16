@@ -2,6 +2,6 @@
 <html lang="en">
 @include('includes.head')
 <body>
-    <x-header></x-header>
+    <x-headerBack></x-headerBack>
 </body>
 </html>

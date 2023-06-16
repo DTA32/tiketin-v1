@@ -2,6 +2,7 @@
 <html lang="en">
 @include('includes.head')
 <body>
+    <x-headerBack></x-headerBack>
     <div>
         <p>Pemesanan</p>
         <p>Booking ID: {{$pemesanan->id}}</p>

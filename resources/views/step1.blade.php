@@ -2,7 +2,36 @@
 <html lang="en">
 @include('includes.head')
 <body>
-    <x-header></x-header>
+    {{-- header --}}
+    <div class="header-container container text-center">
+        <div class="row justify-content-center align-items-center w-100 h-100 mx-0">
+            <div class="col-3">
+                <a href="{{url()->previous()}}" class=""><img src="{{url('images/mdi_arrow-left.png')}}" alt=""></a>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <h4 class="text-center mb-0">{{$results[0]->kota_asal}} - {{$results[0]->kota_tujuan}}</h4>
+                </div>
+                <div class="row">
+                    <p class="text-center mb-0" style="font-size:12px">
+                        {{date('D d M ', strtotime($results[0]->waktu_berangkat))}}
+                        | {{$penumpang}} pax |
+                        @if ($kelas == 1)
+                        Ekonomi
+                        @elseif($kelas == 2)
+                        Bisnis
+                        @elseif($kelas == 3)
+                        First
+                        @endif
+                    </p>
+                </div>
+            </div>
+            <div class="col">
+                <img src="{{url('/images/logo.png')}}" alt="logo" class="logo">
+            </div>
+        </div>
+    </div>
+    {{-- body --}}
     <div>
         @foreach($results as $hasil)
         <div class="search-box" style="margin-top: 4px; padding-top:8px; border-bottom: 0.1px solid;">
