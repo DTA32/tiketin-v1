@@ -2,6 +2,7 @@
 <html lang="en">
 @include('includes.head')
 <body>
+    <x-header></x-header>
     <div class="container">
         <p>History</p>
         <div>
@@ -22,5 +23,6 @@
         @endforeach
         </div>
     </div>
+    <x-footer></x-footer>
 </body>
 </html>

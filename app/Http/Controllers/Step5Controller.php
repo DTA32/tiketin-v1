@@ -20,21 +20,12 @@ class Step5Controller extends Controller
             'kelas_penerbangan_id' => $request->input('kelas')
         ]);
         $pemesanan->save();
-        // update penumpang dengan pemesanan_id
-        // harusnya pake dibawah ini kalo lebih dari 1, tapi ga sempet
-        // foreach($request->input('penumpang') as $penumpang){
-        //     $penumpang->where('id', $penumpang)->update(['pemesanan_id' => $pemesanan->id]);
-        // }
-        // sementara pake ini
-        // $penumpang = pemesanan_penumpang::where('id', $request->input('penumpang'))->update(['pemesanan_id' => $pemesanan->id]);
-        // update detail harga dengan pemesanan_id
-        // $harga = pemesanan_harga::where('id', $request->input('$harga'))->update(['pemesanan_id' => $pemesanan->id]); // !!! ga masuk !!!
 
-        $penumpangss[] = $request->session()->get('penumpang');
-        foreach($penumpangss as $penumpangs){
+        $penumpangs = $request->session()->get('penumpang');
+        foreach ($penumpangs as $penumpang) {
             $newPenumpang['pemesanan_id'] = $pemesanan->id;
-            $newPenumpang['nama'] = $penumpangs['nama'];
-            $newPenumpang['kursi_penerbangan_id'] = null; // EDIT!
+            $newPenumpang['nama'] = $penumpang['nama'];
+            $newPenumpang['kursi_penerbangan_id'] = null;
             pemesanan_penumpang::create($newPenumpang);
         }
 
