@@ -62,6 +62,12 @@
             </div>
             </form>
         </div>
+        {{-- belum jalan --}}
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
     </div>
     <x-footer></x-footer>
 </body>

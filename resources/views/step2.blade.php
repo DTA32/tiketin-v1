@@ -26,7 +26,6 @@
     <form method="POST" action="{{route('step4')}}">
         @csrf
         <input type="hidden" name="penerbangan_id" value="{{$penerbangan->id}}">
-        <input type="hidden" name="penumpang" value="{{$penumpang}}">
         <input type="hidden" name="kelas" value="{{$kelas}}">
         <div class="search-box" style="margin-top: 4px; padding-top:8px; padding-bottom:16px">
             @for ($i = 1; $i <= $penumpang; $i++)

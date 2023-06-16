@@ -5,7 +5,7 @@
 <div>
     <p>Pemesanan</p>
     <p>Booking ID: {{$pemesanan->id}}</p>
-    {{-- <p>Total: {{$harga->total}}</p> !!! ngebug? !!! --}}
+    <p>Total: {{Session::get('harga')['total']}} </p>
 </div>
 <div>
     <p>Metode Pembayaran</p>

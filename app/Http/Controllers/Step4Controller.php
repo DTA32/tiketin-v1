@@ -17,11 +17,11 @@ class Step4Controller extends Controller
         // detail penumpang
         $penumpangArray = [];
         foreach($request->input('nama_lengkap') as $penumpangs){
-            $penumpang = [
+            $penumpangA = [
                 'nama' => $penumpangs,
                 'kursi_penerbangan_id' => null
             ];
-            array_push($penumpangArray, $penumpang);
+            array_push($penumpangArray, $penumpangA);
         }
         $request->session()->put('penumpang', $penumpangArray);
         // harga
@@ -33,9 +33,9 @@ class Step4Controller extends Controller
                         ->first();
 
         $harga['biaya_dasar'] = $harga_kelas->harga;
-        $harga['kuantitas'] = $request->input('penumpang');
+        $harga['kuantitas'] = count($penumpangArray);
         $harga['biaya_layanan'] = 10000;
-        $harga['total'] = $harga_kelas->harga * $request->input('penumpang') + 10000;
+        $harga['total'] = $harga_kelas->harga * count($penumpangArray) + 10000;
         $request->session()->put('harga', $harga);
 
         return view('step4', ['penerbangan' => $penerbangan, 'penumpang' => $penumpangArray, 'kelas' => $request->input('kelas')]);
