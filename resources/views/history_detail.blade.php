@@ -10,7 +10,6 @@
         @elseif ($pemesanan->status == 1)
         <p>Status: Sudah dibayar</p>
         @endif
-        <p>Penerbangan</p>
         <div>
             <div>
                 <p>Penerbangan</p>
@@ -32,7 +31,7 @@
                 <p>{{searchPenerbanganFull($penerbangan->id)->kota_asal}}</p>
                 <p>{{searchPenerbanganFull($penerbangan->id)->kota_tujuan}}</p>
             </div>
-            <div>
+            {{-- <div>
                 <p>Detail Penumpang</p>
                 @for ($i = 0; $i < $pemesanan_harga->kuantitas; $i++)
                     <div>
@@ -41,6 +40,16 @@
                         <p>No Kursi: {{$pemesanan_penumpang->kursi_penerbangan_id}}</p>
                     </div>
                 @endfor
+            </div> --}}
+            <div>
+                <p>Detail Penumpang</p>
+                @foreach ($pemesanan_penumpang as $penumpang)
+                    <div>
+                        <p>Penumpang {{$loop->iteration}}</p>
+                        <p>Nama Lengkap: {{$penumpang->nama}}</p>
+                        <p>No Kursi: {{$penumpang->kursi_penerbangan_id}}</p>
+                    </div>
+                @endforeach
             </div>
             <div>
                 <p>Detail Harga</p>
@@ -57,7 +66,7 @@
                 @elseif ($pemesanan->metode_pembayaran == 3)
                 <p>QRIS</p>
                 @endif
-                <p>No. Referensi: {{$pemesanan->no_referensi}}</p>
+                <p>No. Referensi: {{$pemesanan->referensi_pembayaran}}</p>
             </div>
     </div>
 </body>

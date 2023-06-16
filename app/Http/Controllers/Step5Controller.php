@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\pemesanan;
 use App\Models\pemesanan_penumpang;
 use App\Models\pemesanan_harga;
+use Illuminate\Support\Facades\Session;
 
 class Step5Controller extends Controller
 {
@@ -25,9 +26,26 @@ class Step5Controller extends Controller
         //     $penumpang->where('id', $penumpang)->update(['pemesanan_id' => $pemesanan->id]);
         // }
         // sementara pake ini
-        $penumpang = pemesanan_penumpang::where('id', $request->input('penumpang'))->update(['pemesanan_id' => $pemesanan->id]);
+        // $penumpang = pemesanan_penumpang::where('id', $request->input('penumpang'))->update(['pemesanan_id' => $pemesanan->id]);
         // update detail harga dengan pemesanan_id
-        $harga = pemesanan_harga::where('id', $request->input('$harga'))->update(['pemesanan_id' => $pemesanan->id]); // !!! ga masuk !!!
+        // $harga = pemesanan_harga::where('id', $request->input('$harga'))->update(['pemesanan_id' => $pemesanan->id]); // !!! ga masuk !!!
+
+        $penumpangss[] = $request->session()->get('penumpang');
+        foreach($penumpangss as $penumpangs){
+            $newPenumpang['pemesanan_id'] = $pemesanan->id;
+            $newPenumpang['nama'] = $penumpangs['nama'];
+            $newPenumpang['kursi_penerbangan_id'] = null; // EDIT!
+            pemesanan_penumpang::create($newPenumpang);
+        }
+
+        $harga = $request->session()->get('harga');
+        pemesanan_harga::create([
+            'pemesanan_id' => $pemesanan->id,
+            'biaya_dasar' => $harga['biaya_dasar'],
+            'kuantitas' => $harga['kuantitas'],
+            'biaya_layanan' => $harga['biaya_layanan'],
+            'total' => $harga['total']
+        ]);
 
         return view('step5', ['pemesanan' => $pemesanan, 'harga' => $harga]);
     }
@@ -44,6 +62,7 @@ class Step5Controller extends Controller
             'referensi_pembayaran' => 'XYZ456'
         ]);
         $pemesanan->save();
+        $request->session()->flush();
         return view('home')->with('success', 'Pemesanan berhasil!');
     }
 }

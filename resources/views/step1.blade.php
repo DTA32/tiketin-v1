@@ -5,7 +5,7 @@
     <x-header></x-header>
     <div>
         @foreach($results as $hasil)
-        <div class="search-box" style="margin-top: 4px; padding-top:8px">
+        <div class="search-box" style="margin-top: 4px; padding-top:8px; border-bottom: 0.1px solid;">
             <form method="GET" action="{{route('step2', ['penerbangan_id' => $hasil->id, 'penumpang' => $penumpang, 'kelas' => $kelas])}}">
                 <input type="hidden" name="penerbangan_id" value="{{$hasil->id}}">
                 <input type="hidden" name="penumpang" value="{{$penumpang}}">

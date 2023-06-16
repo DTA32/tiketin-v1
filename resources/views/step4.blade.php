@@ -30,18 +30,18 @@
         @for ($i = 0; $i < $jumlah_penumpang; $i++)
             <div>
                 <p>Penumpang {{$i+1}}</p>
-                <p>Nama Lengkap: {{$penumpang->nama}}</p>
-                <p>No Kursi: {{$penumpang->kursi_penerbangan_id}}</p>
+                <p>Nama Lengkap: {{Session::get('penumpang')['nama']}}</p>
+                {{-- <p>No Kursi: {{$penumpang->kursi_penerbangan_id}}</p> --}}
             </div>
         @endfor
     </div>
     <div>
         <p>Detail Harga</p>
-        <p>{{$penerbangan->maskapai}} ({{$detail_harga->kuantitas}}) : {{$detail_harga->biaya_dasar}}</p>
-        <p>Biaya Layanan : {{$detail_harga->biaya_layanan}}</p>
-        <p>Total : {{$detail_harga->total}}</p>
+        <p>{{$penerbangan->maskapai}} ({{Session::get('harga')['kuantitas']}}) : {{Session::get('harga')['biaya_dasar']}}</p>
+        <p>Biaya Layanan : {{Session::get('harga')['biaya_layanan']}}</p>
+        <p>Total : {{Session::get('harga')['total']}}</p>
     </div>
-    <form method="POST" action="{{route('step5', ['penerbangan_id' => $penerbangan->id, 'penumpang' => $penumpang, 'kelas' => $kelas, 'harga' => $detail_harga])}}">
+    <form method="POST" action="{{route('step5', ['penerbangan_id' => $penerbangan->id, 'kelas' => $kelas, 'jumlah_penumpang' => $jumlah_penumpang])}}">
         @csrf
         <button type="submit">Lanjutkan</button>
     </form>
