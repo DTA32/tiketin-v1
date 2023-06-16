@@ -27,7 +27,7 @@ class Step5Controller extends Controller
         // sementara pake ini
         $penumpang = pemesanan_penumpang::where('id', $request->input('penumpang'))->update(['pemesanan_id' => $pemesanan->id]);
         // update detail harga dengan pemesanan_id
-        $harga = pemesanan_harga::where('pemesanan_id', null)->first();
+        $harga = pemesanan_harga::where('id', $request->input('$harga'))->update(['pemesanan_id' => $pemesanan->id]); // !!! ga masuk !!!
 
         return view('step5', ['pemesanan' => $pemesanan, 'harga' => $harga]);
     }

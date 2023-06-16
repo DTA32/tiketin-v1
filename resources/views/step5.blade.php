@@ -5,7 +5,7 @@
 <div>
     <p>Pemesanan</p>
     <p>Booking ID: {{$pemesanan->id}}</p>
-    <p>Total: {{$harga->total}}</p>
+    {{-- <p>Total: {{$harga->total}}</p> !!! ngebug? !!! --}}
 </div>
 <div>
     <p>Metode Pembayaran</p>
