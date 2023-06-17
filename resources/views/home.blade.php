@@ -8,7 +8,7 @@
             <p class="fs-6 lh-sm mb-0">Halo, User!</p>
             <p class="fs-5 fw-bold lh-sm mb-0">Mau kemana?</p>
         </div>
-        <div class="search-box">
+        <div class="search-box mb-3">
             <div class="form-box">
             <form method="GET" action="{{route('step1')}}">
                 @csrf

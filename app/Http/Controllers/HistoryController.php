@@ -12,7 +12,8 @@ use App\Models\pemesanan_penumpang;
 class HistoryController extends Controller
 {
     public function get(){
-        $pemesanan = pemesanan::where('metode_pembayaran', 3)->get();
+        // $pemesanan = pemesanan::where('metode_pembayaran', 3)->get();
+        $pemesanan = pemesanan::all();
         return view('history', ['pemesanan' => $pemesanan]);
     }
     public function getDetail($id){

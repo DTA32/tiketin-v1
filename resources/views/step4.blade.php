@@ -42,9 +42,9 @@
             @foreach ($penumpang as $penumpangs)
             <div class="mt-2 pb-2">
                 <p class="mb-3" style="font-size:18px">Penumpang {{$loop->iteration}}</p>
-                <p class="mb-1" style="font-size: 14px">Nama Lengkap:</p>
+                <p class="mb-0" style="font-size: 14px">Nama Lengkap:</p>
                 <p class="mb-2">{{$penumpangs['nama']}}</p>
-                <p class="mb-1" style="font-size: 14px">No Kursi:</p>
+                <p class="mb-0" style="font-size: 14px">No Kursi:</p>
                 <p class="mb-2">{{$penumpangs['kursi_penerbangan_id']}}</p>
             </div>
             @endforeach
