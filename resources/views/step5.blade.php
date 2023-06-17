@@ -2,14 +2,23 @@
 <html lang="en">
 @include('includes.head')
 <body>
-<div>
-    <p>Pemesanan</p>
-    <p>Booking ID: {{$pemesanan->id}}</p>
-    <p>Total: {{Session::get('harga')['total']}} </p>
-</div>
-<div>
-    <p>Metode Pembayaran</p>
+    <x-header></x-header>
+    <div class="search-box container" style="margin-top: 8px; padding-top:8px; border: 1px solid #868686">
+        <div class="row">
+            <p class="fs-5 text-center">Pemesanan</p>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p style="font-size: 16px">Booking ID: {{$pemesanan->id}}</p>
+            </div>
+            <div class="col d-flex justify-content-end align-items-center">
+                <p style="font-size: 21px">Rp. {{Session::get('harga')['total']}} </p>
+            </div>
+        </div>
+    </div>
+    <p class="fs-5 mt-3 ps-3 mb-2">Metode Pembayaran</p>
     <form method="GET" action="{{route('step5.bayar')}}">
+    <div class="search-box" style="margin-top: 8px; padding-top:8px; border: 1px solid #868686">
         @csrf
         <input type="hidden" name="pemesanan_id" value="{{$pemesanan->id}}">
         <div>
@@ -24,8 +33,9 @@
             <input type="radio" id="qris" name="metode_pembayaran" value="3">
             <label for="qris">QRIS</label>
         </div>
-        <button type="submit">Lanjutkan</button>
+    </div>
+    <div class="text-center mt-5">
+        <button type="submit" class="button text-center" style="width: 240px">Bayar</button>
     </form>
-</div>
 </body>
 </html>

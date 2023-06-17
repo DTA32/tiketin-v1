@@ -4,7 +4,7 @@
             <a href="{{url()->previous()}}" class=""><img src="{{url('images/mdi_arrow-left.png')}}" alt=""></a>
         </div>
         <div class="col-6">
-            <img src="{{url('/images/logo.png')}}" alt="logo" class="logo">
+            <a href="{{route('home')}}" class=""><img src="{{url('/images/logo.png')}}" alt="logo" class="logo"></a>
         </div>
         <div class="col"></div>
     </div>

@@ -29,8 +29,8 @@
         <input type="hidden" name="kelas" value="{{$kelas}}">
         <div class="search-box" style="margin-top: 4px; padding-top:8px; padding-bottom:16px">
             @for ($i = 1; $i <= $penumpang; $i++)
-                <div>
-                    <p style="font-size:18px">Penumpang {{$i}}</p>
+                <div class="mt-2 pb-2">
+                    <p class="mb-2" style="font-size:18px">Penumpang {{$i}}</p>
                     <label for="nama_lengkap[]">Nama Lengkap</label>
                     <br>
                     <input type="text" name="nama_lengkap[]" id="nama_lengkap[]" class="input-text">
