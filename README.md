@@ -1,6 +1,6 @@
 # Software Engineering Project
 
-Main Page: localhost:8000/home
+User Main Page: localhost:8000/home
 
 Management Admin:
 
@@ -10,9 +10,9 @@ DB Bandara: localhost:8000/admin/bandara
 
 DB Kelas_Penerbangan: localhost:8000/admin/kelaspenerbangan
 
-DB Kursi_Penerbangan: localhost:8000/admin/kursipenerbangan
+~~DB Kursi_Penerbangan: localhost:8000/admin/kursipenerbangan~~ (not longer used)
 
-Notes:
+### Today to-do:
 
 delete table kursi_penerbangan, alter pemesanan_penumpang dari kursi_penumpang_id ke kursi_penumpang(string)
 
@@ -20,17 +20,18 @@ db model relationship
 
 dummy login register news settings
 
-catatan:
-
-return with message masih belum bisa
-
-To-do list
+### To-do list
 
 -   [ ] kursi penerbangan
 -   [ ] user authentication
 -   [ ] menu admin
 -   [ ] news
 -   [ ] input validation
+
+catatan tambahan (low priority):
+
+-   return with message masih belum bisa
+-   db bisa di-optimize chatgpt
 
 ---
 
