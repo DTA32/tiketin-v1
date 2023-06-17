@@ -41,17 +41,32 @@ class Step5Controller extends Controller
         return view('step5', ['pemesanan' => $pemesanan, 'harga' => $harga]);
     }
     public function get(Request $request){
-        return view('step53', ['pemesanan_id' => $request->input('pemesanan_id')]);
-        // if($request->input('metode_pembayaran' == 3)){
-        // }
+        if($request->input('metode_pembayaran') == 1){
+            return view('step51', ['pemesanan_id' => $request->input('pemesanan_id')]);
+        }
+        else if($request->input('metode_pembayaran') == 2){
+            return view('step52', ['pemesanan_id' => $request->input('pemesanan_id')]);
+        }
+        else if($request->input('metode_pembayaran') == 3){
+            return view('step53', ['pemesanan_id' => $request->input('pemesanan_id')]);
+        }
     }
     public function update(Request $request){
         $pemesanan = pemesanan::where('id', $request->input('pemesanan_id'))->first();
-        $pemesanan->update([
-            'status' => 1,
-            'metode_pembayaran' => 3,
-            'referensi_pembayaran' => 'XYZ456'
-        ]);
+        if($request->input('metode_pembayaran') == 1){
+            $pemesanan->update([
+                'status' => 1,
+                'metode_pembayaran' => $request->input('metode_pembayaran'),
+                'referensi_pembayaran' => 'CARD-'.substr($request->input('nomorKartu'), 0, 4)
+            ]);
+        }
+        else{
+            $pemesanan->update([
+                'status' => 1,
+                'metode_pembayaran' => $request->input('metode_pembayaran'),
+                'referensi_pembayaran' => $request->input('referensi_pembayaran'),
+            ]);
+        }
         $pemesanan->save();
         $request->session()->flush();
         return view('home')->with('success', 'Pemesanan berhasil!');

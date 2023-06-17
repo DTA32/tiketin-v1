@@ -12,6 +12,18 @@ DB Kelas_Penerbangan: localhost:8000/admin/kelaspenerbangan
 
 DB Kursi_Penerbangan: localhost:8000/admin/kursipenerbangan
 
+Notes:
+
+delete table kursi_penerbangan, alter pemesanan_penumpang dari kursi_penumpang_id ke kursi_penumpang(string)
+
+db model relationship
+
+dummy login register news settings
+
+catatan:
+
+return with message masih belum bisa
+
 To-do list
 
 -   [ ] kursi penerbangan

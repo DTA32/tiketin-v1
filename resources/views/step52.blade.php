@@ -17,11 +17,17 @@
         </div>
     </div>
     <div class="search-box container" style="margin-top: 8px; padding-top:8px; border: 1px solid #868686">
-        <p class="text-center fs-4 mb-0">QRIS</p>
-        <div class="d-flex justify-content-center">
-            <img src="{{url('/images/frame.png')}}" alt="qris">
+        <p class="text-center fs-4 mb-0">Virtual Account</p>
+        <div class="d-flex justify-content-center mt-5">
+            <p class="mb-0">Nomor Virtual Account:</p>
         </div>
+        @php
+            $va = rand(100000000000,999999999999);
+        @endphp
         <div class="d-flex justify-content-center">
+            <p class="mb-0 fs-5">{{$va}}</p>
+        </div>
+        <div class="d-flex justify-content-center mt-5">
             <p class="mb-0">Selesaikan pembayaran dalam</p>
         </div>
         <div class="d-flex justify-content-center">
@@ -34,8 +40,8 @@
             @csrf
             @method('PUT')
             <input type="hidden" name="pemesanan_id" value="{{$pemesanan_id}}">
-            <input type="hidden" name="metode_pembayaran" value="3">
-            <input type="hidden" name="referensi_pembayaran" value="{{'QRIS-'.rand(1000,9999)}}">
+            <input type="hidden" name="metode_pembayaran" value="2">
+            <input type="hidden" name="referensi_pembayaran" value="{{'VA-'.$va}}">
             <div class="text-center mt-5">
                 <button type="submit" class="button text-center" style="width: 240px">Saya sudah membayar</button>
             </div>
@@ -44,7 +50,7 @@
     <script>
         // Set the date we're counting down to
         var countDownDate = new Date();
-        countDownDate.setMinutes(countDownDate.getMinutes() + 10);
+        countDownDate.setMinutes(countDownDate.getMinutes() + 30);
 
         // Update the count down every 1 second
         var x = setInterval(function() {

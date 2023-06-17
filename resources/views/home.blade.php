@@ -64,8 +64,8 @@
         </div>
         {{-- belum jalan --}}
         @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
+            <div>
+                <p>{{ session('success') }}</p>
             </div>
         @endif
     </div>
