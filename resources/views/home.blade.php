@@ -70,7 +70,7 @@
         @endif
         <div class="search-box mb-3 pb-3">
             <div class="fs-5 pt-2 mb-5">News</div>
-            <p class="text-secondary text-center mb-5">There's no news yet...</p>
+            <p class="text-secondary text-center mb-5">No news yet...</p>
         </div>
     </div>
     <x-footer></x-footer>

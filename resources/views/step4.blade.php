@@ -8,7 +8,7 @@
     </div>
     <div>
         <p class="fs-5 mt-3 ps-3 mb-2">Penerbangan</p>
-        <div class="search-box" style="margin-top: 4px; padding-top:8px; padding-bottom:16px; border: 1px solid #868686;">
+        <div class="border border-secondary-subtle my-1 pt-2 pb-3 px-3 bg-white">
             <div class="d-flex justify-content-between">
                 <p class="mb-0">{{$penerbangan->maskapai}}</p>
                 <p class="mb-0">{{$penerbangan->tipe_pesawat}}</p>
@@ -48,7 +48,7 @@
     </div>
     <div>
         <p class="fs-5 mt-3 ps-3 mb-2">Detail Penumpang</p>
-        <div class="search-box" style="margin-top: 4px; padding-top:8px; padding-bottom:16px; border: 1px solid #868686;">
+        <div class="border border-secondary-subtle my-1 pt-2 pb-3 px-3 bg-white">
             @foreach ($penumpang as $penumpangs)
             <div class="mt-2 pb-2">
                 <p class="mb-3" style="font-size:18px">Penumpang {{$loop->iteration}}</p>
@@ -62,15 +62,15 @@
     </div>
     <div>
         <p class="fs-5 mt-3 ps-3 mb-2">Detail Harga</p>
-        <div class="search-box d-flex justify-content-between align-items-center py-2" style="border: 1px solid #868686;">
+        <div class="border border-secondary-subtle my-0 py-2 px-3 bg-white d-flex justify-content-between align-items-center ">
             <p class="my-1">{{$penerbangan->maskapai}} ({{Session::get('harga')['kuantitas']}})</p>
             <p class="my-1">{{Session::get('harga')['biaya_dasar']}}</p>
         </div>
-        <div class="search-box d-flex justify-content-between py-2" style="border: 1px solid #868686;">
+        <div class="border border-secondary-subtle my-0 py-2 px-3 bg-white d-flex justify-content-between align-items-center ">
             <p class="my-1">Biaya Layanan</p>
             <p class="my-1">{{Session::get('harga')['biaya_layanan']}}</p>
         </div>
-        <div class="search-box d-flex justify-content-between py-2" style="border: 1px solid #868686;">
+        <div class="border border-secondary-subtle my-0 py-2 px-3 bg-white d-flex justify-content-between align-items-center ">
             <p class="my-1">Total</p>
             <p class="my-1">{{Session::get('harga')['total']}}</p>
         </div>

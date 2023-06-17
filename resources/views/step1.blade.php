@@ -34,7 +34,7 @@
     {{-- body --}}
     <div>
         @foreach($results as $hasil)
-        <div class="search-box" style="margin-top: 4px; padding-top:8px; border-bottom: 0.1px solid;">
+        <div class="border border-secondary-subtle my-1 pt-2 pb-3 px-3 bg-white">
             <form method="GET" action="{{route('step2')}}">
                 <input type="hidden" name="penerbangan_id" value="{{$hasil->id}}">
                 <input type="hidden" name="penumpang" value="{{$penumpang}}">

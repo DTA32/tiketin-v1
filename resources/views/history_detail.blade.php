@@ -13,10 +13,10 @@
         </div>
         <div class="search-box d-flex justify-content-between align-items-center py-2" style="border: 1px solid #868686;">
             <p class="my-1">Status</p>
-            @if ($pemesanan->status == 0)
-                <p class="text-center px-4 my-0" style="background: indianred; border-radius: 12px;">Gagal</p>
-            @elseif ($pemesanan->status == 1)
-                <p class="text-center px-4 my-0" style="background: #A8FF9A; border-radius: 12px;">Berhasil</p>
+            @if ($pemesanan->status)
+                <p class="text-center mb-0 px-4 bg-success text-light rounded-pill">Berhasil</p>
+            @else
+                <p class="text-center mb-0 px-4 bg-danger text-light rounded-pill">Gagal</p>
             @endif
         </div>
         <div>

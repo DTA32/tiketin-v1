@@ -29,6 +29,7 @@ class Step5Controller extends Controller
             pemesanan_penumpang::create($newPenumpang);
         }
 
+        $harga = $request->session()->get('harga');
         pemesanan_harga::create([
             'pemesanan_id' => $pemesanan->id,
             'biaya_dasar' => $harga['biaya_dasar'],

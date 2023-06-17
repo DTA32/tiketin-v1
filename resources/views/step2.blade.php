@@ -3,7 +3,7 @@
 @include('includes.head')
 <body>
     <x-headerBack></x-headerBack>
-    <div class="search-box" style="margin-top: 8px; padding-top:8px; border: 1px solid #868686">
+    <div class="border border-secondary-subtle my-1 pt-2 pb-3 px-3 bg-white">
         <p class="fs-5 text-center">Penerbangan</p>
         <div class="container">
             <div class="row">
@@ -31,7 +31,7 @@
         @csrf
         <input type="hidden" name="penerbangan_id" value="{{$penerbangan->id}}">
         <input type="hidden" name="kelas" value="{{$kelas}}">
-        <div class="search-box" style="margin-top: 4px; padding-top:8px; padding-bottom:16px">
+        <div class="my-1 pt-2 pb-3 px-3 bg-white">
             @for ($i = 1; $i <= $penumpang; $i++)
                 <div class="mt-2 pb-2">
                     <p class="mb-2" style="font-size:18px">Penumpang {{$i}}</p>

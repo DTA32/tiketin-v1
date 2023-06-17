@@ -3,7 +3,7 @@
 @include('includes.head')
 <body>
     <x-header></x-header>
-    <div class="search-box container" style="margin-top: 8px; padding-top:8px; border: 1px solid #868686">
+    <div class="border border-secondary-subtle my-1 pb-3 py-2 px-3 bg-white">
         <div class="row">
             <p class="fs-5 text-center">Pemesanan</p>
         </div>
@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-    <div class="search-box container" style="margin-top: 8px; padding-top:8px; border: 1px solid #868686">
+    <div class="border border-secondary-subtle my-2 py-2 px-3 bg-white">
         <p class="text-center fs-4 mb-0">QRIS</p>
         <div class="d-flex justify-content-center">
             <img src="{{url('/images/frame.png')}}" alt="qris">

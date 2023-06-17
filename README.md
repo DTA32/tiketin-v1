@@ -16,6 +16,8 @@ DB Kelas_Penerbangan: localhost:8000/admin/kelaspenerbangan
 
 dummy login register news settings
 
+turn step 1 div into button (ref history)
+
 ### To-do list
 
 -   [ ] kursi penerbangan
