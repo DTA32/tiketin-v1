@@ -28,11 +28,21 @@
             </div>
             <div class="d-flex justify-content-between">
                 <p>{{$penerbangan->waktu_berangkat->format('H:i')}}</p>
+                @php
+                    $time1 = new DateTime($penerbangan->waktu_berangkat);
+                    $time2 = new DateTime($penerbangan->waktu_sampai);
+                    $interval = $time1->diff($time2);
+                @endphp
+                <p style="font-size: 12px">{{$interval->format('%hj %im')}}</p>
                 <p>{{$penerbangan->waktu_sampai->format('H:i')}}</p>
             </div>
             <div class="d-flex justify-content-between">
-                <p>{{searchPenerbanganFull($penerbangan->id)->kota_asal}}</p>
-                <p>{{searchPenerbanganFull($penerbangan->id)->kota_tujuan}}</p>
+                <p class="text-center mb-0">{{$penerbangan->bandara_asal->kota}} ({{$penerbangan->bandara_asal->kode_bandara}})</p>
+                <p class="text-center mb-0">{{$penerbangan->bandara_tujuan->kota}} ({{$penerbangan->bandara_tujuan->kode_bandara}})</p>
+            </div>
+            <div class="d-flex justify-content-between">
+                <p class="text-center">{{$penerbangan->bandara_asal->nama_bandara}}</p>
+                <p class="text-center">{{$penerbangan->bandara_tujuan->nama_bandara}}</p>
             </div>
         </div>
     </div>

@@ -29,7 +29,6 @@ class Step5Controller extends Controller
             pemesanan_penumpang::create($newPenumpang);
         }
 
-        $harga = $request->session()->get('harga');
         pemesanan_harga::create([
             'pemesanan_id' => $pemesanan->id,
             'biaya_dasar' => $harga['biaya_dasar'],
@@ -38,18 +37,18 @@ class Step5Controller extends Controller
             'total' => $harga['total']
         ]);
 
-        return view('step5', ['pemesanan' => $pemesanan, 'harga' => $harga]);
+        return view('step5', ['pemesanan' => $pemesanan]);
     }
     public function get(Request $request){
-        $harga = pemesanan_harga::where('pemesanan_id', $request->input('pemesanan_id'))->first();
+        $pemesanan = pemesanan::where('id', $request->input('pemesanan_id'))->first();
         if($request->input('metode_pembayaran') == 1){
-            return view('step51', ['pemesanan_id' => $request->input('pemesanan_id'), 'harga' => $harga]);
+            return view('step51', ['pemesanan' => $pemesanan]);
         }
         else if($request->input('metode_pembayaran') == 2){
-            return view('step52', ['pemesanan_id' => $request->input('pemesanan_id'), 'harga' => $harga]);
+            return view('step52', ['pemesanan' => $pemesanan]);
         }
         else if($request->input('metode_pembayaran') == 3){
-            return view('step53', ['pemesanan_id' => $request->input('pemesanan_id'), 'harga' => $harga]);
+            return view('step53', ['pemesanan' => $pemesanan]);
         }
     }
     public function update(Request $request){

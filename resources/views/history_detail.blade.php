@@ -14,7 +14,7 @@
         <div class="search-box d-flex justify-content-between align-items-center py-2" style="border: 1px solid #868686;">
             <p class="my-1">Status</p>
             @if ($pemesanan->status == 0)
-                <p class="text-center px-2 my-0" style="background: lightgray; border-radius: 12px;">Belum dibayar</p>
+                <p class="text-center px-4 my-0" style="background: indianred; border-radius: 12px;">Gagal</p>
             @elseif ($pemesanan->status == 1)
                 <p class="text-center px-4 my-0" style="background: #A8FF9A; border-radius: 12px;">Berhasil</p>
             @endif
@@ -23,30 +23,40 @@
             <p class="fs-5 mt-3 ps-3 mb-2">Penerbangan</p>
             <div class="search-box" style="margin-top: 4px; padding-top:8px; padding-bottom:16px; border: 1px solid #868686;">
                 <div class="d-flex justify-content-between">
-                    <p class="mb-0">{{$penerbangan->maskapai}}</p>
-                    <p class="mb-0">{{$penerbangan->tipe_pesawat}}</p>
+                    <p class="mb-0">{{$pemesanan->penerbangan->maskapai}}</p>
+                    <p class="mb-0">{{$pemesanan->penerbangan->tipe_pesawat}}</p>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <p style="font-size: 12px">ID Penerbangan: {{$penerbangan->id}}</p>
-                    <p>Ekonomi</p> {{-- EDIT !!! --}}
+                    <p style="font-size: 12px">ID Penerbangan: {{$pemesanan->penerbangan->id}}</p>
+                    <p>{{($pemesanan->kelas_penerbangan_id == 1) ? 'Ekonomi' : (($pemesanan->kelas_penerbangan_id == 2) ? 'Bisnis' : 'First')}}</p>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <p class="mb-0">{{$penerbangan->waktu_berangkat->format('D, d M Y')}}</p>
+                    <p class="mb-0">{{$pemesanan->penerbangan->waktu_berangkat->format('D, d M Y')}}</p>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <p>{{$penerbangan->waktu_berangkat->format('H:i')}}</p>
-                    <p>{{$penerbangan->waktu_sampai->format('H:i')}}</p>
+                    <p>{{$pemesanan->penerbangan->waktu_berangkat->format('H:i')}}</p>
+                    @php
+                        $time1 = new DateTime($pemesanan->penerbangan->waktu_berangkat);
+                        $time2 = new DateTime($pemesanan->penerbangan->waktu_sampai);
+                        $interval = $time1->diff($time2);
+                    @endphp
+                    <p style="font-size: 12px">{{$interval->format('%hj %im')}}</p>
+                    <p>{{$pemesanan->penerbangan->waktu_sampai->format('H:i')}}</p>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <p>{{searchPenerbanganFull($penerbangan->id)->kota_asal}}</p>
-                    <p>{{searchPenerbanganFull($penerbangan->id)->kota_tujuan}}</p>
+                    <p class="text-center mb-0">{{$pemesanan->penerbangan->bandara_asal->kota}} ({{$pemesanan->penerbangan->bandara_asal->kode_bandara}})</p>
+                    <p class="text-center mb-0">{{$pemesanan->penerbangan->bandara_tujuan->kota}} ({{$pemesanan->penerbangan->bandara_tujuan->kode_bandara}})</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <p class="text-center">{{$pemesanan->penerbangan->bandara_asal->nama_bandara}}</p>
+                    <p class="text-center">{{$pemesanan->penerbangan->bandara_tujuan->nama_bandara}}</p>
                 </div>
             </div>
         </div>
         <div>
             <p class="fs-5 mt-3 ps-3 mb-2">Detail Penumpang</p>
             <div class="search-box" style="margin-top: 4px; padding-top:8px; padding-bottom:16px; border: 1px solid #868686;">
-            @foreach ($pemesanan_penumpang as $penumpang)
+            @foreach ($pemesanan->pemesanan_penumpang as $penumpang)
                 <div class="mt-2 pb-2">
                     <p class="mb-3" style="font-size:18px">Penumpang {{$loop->iteration}}</p>
                     <p class="mb-0" style="font-size: 14px">Nama Lengkap:</p>
@@ -59,18 +69,19 @@
         <div>
             <p class="fs-5 mt-3 ps-3 mb-2">Detail Harga</p>
             <div class="search-box d-flex justify-content-between align-items-center py-2" style="border: 1px solid #868686;">
-                <p class="my-1">{{$penerbangan->maskapai}} ({{$pemesanan_harga->kuantitas}}x)</p>
-                <p class="my-1">{{$pemesanan_harga->biaya_dasar}}</p>
+                <p class="my-1">{{$pemesanan->penerbangan->maskapai}} ({{$pemesanan->pemesanan_harga->kuantitas}}x)</p>
+                <p class="my-1">{{$pemesanan->pemesanan_harga->biaya_dasar}}</p>
             </div>
             <div class="search-box d-flex justify-content-between py-2" style="border: 1px solid #868686;">
                 <p class="my-1">Biaya Layanan</p>
-                <p class="my-1">{{$pemesanan_harga->biaya_layanan}}</p>
+                <p class="my-1">{{$pemesanan->pemesanan_harga->biaya_layanan}}</p>
             </div>
             <div class="search-box d-flex justify-content-between py-2" style="border: 1px solid #868686;">
                 <p class="my-1">Total</p>
-                <p class="my-1">{{$pemesanan_harga->total}}</p>
+                <p class="my-1">{{$pemesanan->pemesanan_harga->total}}</p>
             </div>
         </div>
+        @if ($pemesanan->status == 1)
         <div>
             <p class="fs-5 mt-3 ps-3 mb-2">Metode Pembayaran</p>
             <div class="search-box" style="margin-top: 4px; padding-top:8px; padding-bottom:16px; border: 1px solid #868686;">
@@ -90,6 +101,7 @@
         <div class="search-box py-2 mt-4" style="border: 1px solid #868686; cursor: pointer;">
             <p class="my-1">Print E-Ticket</p>
         </div>
+        @endif
         <div class="text-center mb-4" style="margin-top: 120px">
             <p class="fs-5 mb-0">Butuh bantuan?</p>
             <button class="button text-center" style="width: 240px">Hubungi Kami</button>

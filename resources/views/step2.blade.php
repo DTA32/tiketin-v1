@@ -12,11 +12,15 @@
                 </div>
                 <div class="col">
                     <div class="row">
-                        <p class="col text-center">{{$penerbangan->waktu_berangkat->format('D, d M y')}}</p>
+                        <p class="col text-center mb-0">{{$penerbangan->waktu_berangkat->format('D, d M y')}}</p>
                     </div>
                     <div class="row">
-                        <p class="col text-center">{{$penerbangan->waktu_berangkat->format('H:i')}}</p>
-                        <p class="col text-center">{{$penerbangan->waktu_sampai->format('H:i')}}</p>
+                        <p class="col text-center mb-0">{{$penerbangan->waktu_berangkat->format('H:i')}}</p>
+                        <p class="col text-center mb-0">{{$penerbangan->waktu_sampai->format('H:i')}}</p>
+                    </div>
+                    <div class="row">
+                        <p class="col text-center mb-0" style="font-size: 12px">{{$penerbangan->bandara_asal->kode_bandara}}</p>
+                        <p class="col text-center mb-0" style="font-size: 12px">{{$penerbangan->bandara_tujuan->kode_bandara}}</p>
                     </div>
                 </div>
             </div>

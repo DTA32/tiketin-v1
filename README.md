@@ -14,8 +14,6 @@ DB Kelas_Penerbangan: localhost:8000/admin/kelaspenerbangan
 
 ### Today to-do:
 
-db model relationship
-
 dummy login register news settings
 
 ### To-do list

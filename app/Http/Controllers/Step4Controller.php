@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
-use App\Models\pemesanan_penumpang;
-use App\Models\pemesanan_harga;
 use App\Models\penerbangan;
+use App\Models\kelas_penerbangan;
 
 class Step4Controller extends Controller
 {
@@ -25,10 +23,13 @@ class Step4Controller extends Controller
         }
         $request->session()->put('penumpang', $penumpangArray);
         // harga
-        $harga_kelas = DB::table('penerbangan as p')
-                        ->join('kelas_penerbangan as kp', 'p.id', '=', 'kp.penerbangan_id')
-                        ->select('*')
-                        ->where('penerbangan_id', '=', $request->input('penerbangan_id'))
+        // $harga_kelas = DB::table('penerbangan as p')
+        //                 ->join('kelas_penerbangan as kp', 'p.id', '=', 'kp.penerbangan_id')
+        //                 ->select('*')
+        //                 ->where('penerbangan_id', '=', $request->input('penerbangan_id'))
+        //                 ->where('tipe_kelas', '=', $request->input('kelas'))
+        //                 ->first();
+        $harga_kelas = kelas_penerbangan::where('penerbangan_id', '=', $request->input('penerbangan_id'))
                         ->where('tipe_kelas', '=', $request->input('kelas'))
                         ->first();
 

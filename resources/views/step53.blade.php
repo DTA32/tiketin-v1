@@ -9,10 +9,13 @@
         </div>
         <div class="row">
             <div class="col">
-                <p style="font-size: 16px">Booking ID: {{$pemesanan_id}}</p>
+                <p class="mb-2" style="font-size: 16px">Booking ID: {{$pemesanan->id}}</p>
+                <p class="mb-2" style="font-size: 18px">{{$pemesanan->penerbangan->bandara_asal->kota}} - {{$pemesanan->penerbangan->bandara_tujuan->kota}}</p>
+                <p class="mb-2" style="font-size: 12px">{{$pemesanan->penerbangan->waktu_berangkat->format('D, d M')}} | {{$pemesanan->pemesanan_harga->kuantitas}} pax |
+                    {{($pemesanan->kelas_penerbangan_id == 1) ? 'Ekonomi' : (($pemesanan->kelas_penerbangan_id == 2) ? 'Bisnis' : 'First')}}</p>
             </div>
             <div class="col d-flex justify-content-end align-items-center">
-                <p style="font-size: 21px">Rp. {{$harga['total']}} </p>
+                <p style="font-size: 21px">Rp. {{$pemesanan->pemesanan_harga->total}} </p>
             </div>
         </div>
     </div>
@@ -33,7 +36,7 @@
         <form method="POST" action="{{route('home.finalized')}}">
             @csrf
             @method('PUT')
-            <input type="hidden" name="pemesanan_id" value="{{$pemesanan_id}}">
+            <input type="hidden" name="pemesanan_id" value="{{$pemesanan->id}}">
             <input type="hidden" name="metode_pembayaran" value="3">
             <input type="hidden" name="referensi_pembayaran" value="{{'QRIS-'.rand(1000,9999)}}">
             <div class="text-center mt-5">
