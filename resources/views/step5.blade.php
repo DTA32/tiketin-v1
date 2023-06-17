@@ -12,7 +12,7 @@
                 <p style="font-size: 16px">Booking ID: {{$pemesanan->id}}</p>
             </div>
             <div class="col d-flex justify-content-end align-items-center">
-                <p style="font-size: 21px">Rp. {{Session::get('harga')['total']}} </p>
+                <p style="font-size: 21px">Rp. {{$harga['total']}} </p>
             </div>
         </div>
     </div>

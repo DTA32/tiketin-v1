@@ -3,7 +3,7 @@
 @include('includes.head')
 <body>
     <x-header></x-header>
-    <div class="container" style="{{--overflow-x: hidden; overflow-y:scroll; height:36rem--}}">
+    <div class="container" style="overflow-x: hidden; overflow-y:scroll; height:36rem">
         {{-- <p>History</p> --}}
         @foreach($pemesanan as $p)
             @php

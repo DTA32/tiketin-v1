@@ -41,14 +41,15 @@ class Step5Controller extends Controller
         return view('step5', ['pemesanan' => $pemesanan, 'harga' => $harga]);
     }
     public function get(Request $request){
+        $harga = pemesanan_harga::where('pemesanan_id', $request->input('pemesanan_id'))->first();
         if($request->input('metode_pembayaran') == 1){
-            return view('step51', ['pemesanan_id' => $request->input('pemesanan_id')]);
+            return view('step51', ['pemesanan_id' => $request->input('pemesanan_id'), 'harga' => $harga]);
         }
         else if($request->input('metode_pembayaran') == 2){
-            return view('step52', ['pemesanan_id' => $request->input('pemesanan_id')]);
+            return view('step52', ['pemesanan_id' => $request->input('pemesanan_id'), 'harga' => $harga]);
         }
         else if($request->input('metode_pembayaran') == 3){
-            return view('step53', ['pemesanan_id' => $request->input('pemesanan_id')]);
+            return view('step53', ['pemesanan_id' => $request->input('pemesanan_id'), 'harga' => $harga]);
         }
     }
     public function update(Request $request){
