@@ -45,7 +45,7 @@
                 <p class="mb-0" style="font-size: 14px">Nama Lengkap:</p>
                 <p class="mb-2">{{$penumpangs['nama']}}</p>
                 <p class="mb-0" style="font-size: 14px">No Kursi:</p>
-                <p class="mb-2">{{$penumpangs['kursi_penerbangan_id']}}</p>
+                <p class="mb-2">{{$penumpangs['kursi_penerbangan']}}</p>
             </div>
             @endforeach
         </div>

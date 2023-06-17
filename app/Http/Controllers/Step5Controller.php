@@ -25,7 +25,7 @@ class Step5Controller extends Controller
         foreach ($penumpangs as $penumpang) {
             $newPenumpang['pemesanan_id'] = $pemesanan->id;
             $newPenumpang['nama'] = $penumpang['nama'];
-            $newPenumpang['kursi_penerbangan_id'] = null;
+            $newPenumpang['kursi_penerbangan'] = null;
             pemesanan_penumpang::create($newPenumpang);
         }
 

@@ -19,7 +19,7 @@ class Step4Controller extends Controller
         foreach($request->input('nama_lengkap') as $penumpangs){
             $penumpangA = [
                 'nama' => $penumpangs,
-                'kursi_penerbangan_id' => null
+                'kursi_penerbangan' => null
             ];
             array_push($penumpangArray, $penumpangA);
         }

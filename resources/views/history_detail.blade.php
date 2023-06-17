@@ -52,7 +52,7 @@
                     <p class="mb-0" style="font-size: 14px">Nama Lengkap:</p>
                     <p class="mb-2">{{$penumpang->nama}}</p>
                     <p class="mb-0" style="font-size: 14px">No Kursi:</p>
-                    <p class="mb-2">{{$penumpang->kursi_penerbangan_id}}</p>
+                    <p class="mb-2">{{$penumpang->kursi_penerbangan}}</p>
                 </div>
             @endforeach
         </div>

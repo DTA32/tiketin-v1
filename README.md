@@ -14,8 +14,6 @@ DB Kelas_Penerbangan: localhost:8000/admin/kelaspenerbangan
 
 ### Today to-do:
 
-delete table kursi_penerbangan, alter pemesanan_penumpang dari kursi_penumpang_id ke kursi_penumpang(string)
-
 db model relationship
 
 dummy login register news settings
