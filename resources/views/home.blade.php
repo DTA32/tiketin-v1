@@ -18,14 +18,14 @@
                             <label for="dari">Dari</label>
                             <div class="input-text-div ms-2 px-0">
                                 <img src="{{url('/images/bxs_plane-take-off.png')}}" alt="">
-                                <input type="text" name="dari" id="dari" class="input-text" style="width: 250px">
+                                <input type="text" name="dari" id="dari" class="input-text" autocomplete="off" style="width: 250px">
                             </div>
                         </div>
                         <div class="mb-2 row">
                             <label for="ke">Ke</label>
                             <div class="input-text-div ms-2 px-0">
                                 <img src="{{url('/images/bxs_plane-land.png')}}" alt="">
-                                <input type="text" name="ke" id="ke"  class="input-text" style="width: 250px">
+                                <input type="text" name="ke" id="ke" class="input-text" autocomplete="off" style="width: 250px">
                             </div>
                         </div>
                         <div class="mb-2 row">
@@ -93,14 +93,32 @@
         </div>
     </div>
     <x-footer></x-footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
     <script>
-
+        var path = "{{ route('typeahead') }}";
+        $('#dari').typeahead({
+            source:  function (query, process) {
+            return $.get(path, { query: query }, function (data) {
+                    console.log(process(data));
+                    return process(data);
+                });
+            }
+        });
+        $('#ke').typeahead({
+            source:  function (query, process) {
+            return $.get(path, { query: query }, function (data) {
+                    console.log(process(data));
+                    return process(data);
+                });
+            }
+        });
         function swapSearch(){
             var dari = document.getElementById('dari').value;
             var ke = document.getElementById('ke').value;
             document.getElementById('dari').value = ke;
             document.getElementById('ke').value = dari;
-        }
+        };
     </script>
 </body>
 </html>

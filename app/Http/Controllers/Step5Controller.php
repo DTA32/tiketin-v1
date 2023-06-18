@@ -67,10 +67,10 @@ class Step5Controller extends Controller
             else if ($arr[1] == 'F'){
                 $col = 3;
             }
-            $seatLayout['rows'][$row-1]['seats'][$col]['available'] = false;
+            $seatLayout['rows'][intval($row)-1]['seats'][$col]['available'] = false;
         }
 
-        $kelas->seat_layout = json_encode($seatLayout);
+        $kelas->seat_layout = json_encode($seatLayout, JSON_PRETTY_PRINT);
         $kelas->save();
 
         return view('step5', ['pemesanan' => $pemesanan]);

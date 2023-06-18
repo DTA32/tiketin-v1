@@ -50,21 +50,13 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p class="text-center" style="font-size: 14px">Bandara {{$penerbangan->bandara_asal->nama_bandara}}</p>
+                        <p class="text-center" style="font-size: 14px">{{$penerbangan->bandara_asal->nama_bandara}}</p>
                     </div>
                     <div class="col">
-                        <p class="text-center" style="font-size: 14px">Bandara {{$penerbangan->bandara_tujuan->nama_bandara}}</p>
+                        <p class="text-center" style="font-size: 14px">{{$penerbangan->bandara_tujuan->nama_bandara}}</p>
                     </div>
                 </div>
             </div>
-            {{-- <div class="d-flex justify-content-between">
-                <p class="text-center mb-0">{{$penerbangan->bandara_asal->kota}} ({{$penerbangan->bandara_asal->kode_bandara}})</p>
-                <p class="text-center mb-0">{{$penerbangan->bandara_tujuan->kota}} ({{$penerbangan->bandara_tujuan->kode_bandara}})</p>
-            </div>
-            <div class="d-flex justify-content-between">
-                <p class="text-center">{{$penerbangan->bandara_asal->nama_bandara}}</p>
-                <p class="text-center">{{$penerbangan->bandara_tujuan->nama_bandara}}</p>
-            </div> --}}
         </div>
     </div>
     <div>

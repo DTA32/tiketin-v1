@@ -57,10 +57,10 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <p class="text-center" style="font-size: 14px">Bandara {{$pemesanan->penerbangan->bandara_asal->nama_bandara}}</p>
+                            <p class="text-center" style="font-size: 14px">{{$pemesanan->penerbangan->bandara_asal->nama_bandara}}</p>
                         </div>
                         <div class="col">
-                            <p class="text-center" style="font-size: 14px">Bandara {{$pemesanan->penerbangan->bandara_tujuan->nama_bandara}}</p>
+                            <p class="text-center" style="font-size: 14px">{{$pemesanan->penerbangan->bandara_tujuan->nama_bandara}}</p>
                         </div>
                     </div>
                 </div>

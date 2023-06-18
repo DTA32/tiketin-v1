@@ -36,9 +36,9 @@
                             <span class="seat col text-center">
                                 <span class="seat-number text-center
                                 @if ($seat['available'])
-                                border border-black" style="display:inline-block; height:24px; width:24px; background-color: #FFFFFF;
+                                border border-black" style="display:inline-block; height:24px; width:30px; background-color: #FFFFFF;
                                 @else
-                                border border-black text-white" style="display:inline-block; height:24px; width:24px; background: #868686;
+                                border border-black text-white" style="display:inline-block; height:30px; width:30px; background: #868686;
                                 @endif
                                 cursor:pointer" data-seatnumber="{{ $seat['seat_number'] }}" data-available="{{$seat['available']}}">{{ $seat['seat_number'] }}</span>
                             </span>

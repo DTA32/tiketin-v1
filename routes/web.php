@@ -50,3 +50,5 @@ Route::get('/history', [HistoryController::class, 'get'])->name('history');
 Route::get('/history/{id}', [HistoryController::class, 'getDetail'])->name('history.detail');
 
 Route::view('/settings', 'settings')->name('settings');
+
+Route::get('typeahead', 'TypeaheadController@typeahead')->name('typeahead');
