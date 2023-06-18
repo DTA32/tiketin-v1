@@ -39,6 +39,7 @@ class Step5Controller extends Controller
             'total' => $harga['total']
         ]);
         kelas_penerbangan::where('penerbangan_id', $request->input('penerbangan_id'))
+                        ->where('tipe_kelas', $pemesanan->kelas_penerbangan_id)
                         ->decrement('jumlah_kursi', count($penumpangs));
 
         // TO-DO: update seat_layout

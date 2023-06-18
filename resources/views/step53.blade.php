@@ -15,7 +15,7 @@
                     {{($pemesanan->kelas_penerbangan_id == 1) ? 'Ekonomi' : (($pemesanan->kelas_penerbangan_id == 2) ? 'Bisnis' : 'First')}}</p>
             </div>
             <div class="col d-flex justify-content-end align-items-center">
-                <p style="font-size: 21px">Rp. {{$pemesanan->pemesanan_harga->total}} </p>
+                <p style="font-size: 21px">{{rupiah($pemesanan->pemesanan_harga->total)}} </p>
             </div>
         </div>
     </div>

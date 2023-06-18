@@ -9,31 +9,35 @@
             <p class="fs-5 fw-bold lh-sm mb-0">Mau kemana?</p>
         </div>
         <div class="search-box mb-3">
-            <div class="form-box">
+            <div class="form-box container">
             <form method="GET" action="{{route('step1')}}">
                 @csrf
-                <div class="mb-2">
-                    <label for="dari">Dari</label>
-                    <br>
-                    <div class="input-text-div">
-                        <img src="{{url('/images/bxs_plane-take-off.png')}}" alt="">
-                        <input type="text" name="dari" id="dari" class="input-text" style="width: 250px">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-2 row">
+                            <label for="dari">Dari</label>
+                            <div class="input-text-div ms-2 px-0">
+                                <img src="{{url('/images/bxs_plane-take-off.png')}}" alt="">
+                                <input type="text" name="dari" id="dari" class="input-text" style="width: 250px">
+                            </div>
+                        </div>
+                        <div class="mb-2 row">
+                            <label for="ke">Ke</label>
+                            <div class="input-text-div ms-2 px-0">
+                                <img src="{{url('/images/bxs_plane-land.png')}}" alt="">
+                                <input type="text" name="ke" id="ke"  class="input-text" style="width: 250px">
+                            </div>
+                        </div>
+                        <div class="mb-2 row">
+                            <label for="tanggal">Tanggal Keberangkatan</label>
+                            <input type="date" name="tanggal" id="tanggal" class="input-other ms-2 ps-1 pe-0">
+                        </div>
+                    </div>
+                    <div class="col ms-3 mt-2 pt-4">
+                        <a onclick="swapSearch()"><img src="{{url('images/reverse.png')}}" alt=""></a>
                     </div>
                 </div>
-                <div class="mb-2">
-                    <label for="ke">Ke</label>
-                    <br>
-                    <div class="input-text-div">
-                        <img src="{{url('/images/bxs_plane-land.png')}}" alt="">
-                        <input type="text" name="ke" id="ke"  class="input-text" style="width: 250px">
-                    </div>
-                </div>
-                <div class="mb-2">
-                    <label for="tanggal">Tanggal Keberangkatan</label>
-                    <br>
-                    <input type="date" name="tanggal" id="tanggal" class="input-other">
-                </div>
-                <div class="container mb-3">
+                <div class="mb-3">
                     <div class="row">
                         <div class="col">
                             <label for="penumpang">Penumpang</label>
@@ -89,5 +93,14 @@
         </div>
     </div>
     <x-footer></x-footer>
+    <script>
+
+        function swapSearch(){
+            var dari = document.getElementById('dari').value;
+            var ke = document.getElementById('ke').value;
+            document.getElementById('dari').value = ke;
+            document.getElementById('ke').value = dari;
+        }
+    </script>
 </body>
 </html>

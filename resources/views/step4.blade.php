@@ -86,15 +86,15 @@
         <p class="fs-5 mt-3 ps-3 mb-2">Detail Harga</p>
         <div class="border border-secondary-subtle my-0 py-2 px-3 bg-white d-flex justify-content-between align-items-center ">
             <p class="my-1">{{$penerbangan->maskapai}} ({{Session::get('harga')['kuantitas']}})</p>
-            <p class="my-1">{{Session::get('harga')['biaya_dasar']}}</p>
+            <p class="my-1">{{rupiah(Session::get('harga')['biaya_dasar'])}}</p>
         </div>
         <div class="border border-secondary-subtle my-0 py-2 px-3 bg-white d-flex justify-content-between align-items-center ">
             <p class="my-1">Biaya Layanan</p>
-            <p class="my-1">{{Session::get('harga')['biaya_layanan']}}</p>
+            <p class="my-1">{{rupiah(Session::get('harga')['biaya_layanan'])}}</p>
         </div>
         <div class="border border-secondary-subtle my-0 py-2 px-3 bg-white d-flex justify-content-between align-items-center ">
             <p class="my-1">Total</p>
-            <p class="my-1">{{Session::get('harga')['total']}}</p>
+            <p class="my-1">{{rupiah(Session::get('harga')['total'])}}</p>
         </div>
     </div>
     <form method="POST" action="{{route('step5', ['penerbangan_id' => $penerbangan->id, 'kelas' => $kelas])}}">

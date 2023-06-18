@@ -34,8 +34,8 @@ Route::get('/admin/penerbangan', [AdminPenerbangan::class, 'get'])->name('admin.
 Route::post('/admin/penerbangan', [AdminPenerbangan::class, 'add'])->name('admin.penerbangan.add');
 Route::get('/admin/bandara', [AdminBandara::class, 'get'])->name('admin.bandara');
 Route::post('/admin/bandara', [AdminBandara::class, 'add'])->name('admin.bandara.add');
-Route::get('/admin/kursipenerbangan', [AdminKursiPenerbangan::class, 'get'])->name('admin.kursipenerbangan');
-Route::post('/admin/kursipenerbangan', [AdminKursiPenerbangan::class, 'add'])->name('admin.kursipenerbangan.add');
+// Route::get('/admin/kursipenerbangan', [AdminKursiPenerbangan::class, 'get'])->name('admin.kursipenerbangan');
+// Route::post('/admin/kursipenerbangan', [AdminKursiPenerbangan::class, 'add'])->name('admin.kursipenerbangan.add');
 Route::get('/admin/kelaspenerbangan', [AdminKelasPenerbangan::class, 'get'])->name('admin.kelaspenerbangan');
 Route::post('/admin/kelaspenerbangan', [AdminKelasPenerbangan::class, 'add'])->name('admin.kelaspenerbangan.add');
 

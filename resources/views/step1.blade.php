@@ -68,7 +68,7 @@
                                 <p class="fs-6 col" style="font-size: 14px">{{$hasil->bandara_tujuan->kode_bandara}}</p>
                             </div>
                             <div class="row">
-                                <p class="fs-5">Rp.{{$hasil->kelas_penerbangan[0]->harga}}</p>
+                                <p class="fs-5">{{rupiah($hasil->kelas_penerbangan[0]->harga)}}</p>
                             </div>
                         </div>
                         <div class="col d-flex justify-content-end align-items-center">

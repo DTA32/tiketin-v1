@@ -17,6 +17,8 @@ class AdminKelasPenerbangan extends Controller
             'penerbangan_id' => 'required',
             'tipe_kelas' => 'required',
             'harga' => 'required',
+            'jumlah_kursi' => 'required',
+            'seat_layout' => 'required'
         ]);
         $newKelasPenerbangan = kelas_penerbangan::create($data);
         return redirect()->route('admin.kelaspenerbangan');

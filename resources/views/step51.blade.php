@@ -15,7 +15,7 @@
                     {{($pemesanan->kelas_penerbangan_id == 1) ? 'Ekonomi' : (($pemesanan->kelas_penerbangan_id == 2) ? 'Bisnis' : 'First')}}</p>
             </div>
             <div class="col d-flex justify-content-end align-items-center">
-                <p style="font-size: 21px">Rp. {{$pemesanan->pemesanan_harga->total}} </p>
+                <p style="font-size: 21px">{{rupiah($pemesanan->pemesanan_harga->total)}} </p>
             </div>
         </div>
     </div>
@@ -31,19 +31,19 @@
                     <div class="col">
                         <label for="nomorKartu">Nomor Kartu</label>
                         <br>
-                        <input type="text" name="nomorKartu" id="nomorKartu" class="input-text" maxlength="16">
+                        <input type="text" name="nomorKartu" id="nomorKartu" class="input-other" maxlength="16">
                     </div>
                 </div>
                 <div class="row mb-2">
                     <div class="col">
                         <label for="expiryDate">Expiry Date</label>
                         <br>
-                        <input type="text" name="expiryDate" id="expiryDate" class="input-text" maxlength="5" style="width: 80px">
+                        <input type="text" name="expiryDate" id="expiryDate" class="input-other" maxlength="5" style="width: 80px">
                     </div>
                     <div class="col">
                         <label for="CVV">CVV</label>
                         <br>
-                        <input type="text" name="CVV" id="CVV" class="input-text" maxlength="3" style="width: 80px">
+                        <input type="text" name="CVV" id="CVV" class="input-other" maxlength="3" style="width: 80px">
                     </div>
                 </div>
             </div>

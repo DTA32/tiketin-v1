@@ -11,6 +11,8 @@
         <p>ID PENERBANGAN: {{ $class->penerbangan_id }}</p>
         <p>TIPE KELAS: {{ $class->tipe_kelas }}</p>
         <p>HARGA: {{ $class->harga }}</p>
+        <p>JUMLAH KURSI: {{$class->jumlah_kursi}}</p>
+        <p style="font-size: 8px">SEAT LAYOUT: {{$class->jumlah_kursi}}</p>
     </div>
     @endforeach
 </div>
@@ -28,6 +30,14 @@
         <div>
             <label for="harga">Harga</label>
             <input type="text" name="harga" id="harga">
+        </div>
+        <div>
+            <label for="jumlah_kursi">Jumlah kursi</label>
+            <input type="text" name="jumlah_kursi" id="jumlah_kursi">
+        </div>
+        <div>
+            <label for="seat_layout">Seat layout</label>
+            <input type="text" name="seat_layout" id="seat_layout">
         </div>
         <div>
             <button type="submit">Tambah</button>

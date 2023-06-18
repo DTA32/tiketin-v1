@@ -14,6 +14,9 @@ DB Kelas_Penerbangan: localhost:8000/admin/kelaspenerbangan
 
 ### Today to-do:
 
+-   bikin data penerbangan baru
+-   typeahead?
+
 dummy login register news
 
 ### To-do list
@@ -26,6 +29,10 @@ dummy login register news
 -   [ ] input validation
 
 catatan tambahan (low priority):
+
+-   progress bar
+-   selector metode pembayaran
+-   nomor identitas n gender penumpang
 
 -   return with message masih belum bisa
 -   db bisa di-optimize chatgpt

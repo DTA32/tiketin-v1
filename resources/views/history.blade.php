@@ -12,7 +12,7 @@
                             <p class="text-center">Booking ID: {{$p->id}}</p>
                         </div>
                         <div class="col">
-                            <p class="text-end">Rp. {{$p->pemesanan_harga->total}}</p>
+                            <p class="text-end">{{rupiah($p->pemesanan_harga->total)}}</p>
                         </div>
                     </div>
                     <div class="row">

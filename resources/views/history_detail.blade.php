@@ -82,16 +82,16 @@
         <div>
             <p class="fs-5 mt-3 ps-3 mb-2">Detail Harga</p>
             <div class="search-box d-flex justify-content-between align-items-center py-2" style="border: 1px solid #868686;">
-                <p class="my-1">{{$pemesanan->penerbangan->maskapai}} ({{$pemesanan->pemesanan_harga->kuantitas}}x)</p>
-                <p class="my-1">{{$pemesanan->pemesanan_harga->biaya_dasar}}</p>
+                <p class="my-1">{{($pemesanan->penerbangan->maskapai)}} ({{$pemesanan->pemesanan_harga->kuantitas}}x)</p>
+                <p class="my-1">{{rupiah($pemesanan->pemesanan_harga->biaya_dasar)}}</p>
             </div>
             <div class="search-box d-flex justify-content-between py-2" style="border: 1px solid #868686;">
                 <p class="my-1">Biaya Layanan</p>
-                <p class="my-1">{{$pemesanan->pemesanan_harga->biaya_layanan}}</p>
+                <p class="my-1">{{rupiah($pemesanan->pemesanan_harga->biaya_layanan)}}</p>
             </div>
             <div class="search-box d-flex justify-content-between py-2" style="border: 1px solid #868686;">
                 <p class="my-1">Total</p>
-                <p class="my-1">{{$pemesanan->pemesanan_harga->total}}</p>
+                <p class="my-1">{{rupiah($pemesanan->pemesanan_harga->total)}}</p>
             </div>
         </div>
         @if ($pemesanan->status == 1)
