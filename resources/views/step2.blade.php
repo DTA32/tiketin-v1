@@ -12,15 +12,22 @@
                 </div>
                 <div class="col">
                     <div class="row">
-                        <p class="col text-center mb-0">{{$penerbangan->waktu_berangkat->format('D, d M y')}}</p>
+                        <p class="col text-center mb-0">{{$penerbangan->waktu_berangkat->format('D, d M Y')}}</p>
                     </div>
-                    <div class="row">
-                        <p class="col text-center mb-0">{{$penerbangan->waktu_berangkat->format('H:i')}}</p>
-                        <p class="col text-center mb-0">{{$penerbangan->waktu_sampai->format('H:i')}}</p>
+                    <div class="row text-center">
+                        <p class="col mb-0">{{date('H:i', strtotime($penerbangan->waktu_berangkat))}}</p>
+                        @php
+                            $time1 = new DateTime($penerbangan->waktu_berangkat);
+                            $time2 = new DateTime($penerbangan->waktu_sampai);
+                            $interval = $time1->diff($time2);
+                        @endphp
+                        <p class="col mb-0 d-flex justify-content-center align-items-end" style="font-size: 12px">{{$interval->format('%hj %im')}}</p>
+                        <p class="fs-6 col mb-0">{{date('H:i', strtotime($penerbangan->waktu_sampai))}}</p>
                     </div>
-                    <div class="row">
-                        <p class="col text-center mb-0" style="font-size: 12px">{{$penerbangan->bandara_asal->kode_bandara}}</p>
-                        <p class="col text-center mb-0" style="font-size: 12px">{{$penerbangan->bandara_tujuan->kode_bandara}}</p>
+                    <div class="row text-center">
+                        <p class="fs-6 col" style="font-size: 14px">{{$penerbangan->bandara_asal->kode_bandara}}</p>
+                        <img src="{{url('images/mdi_arrow-right-thin.png')}}" alt="" class="col" style="width: 54px; height:24px">
+                        <p class="fs-6 col" style="font-size: 14px">{{$penerbangan->bandara_tujuan->kode_bandara}}</p>
                     </div>
                 </div>
             </div>
@@ -37,7 +44,7 @@
                     <p class="mb-2" style="font-size:18px">Penumpang {{$i}}</p>
                     <label for="nama_lengkap[]">Nama Lengkap</label>
                     <br>
-                    <input type="text" name="nama_lengkap[]" id="nama_lengkap[]" class="input-text">
+                    <input type="text" name="nama_lengkap[]" id="nama_lengkap[]" class="input-other">
                 </div>
             @endfor
         </div>

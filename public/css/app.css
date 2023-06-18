@@ -49,11 +49,21 @@ label {
     color: #000000;
 }
 
+.input-text-div {
+    border-bottom: 1px solid #000000;
+    width: 280px;
+}
+
 .input-text {
     outline: none;
     border: none;
+}
+
+.input-other {
+    border: none;
     border-bottom: 1px solid #000000;
     width: 280px;
+    outline: none;
 }
 
 .button {

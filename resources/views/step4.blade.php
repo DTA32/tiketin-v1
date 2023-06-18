@@ -14,7 +14,7 @@
                 <p class="mb-0">{{$penerbangan->tipe_pesawat}}</p>
             </div>
             <div class="d-flex justify-content-between">
-                <p style="font-size: 12px">ID Penerbangan: {{$penerbangan->id}}</p>
+                <p style="font-size: 12px">ID: {{$penerbangan->id}}</p>
                 @if($kelas == 1)
                     <p>Ekonomi</p>
                 @elseif($kelas == 2)
@@ -27,23 +27,44 @@
                 <p class="mb-0">{{$penerbangan->waktu_berangkat->format('D, d M Y')}}</p>
             </div>
             <div class="d-flex justify-content-between">
-                <p>{{$penerbangan->waktu_berangkat->format('H:i')}}</p>
+                <p class="mb-0">{{$penerbangan->waktu_berangkat->format('H:i')}}</p>
                 @php
                     $time1 = new DateTime($penerbangan->waktu_berangkat);
                     $time2 = new DateTime($penerbangan->waktu_sampai);
                     $interval = $time1->diff($time2);
                 @endphp
-                <p style="font-size: 12px">{{$interval->format('%hj %im')}}</p>
-                <p>{{$penerbangan->waktu_sampai->format('H:i')}}</p>
+                <p class="mb-0 d-flex justify-content-center align-items-end" style="font-size: 12px">{{$interval->format('%hj %im')}}</p>
+                <p class="mb-0">{{$penerbangan->waktu_sampai->format('H:i')}}</p>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-center align-items-center">
+                <img src="{{url('images/Arrow-long.png')}}" alt="">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p class="text-center mb-0" style="font-size: 14px">{{$penerbangan->bandara_asal->kota}} ({{$penerbangan->bandara_asal->kode_bandara}})</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-center mb-0" style="font-size: 14px">{{$penerbangan->bandara_tujuan->kota}} ({{$penerbangan->bandara_tujuan->kode_bandara}})</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="text-center" style="font-size: 14px">Bandara {{$penerbangan->bandara_asal->nama_bandara}}</p>
+                    </div>
+                    <div class="col">
+                        <p class="text-center" style="font-size: 14px">Bandara {{$penerbangan->bandara_tujuan->nama_bandara}}</p>
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="d-flex justify-content-between">
                 <p class="text-center mb-0">{{$penerbangan->bandara_asal->kota}} ({{$penerbangan->bandara_asal->kode_bandara}})</p>
                 <p class="text-center mb-0">{{$penerbangan->bandara_tujuan->kota}} ({{$penerbangan->bandara_tujuan->kode_bandara}})</p>
             </div>
             <div class="d-flex justify-content-between">
                 <p class="text-center">{{$penerbangan->bandara_asal->nama_bandara}}</p>
                 <p class="text-center">{{$penerbangan->bandara_tujuan->nama_bandara}}</p>
-            </div>
+            </div> --}}
         </div>
     </div>
     <div>
@@ -78,7 +99,7 @@
     <form method="POST" action="{{route('step5', ['penerbangan_id' => $penerbangan->id, 'kelas' => $kelas])}}">
         @csrf
         <div class="text-center mt-5">
-            <button type="submit" class="button text-center" style="width: 240px">Lanjutkan</button>
+            <button type="submit" class="button text-center" style="width: 240px">Pesan</button>
         </div>
     </form>
 </body>

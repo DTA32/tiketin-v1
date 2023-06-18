@@ -14,9 +14,9 @@ DB Kelas_Penerbangan: localhost:8000/admin/kelaspenerbangan
 
 ### Today to-do:
 
-dummy login register news settings
+icon-icon label dkk
 
-turn step 1 div into button (ref history)
+dummy login register news settings
 
 ### To-do list
 

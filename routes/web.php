@@ -46,3 +46,5 @@ Route::get('/step5/bayar', [Step5Controller::class, 'get'])->name('step5.bayar')
 Route::put('/final', [Step5Controller::class, 'update'])->name('home.finalized');
 Route::get('/history', [HistoryController::class, 'get'])->name('history');
 Route::get('/history/{id}', [HistoryController::class, 'getDetail'])->name('history.detail');
+
+Route::view('/settings', 'settings')->name('settings');

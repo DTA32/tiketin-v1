@@ -7,7 +7,7 @@
             <a href="{{route('history')}}" class="footer-button rounded-circle"><img src="{{url('images/ic_outline-airplane-ticket.png')}}" alt=""></a>
         </div>
         <div class="col">
-            <a href="" class="footer-button rounded-circle"><img src="{{url('images/ic_outline-settings.png')}}" alt=""></a>
+            <a href="{{route('settings')}}" class="footer-button rounded-circle"><img src="{{url('images/ic_outline-settings.png')}}" alt=""></a>
         </div>
     </div>
 </div>

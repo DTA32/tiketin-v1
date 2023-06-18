@@ -27,29 +27,42 @@
                     <p class="mb-0">{{$pemesanan->penerbangan->tipe_pesawat}}</p>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <p style="font-size: 12px">ID Penerbangan: {{$pemesanan->penerbangan->id}}</p>
+                    <p style="font-size: 12px">ID: {{$pemesanan->penerbangan->id}}</p>
                     <p>{{($pemesanan->kelas_penerbangan_id == 1) ? 'Ekonomi' : (($pemesanan->kelas_penerbangan_id == 2) ? 'Bisnis' : 'First')}}</p>
                 </div>
                 <div class="d-flex justify-content-center">
                     <p class="mb-0">{{$pemesanan->penerbangan->waktu_berangkat->format('D, d M Y')}}</p>
                 </div>
                 <div class="d-flex justify-content-between">
-                    <p>{{$pemesanan->penerbangan->waktu_berangkat->format('H:i')}}</p>
+                    <p class="mb-0">{{$pemesanan->penerbangan->waktu_berangkat->format('H:i')}}</p>
                     @php
                         $time1 = new DateTime($pemesanan->penerbangan->waktu_berangkat);
                         $time2 = new DateTime($pemesanan->penerbangan->waktu_sampai);
                         $interval = $time1->diff($time2);
                     @endphp
-                    <p style="font-size: 12px">{{$interval->format('%hj %im')}}</p>
-                    <p>{{$pemesanan->penerbangan->waktu_sampai->format('H:i')}}</p>
+                    <p class="mb-0 d-flex justify-content-center align-items-end" style="font-size: 12px">{{$interval->format('%hj %im')}}</p>
+                    <p class="mb-0">{{$pemesanan->penerbangan->waktu_sampai->format('H:i')}}</p>
                 </div>
-                <div class="d-flex justify-content-between">
-                    <p class="text-center mb-0">{{$pemesanan->penerbangan->bandara_asal->kota}} ({{$pemesanan->penerbangan->bandara_asal->kode_bandara}})</p>
-                    <p class="text-center mb-0">{{$pemesanan->penerbangan->bandara_tujuan->kota}} ({{$pemesanan->penerbangan->bandara_tujuan->kode_bandara}})</p>
+                <div class="d-flex justify-content-center align-items-center">
+                    <img src="{{url('images/Arrow-long.png')}}" alt="">
                 </div>
-                <div class="d-flex justify-content-between">
-                    <p class="text-center">{{$pemesanan->penerbangan->bandara_asal->nama_bandara}}</p>
-                    <p class="text-center">{{$pemesanan->penerbangan->bandara_tujuan->nama_bandara}}</p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-center mb-0" style="font-size: 14px">{{$pemesanan->penerbangan->bandara_asal->kota}} ({{$pemesanan->penerbangan->bandara_asal->kode_bandara}})</p>
+                        </div>
+                        <div class="col">
+                            <p class="text-center mb-0" style="font-size: 14px">{{$pemesanan->penerbangan->bandara_tujuan->kota}} ({{$pemesanan->penerbangan->bandara_tujuan->kode_bandara}})</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-center" style="font-size: 14px">Bandara {{$pemesanan->penerbangan->bandara_asal->nama_bandara}}</p>
+                        </div>
+                        <div class="col">
+                            <p class="text-center" style="font-size: 14px">Bandara {{$pemesanan->penerbangan->bandara_tujuan->nama_bandara}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -99,7 +112,8 @@
             </div>
         </div>
         <div class="search-box py-2 mt-4" style="border: 1px solid #868686; cursor: pointer;">
-            <p class="my-1">Print E-Ticket</p>
+            <img src="{{url('images/ic_baseline-local-printshop.png')}}" alt="">
+            <span class="ps-2">Print E-Ticket</span>
         </div>
         @endif
         <div class="text-center mb-4" style="margin-top: 120px">

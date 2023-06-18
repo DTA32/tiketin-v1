@@ -1,3 +1,5 @@
 <div class="header-container header-only">
-    <img src="{{url('/images/logo.png')}}" alt="logo" class="logo">
+    <a href="{{route('home')}}">
+        <img src="{{url('/images/logo.png')}}" alt="logo" class="logo">
+    </a>
 </div>

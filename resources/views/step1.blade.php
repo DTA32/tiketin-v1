@@ -27,48 +27,57 @@
                 </div>
             </div>
             <div class="col">
-                <img src="{{url('/images/logo.png')}}" alt="logo" class="logo">
+                <a href="{{route('home')}}">
+                    <img src="{{url('/images/logo.png')}}" alt="logo" class="logo">
+                </a>
             </div>
         </div>
     </div>
     {{-- body --}}
     <div>
+        <div class="container row mt-1 mb-2 py-1 mx-0 border border-secondary-subtle bg-white">
+            <div class="col border-end border-secondary-subtle d-flex justify-content-center align-items-center" style="cursor: pointer">
+                <img src="{{url('images/mdi_filter.png')}}" alt="" width="24px" height="24px">
+                <p class="ps-2 fs-5 mb-0">Filter</p>
+            </div>
+            <div class="col d-flex justify-content-center align-items-center" style="cursor: pointer">
+                <img src="{{url('images/mdi_sort.png')}}" alt="" width="24px" height="24px">
+                <p class="ps-2 text-center fs-5 mb-0">Sort</p>
+            </div>
+        </div>
         @foreach($results as $hasil)
-        <div class="border border-secondary-subtle my-1 pt-2 pb-3 px-3 bg-white">
-            <form method="GET" action="{{route('step2')}}">
-                <input type="hidden" name="penerbangan_id" value="{{$hasil->id}}">
-                <input type="hidden" name="penumpang" value="{{$penumpang}}">
-                <input type="hidden" name="kelas" value="{{$kelas}}">
+        <a class="text-black text-decoration-none" href="{{route('step2', ['penerbangan_id' => $hasil->id, 'penumpang' => $penumpang, 'kelas' => $kelas])}}">
+            <div class="border border-secondary-subtle my-1 pt-2 pb-3 px-3 bg-white">
                 <div class="container">
                     <div class="row">
                         <div class="col">
                             <p class="fs-5">{{$hasil->maskapai}}</p>
                             <div class="row text-center">
-                                <p class="fs-6 col mb-0">{{date('H:i', strtotime($hasil->waktu_berangkat))}}</p>
+                                <p class="col mb-0">{{date('H:i', strtotime($hasil->waktu_berangkat))}}</p>
                                 @php
                                     $time1 = new DateTime($hasil->waktu_berangkat);
                                     $time2 = new DateTime($hasil->waktu_sampai);
                                     $interval = $time1->diff($time2);
                                 @endphp
-                                <p class="col mb-0" style="font-size: 12px">{{$interval->format('%hj %im')}}</p>
+                                <p class="col mb-0 d-flex justify-content-center align-items-end" style="font-size: 12px">{{$interval->format('%hj %im')}}</p>
                                 <p class="fs-6 col mb-0">{{date('H:i', strtotime($hasil->waktu_sampai))}}</p>
                             </div>
                             <div class="row text-center">
-                                <p class="fs-6 col">{{$hasil->bandara_asal->kode_bandara}}</p>
-                                <p class="fs-6 col">-></p>
-                                <p class="fs-6 col">{{$hasil->bandara_tujuan->kode_bandara}}</p>
+                                <p class="fs-6 col" style="font-size: 14px">{{$hasil->bandara_asal->kode_bandara}}</p>
+                                <img src="{{url('images/mdi_arrow-right-thin.png')}}" alt="" class="col" style="width: 54px; height:24px">
+                                <p class="fs-6 col" style="font-size: 14px">{{$hasil->bandara_tujuan->kode_bandara}}</p>
                             </div>
                             <div class="row">
                                 <p class="fs-5">Rp.{{$hasil->kelas_penerbangan[0]->harga}}</p>
                             </div>
                         </div>
                         <div class="col d-flex justify-content-end align-items-center">
-                            <button type="submit" style="outline:none; border:none; padding:0px"><img src="/images/next.png" alt=""></button>
+                            <img src="/images/next.png" alt="">
                         </div>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+        </a>
         @endforeach
     </div>
 </body>
