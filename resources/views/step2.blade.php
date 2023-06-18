@@ -34,7 +34,7 @@
         </div>
     </div>
     <p class="fs-5 mt-3 ps-3">Detail Penumpang</p>
-    <form method="POST" action="{{route('step4')}}">
+    <form method="POST" action="{{route('step3')}}">
         @csrf
         <input type="hidden" name="penerbangan_id" value="{{$penerbangan->id}}">
         <input type="hidden" name="kelas" value="{{$kelas}}">

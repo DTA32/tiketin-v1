@@ -10,6 +10,7 @@ use App\Http\Controllers\Step2Controller;
 use App\Http\Controllers\Step4Controller;
 use App\Http\Controllers\Step5Controller;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\Step3Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Route::get('/', function () {
 });
 
 Route::view('/home', 'home')->name('home');
-Route::view('/testcomp', 'testcomponent')->name('testcomp');
+Route::view('/testcomp', 'step3')->name('testcomp');
 // ADMIN
 Route::get('/admin/penerbangan', [AdminPenerbangan::class, 'get'])->name('admin.penerbangan');
 Route::post('/admin/penerbangan', [AdminPenerbangan::class, 'add'])->name('admin.penerbangan.add');
@@ -40,6 +41,7 @@ Route::post('/admin/kelaspenerbangan', [AdminKelasPenerbangan::class, 'add'])->n
 
 Route::get('/step1', [Step1Controller::class, 'search'])->name('step1');
 Route::get('/step2', [Step2Controller::class, 'get'])->name('step2');
+Route::post('/step3', [Step3Controller::class, 'get'])->name('step3');
 Route::post('/step4', [Step4Controller::class, 'get'])->name('step4');
 Route::post('/step5', [Step5Controller::class, 'post'])->name('step5');
 Route::get('/step5/bayar', [Step5Controller::class, 'get'])->name('step5.bayar');

@@ -3,7 +3,6 @@
 @include('includes.head')
 <body>
     <x-header></x-header>
-    {{-- <p>{{dd($pemesanan)}}</p> --}}
     <div class="container overflow-x-hidden overflow-y-scroll" style="height:36rem">
         @foreach($pemesanan as $p)
             <a class="text-black text-decoration-none" href="{{route('history.detail', $p->id)}}">

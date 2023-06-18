@@ -12,16 +12,28 @@ class Step4Controller extends Controller
     public function get(Request $request){
         // penerbangan
         $penerbangan = penerbangan::find($request->input('penerbangan_id'));
-        // detail penumpang
-        $penumpangArray = [];
-        foreach($request->input('nama_lengkap') as $penumpangs){
-            $penumpangA = [
-                'nama' => $penumpangs,
-                'kursi_penerbangan' => null
-            ];
-            array_push($penumpangArray, $penumpangA);
+        // // detail penumpang
+        // $penumpangArray = [];
+        // foreach($request->input('nama_lengkap') as $penumpangs){
+        //     $penumpangA = [
+        //         'nama' => $penumpangs,
+        //         'kursi_penerbangan' => null
+        //     ];
+        //     array_push($penumpangArray, $penumpangA);
+        // }
+        // $request->session()->put('penumpang', $penumpangArray);
+
+        $kursi_input = [];
+
+        foreach($request->input('penumpang') as $kursi){
+            array_push($kursi_input, explode("|", $kursi));
         }
-        $request->session()->put('penumpang', $penumpangArray);
+
+        foreach ($request->session()->get('penumpang') as $key => $value) {
+            $request->session()->put('penumpang.'.$key.'.kursi_penerbangan', $kursi_input[$key][2]);
+        }
+
+        // dd($request->session()->get('penumpang'));
         // harga
         // $harga_kelas = DB::table('penerbangan as p')
         //                 ->join('kelas_penerbangan as kp', 'p.id', '=', 'kp.penerbangan_id')
@@ -34,12 +46,12 @@ class Step4Controller extends Controller
                         ->first();
 
         $harga['biaya_dasar'] = $harga_kelas->harga;
-        $harga['kuantitas'] = count($penumpangArray);
+        $harga['kuantitas'] = count(Session::get('penumpang'));
         $harga['biaya_layanan'] = 10000;
-        $harga['total'] = $harga_kelas->harga * count($penumpangArray) + 10000;
+        $harga['total'] = $harga_kelas->harga * count(Session::get('penumpang')) + 10000;
         $request->session()->put('harga', $harga);
 
-        return view('step4', ['penerbangan' => $penerbangan, 'penumpang' => $penumpangArray, 'kelas' => $request->input('kelas')]);
+        return view('step4', ['penerbangan' => $penerbangan, 'kelas' => $request->input('kelas')]);
 
     }
 }

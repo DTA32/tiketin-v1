@@ -70,13 +70,14 @@
     <div>
         <p class="fs-5 mt-3 ps-3 mb-2">Detail Penumpang</p>
         <div class="border border-secondary-subtle my-1 pt-2 pb-3 px-3 bg-white">
-            @foreach ($penumpang as $penumpangs)
+            {{-- {{dd(Session::get('penumpang'))}} --}}
+            @foreach (Session::get('penumpang') as $key => $value)
             <div class="mt-2 pb-2">
                 <p class="mb-3" style="font-size:18px">Penumpang {{$loop->iteration}}</p>
                 <p class="mb-0" style="font-size: 14px">Nama Lengkap:</p>
-                <p class="mb-2">{{$penumpangs['nama']}}</p>
+                <p class="mb-2">{{Session::get('penumpang.'.$key.'.nama')}}</p>
                 <p class="mb-0" style="font-size: 14px">No Kursi:</p>
-                <p class="mb-2">{{$penumpangs['kursi_penerbangan']}}</p>
+                <p class="mb-2">{{Session::get('penumpang.'.$key.'.kursi_penerbangan')}}</p>
             </div>
             @endforeach
         </div>

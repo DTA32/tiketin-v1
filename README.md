@@ -14,9 +14,7 @@ DB Kelas_Penerbangan: localhost:8000/admin/kelaspenerbangan
 
 ### Today to-do:
 
-icon-icon label dkk
-
-dummy login register news settings
+dummy login register news
 
 ### To-do list
 
@@ -24,6 +22,7 @@ dummy login register news settings
 -   [ ] user authentication
 -   [ ] menu admin
 -   [ ] news
+-   [ ] settings
 -   [ ] input validation
 
 catatan tambahan (low priority):

@@ -8,6 +8,7 @@ use App\Models\penerbangan;
 class Step1Controller extends Controller
 {
     public function search(Request $request){
+        $request->session()->flush();
         $dari = $request->input('dari');
         $ke = $request->input('ke');
         $tanggal = $request->input('tanggal');
