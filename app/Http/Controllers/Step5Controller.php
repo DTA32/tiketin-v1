@@ -7,6 +7,7 @@ use App\Models\pemesanan;
 use App\Models\pemesanan_penumpang;
 use App\Models\pemesanan_harga;
 use Illuminate\Support\Facades\Session;
+use App\Models\kelas_penerbangan;
 
 class Step5Controller extends Controller
 {
@@ -37,9 +38,21 @@ class Step5Controller extends Controller
             'biaya_layanan' => $harga['biaya_layanan'],
             'total' => $harga['total']
         ]);
+        kelas_penerbangan::where('penerbangan_id', $request->input('penerbangan_id'))
+                        ->decrement('jumlah_kursi', count($penumpangs));
+
+        // TO-DO: update seat_layout
+
+        // $kelas = kelas_penerbangan::where('penerbangan_id', $request->input('penerbangan_id'))->first();
+        // $seatLayout = json_decode($kelas->seat_layout, true);
+        // foreach($penumpangs['kursi_penerbangan'] as $keys => $penumpang){
+
+        // }
+
 
         return view('step5', ['pemesanan' => $pemesanan]);
     }
+
     public function get(Request $request){
         $pemesanan = pemesanan::where('id', $request->input('pemesanan_id'))->first();
         if($request->input('metode_pembayaran') == 1){
@@ -52,6 +65,7 @@ class Step5Controller extends Controller
             return view('step53', ['pemesanan' => $pemesanan]);
         }
     }
+
     public function update(Request $request){
         $pemesanan = pemesanan::where('id', $request->input('pemesanan_id'))->first();
         if($request->input('metode_pembayaran') == 1){

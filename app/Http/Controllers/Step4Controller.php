@@ -10,9 +10,9 @@ use App\Models\kelas_penerbangan;
 class Step4Controller extends Controller
 {
     public function get(Request $request){
-        // penerbangan
+        // penerbangan !!
         $penerbangan = penerbangan::find($request->input('penerbangan_id'));
-        // // detail penumpang
+        // detail penumpang !!
         // $penumpangArray = [];
         // foreach($request->input('nama_lengkap') as $penumpangs){
         //     $penumpangA = [
@@ -34,7 +34,7 @@ class Step4Controller extends Controller
         }
 
         // dd($request->session()->get('penumpang'));
-        // harga
+        // harga !!
         // $harga_kelas = DB::table('penerbangan as p')
         //                 ->join('kelas_penerbangan as kp', 'p.id', '=', 'kp.penerbangan_id')
         //                 ->select('*')
