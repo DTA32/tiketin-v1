@@ -18,7 +18,7 @@ dummy login register news
 
 ### To-do list
 
--   [ ] kursi penerbangan (baru bisa 1 penumpang dan belum update seatlayout json)
+-   [ ] kursi penerbangan (baru bisa 1 penumpang)
 -   [ ] user authentication
 -   [ ] menu admin
 -   [ ] news

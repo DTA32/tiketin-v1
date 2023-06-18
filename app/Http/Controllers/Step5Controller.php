@@ -43,12 +43,34 @@ class Step5Controller extends Controller
 
         // TO-DO: update seat_layout
 
-        // $kelas = kelas_penerbangan::where('penerbangan_id', $request->input('penerbangan_id'))->first();
-        // $seatLayout = json_decode($kelas->seat_layout, true);
-        // foreach($penumpangs['kursi_penerbangan'] as $keys => $penumpang){
+        $kelas = kelas_penerbangan::where('penerbangan_id', $request->input('penerbangan_id'))->first();
+        $seatLayout = json_decode($kelas->seat_layout, true);
+        foreach($penumpangs as $penumpang){
+            $arr = str_split($penumpang['kursi_penerbangan']);
+            $row = $arr[0];
+            if($arr[1] == 'A'){
+                $col = 0;
+            }
+            else if ($arr[1] == 'B'){
+                $col = 1;
+            }
+            else if ($arr[1] == 'C'){
+                $col = 2;
+            }
+            else if ($arr[1] == 'D'){
+                $col = 3;
+            }
+            else if ($arr[1] == 'E'){
+                $col = 3;
+            }
+            else if ($arr[1] == 'F'){
+                $col = 3;
+            }
+            $seatLayout['rows'][$row-1]['seats'][$col]['available'] = false;
+        }
 
-        // }
-
+        $kelas->seat_layout = json_encode($seatLayout);
+        $kelas->save();
 
         return view('step5', ['pemesanan' => $pemesanan]);
     }
