@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="col ms-3 mt-2 pt-4">
-                        <a onclick="swapSearch()"><img src="{{url('images/reverse.png')}}" alt=""></a>
+                        <a onclick="swapSearch()"><img src="{{url('images/reverse.png')}}" alt="" style="cursor: pointer"></a>
                     </div>
                 </div>
                 <div class="mb-3">

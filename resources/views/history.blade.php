@@ -3,7 +3,7 @@
 @include('includes.head')
 <body>
     <x-header></x-header>
-    <div class="container overflow-x-hidden overflow-y-scroll" style="height:36rem">
+    <div class="container overflow-x-hidden overflow-y-scroll" style="overflow: auto; max-height: 80vh">
         @foreach($pemesanan as $p)
             <a class="text-black text-decoration-none" href="{{route('history.detail', $p->id)}}">
                 <div class="border border-secondary-subtle my-1 pt-2 pb-3 px-3 bg-white container">

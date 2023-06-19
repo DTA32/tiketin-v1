@@ -48,7 +48,7 @@
                 </div>
             @endfor
         </div>
-        <div class="text-center mt-5">
+        <div class="text-center mt-5 pb-3">
             <button type="submit" class="button text-center" style="width: 240px">Lanjutkan</button>
         </div>
     </form>

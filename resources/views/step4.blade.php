@@ -91,7 +91,7 @@
     </div>
     <form method="POST" action="{{route('step5', ['penerbangan_id' => $penerbangan->id, 'kelas' => $kelas])}}">
         @csrf
-        <div class="text-center mt-5">
+        <div class="text-center mt-5 pb-3">
             <button type="submit" class="button text-center" style="width: 240px">Pesan</button>
         </div>
     </form>

@@ -10,7 +10,7 @@
             </div>
             <div class="col-6">
                 <div class="row">
-                    <h4 class="text-center mb-0">{{$results[0]->bandara_asal->kota}} - {{$results[0]->bandara_tujuan->kota}}</h4>
+                    <h4 class="text-center mb-0" style="white-space: nowrap">{{$results[0]->bandara_asal->kota}} - {{$results[0]->bandara_tujuan->kota}}</h4>
                 </div>
                 <div class="row">
                     <p class="text-center mb-0" style="font-size:12px">

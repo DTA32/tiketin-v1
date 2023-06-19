@@ -7,11 +7,11 @@
         <div class="fs-5 text-center mt-1">
             <p>Pemesanan</p>
         </div>
-        <div class="search-box d-flex justify-content-between align-items-center py-2" style="border: 1px solid #868686;">
+        <div class="border border-secondary-subtle py-1 px-3 bg-white d-flex justify-content-between align-items-center">
             <p class="my-1">Booking ID</p>
             <p class="my-1">{{$pemesanan->id}}</p>
         </div>
-        <div class="search-box d-flex justify-content-between align-items-center py-2" style="border: 1px solid #868686;">
+        <div class="border border-secondary-subtle py-1 px-3 bg-white d-flex justify-content-between align-items-center py-2" style="border: 1px solid #868686;">
             <p class="my-1">Status</p>
             @if ($pemesanan->status)
                 <p class="text-center mb-0 px-4 bg-success text-light rounded-pill">Berhasil</p>
@@ -21,7 +21,7 @@
         </div>
         <div>
             <p class="fs-5 mt-3 ps-3 mb-2">Penerbangan</p>
-            <div class="search-box" style="margin-top: 4px; padding-top:8px; padding-bottom:16px; border: 1px solid #868686;">
+            <div class="border border-secondary-subtle my-1 pt-2 pb-3 px-3 bg-white">
                 <div class="d-flex justify-content-between">
                     <p class="mb-0">{{$pemesanan->penerbangan->maskapai}}</p>
                     <p class="mb-0">{{$pemesanan->penerbangan->tipe_pesawat}}</p>
@@ -68,7 +68,7 @@
         </div>
         <div>
             <p class="fs-5 mt-3 ps-3 mb-2">Detail Penumpang</p>
-            <div class="search-box" style="margin-top: 4px; padding-top:8px; padding-bottom:16px; border: 1px solid #868686;">
+            <div class="border border-secondary-subtle my-1 pt-2 pb-3 px-3 bg-white">
             @foreach ($pemesanan->pemesanan_penumpang as $penumpang)
                 <div class="mt-2 pb-2">
                     <p class="mb-3" style="font-size:18px">Penumpang {{$loop->iteration}}</p>
@@ -81,15 +81,15 @@
         </div>
         <div>
             <p class="fs-5 mt-3 ps-3 mb-2">Detail Harga</p>
-            <div class="search-box d-flex justify-content-between align-items-center py-2" style="border: 1px solid #868686;">
+            <div class="border border-secondary-subtle py-1 px-3 bg-white d-flex justify-content-between align-items-center">
                 <p class="my-1">{{($pemesanan->penerbangan->maskapai)}} ({{$pemesanan->pemesanan_harga->kuantitas}}x)</p>
                 <p class="my-1">{{rupiah($pemesanan->pemesanan_harga->biaya_dasar)}}</p>
             </div>
-            <div class="search-box d-flex justify-content-between py-2" style="border: 1px solid #868686;">
+            <div class="border border-secondary-subtle py-1 px-3 bg-white d-flex justify-content-between">
                 <p class="my-1">Biaya Layanan</p>
                 <p class="my-1">{{rupiah($pemesanan->pemesanan_harga->biaya_layanan)}}</p>
             </div>
-            <div class="search-box d-flex justify-content-between py-2" style="border: 1px solid #868686;">
+            <div class="border border-secondary-subtle py-1 px-3 bg-white d-flex justify-content-between">
                 <p class="my-1">Total</p>
                 <p class="my-1">{{rupiah($pemesanan->pemesanan_harga->total)}}</p>
             </div>
@@ -97,7 +97,7 @@
         @if ($pemesanan->status == 1)
         <div>
             <p class="fs-5 mt-3 ps-3 mb-2">Metode Pembayaran</p>
-            <div class="search-box" style="margin-top: 4px; padding-top:8px; padding-bottom:16px; border: 1px solid #868686;">
+            <div class="border border-secondary-subtle my-1 pt-2 pb-3 px-3 bg-white">
                 @if ($pemesanan->metode_pembayaran == 1)
                 <p class="mb-3 fs-5">Kartu Kredit/Debit</p>
                 @elseif ($pemesanan->metode_pembayaran == 2)
@@ -111,12 +111,12 @@
                 </div>
             </div>
         </div>
-        <div class="search-box py-2 mt-4" style="border: 1px solid #868686; cursor: pointer;">
+        <div class="border border-secondary-subtle mt-3 py-2 px-3 bg-white" style="border: 1px solid #868686; cursor: pointer;">
             <img src="{{url('images/ic_baseline-local-printshop.png')}}" alt="">
             <span class="ps-2">Print E-Ticket</span>
         </div>
         @endif
-        <div class="text-center mb-4" style="margin-top: 120px">
+        <div class="text-center pb-4" style="margin-top: 120px">
             <p class="fs-5 mb-0">Butuh bantuan?</p>
             <button class="button text-center" style="width: 240px">Hubungi Kami</button>
         </div>
