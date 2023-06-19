@@ -18,7 +18,7 @@ dummy login register news
 
 ### To-do list
 
--   [ ] kursi penerbangan (baru bisa 1 penumpang)
+-   [x] kursi penerbangan
 -   [ ] user authentication
 -   [ ] menu admin
 -   [ ] news

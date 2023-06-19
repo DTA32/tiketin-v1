@@ -25,7 +25,7 @@
         <input type="hidden" name="penerbangan_id" value="{{$penerbangan->id}}">
         <input type="hidden" name="kelas" value="{{$kelas}}">
         @foreach (Session::get('penumpang') as $key => $value)
-            <input type="hidden" name="penumpang[]" id="hidden-{{$loop->iteration}}" value="{{ $loop->iteration }}|{{ Session::get('penumpang.'.$key.'.nama') }}|step3logic">
+            <input type="hidden" name="penumpang[]" id="hidden-{{$loop->iteration}}" value="{{ $loop->iteration }}|{{ Session::get('penumpang.'.$key.'.nama') }}|">
         @endforeach
     </form>
     <div class="border border-secondary-subtle my-0 px-2 bg-white d-flex justify-content-between align-items-center">
@@ -109,8 +109,7 @@
 
                 // Get the seat number and availability status from the data attributes
                 const seatNumber = clickedElement.dataset.seatnumber;
-                const isAvailable = clickedElement.dataset.available ? true : false;
-
+                const isAvailable = clickedElement.dataset.available;
                 // Perform further actions based on seat availability
                 if (isAvailable) {
                     // Update the hidden input value for the selected passenger
@@ -122,6 +121,7 @@
                     if (selectedSeat !== null) {
                         // Revert the background color of the previously selected seat
                         selectedSeat.style.backgroundColor = '';
+                        selectedSeat.dataset.available = 1;
                     }
 
                     // Set the background color of the newly selected seat
@@ -133,7 +133,27 @@
             }
         });
 
+        const passengerSelect = document.querySelector('select[name="pen_select"]');
 
+        passengerSelect.addEventListener('change', function() {
+            const selectedPassengerIndex = passengerSelect.value.split('|')[0];
+            if(selectedSeat != null){
+                selectedSeat.style.backgroundColor = '#868686';
+                selectedSeat.style.color = '#FFFFFF';
+                delete selectedSeat.dataset.available;
+            }
+            hasSelected = document.getElementById('hidden-' + selectedPassengerIndex).value.split('|')[2] ? true : false;
+            if(hasSelected){
+                selectedSeatNow = document.querySelector('span[data-seatnumber="' + document.getElementById('hidden-' + selectedPassengerIndex).value.split('|')[2] + '"]');
+                selectedSeatNow.style.backgroundColor = '#A8FF9A';
+                selectedSeatNow.style.color = '#000000';
+                selectedSeatNow.dataset.available = 1;
+                selectedSeat = selectedSeatNow;
+            }
+            else{
+                selectedSeat = null;
+            }
+        });
     </script>
 </body>
 </html>
