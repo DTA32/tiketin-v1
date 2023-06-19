@@ -11,6 +11,7 @@ use App\Http\Controllers\Step4Controller;
 use App\Http\Controllers\Step5Controller;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\Step3Controller;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/home', 'home')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::view('/testcomp', 'step3')->name('testcomp');
 // ADMIN
 Route::get('/admin/penerbangan', [AdminPenerbangan::class, 'get'])->name('admin.penerbangan');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\penerbangan;
+use Illuminate\Support\Facades\Session;
 
 class Step1Controller extends Controller
 {
@@ -40,6 +41,10 @@ class Step1Controller extends Controller
                         $query->where('jumlah_kursi', '>=', $penumpang);
                     })
                     ->get();
+        if($results->isEmpty()){
+            $request->session()->put('error', 'Penerbangan tidak ditemukan');
+            return view('home');
+        }
         return view('step1', ['results' => $results, 'penumpang' => $penumpang, 'kelas' => $kelas]);
     }
 }

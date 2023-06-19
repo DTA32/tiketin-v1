@@ -107,6 +107,7 @@ class Step5Controller extends Controller
         }
         $pemesanan->save();
         $request->session()->flush();
-        return view('home')->with('success', 'Pemesanan berhasil!');
+        $request->session()->put('success', 'Pemesanan berhasil!');
+        return view('home');
     }
 }

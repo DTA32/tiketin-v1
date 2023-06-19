@@ -17,7 +17,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <p class="text-center fs-5">{{$p->penerbangan->bandara_asal->kota}} - {{$p->penerbangan->bandara_tujuan->kota}}</p>
+                            <p class="text-center fs-5" style="white-space: nowrap">{{$p->penerbangan->bandara_asal->kota}} - {{$p->penerbangan->bandara_tujuan->kota}}</p>
                         </div>
                         <div class="col"></div>
                     </div>

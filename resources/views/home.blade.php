@@ -82,11 +82,8 @@
             </form>
         </div>
         {{-- belum jalan --}}
-        @if (session('success'))
-            <div>
-                <p>{{ session('success') }}</p>
-            </div>
-        @endif
+        <p class="text-center text-success">{{ Session::pull('success') }}</p>
+        <p class="text-center text-danger">{{ Session::pull('error') }}</p>
         <div class="search-box mb-3 pb-3">
             <div class="fs-5 pt-2 mb-5">News</div>
             <p class="text-secondary text-center mb-5">No news yet...</p>

@@ -14,8 +14,6 @@ DB Kelas_Penerbangan: localhost:8000/admin/kelaspenerbangan
 
 ### Today to-do:
 
--   bikin data penerbangan baru
-
 dummy login register news
 
 ### To-do list
