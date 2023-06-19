@@ -3,6 +3,20 @@
 @include('includes.head')
 <body>
     <x-headerBack></x-headerBack>
+    <div>
+        <div class="progress mt-1" role="progressbar" aria-label="Progress" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar bg-secondary" style="width:34%"></div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <span style="font-size: 10px"> </span>
+            <span style="font-size: 10px">1</span>
+            <span style="font-size: 10px">2</span>
+            <span style="font-size: 10px">3</span>
+            <span style="font-size: 10px">4</span>
+            <span style="font-size: 10px">5</span>
+            <span style="font-size: 10px"> </span>
+        </div>
+    </div>
     <div class="fs-5 text-center mt-2">
         <p class="mb-0">Pilih Kursi</p>
     </div>
@@ -99,7 +113,6 @@
 
                 // Perform further actions based on seat availability
                 if (isAvailable) {
-                    console.log('true');
                     // Update the hidden input value for the selected passenger
                     const hiddenInput_name = document.getElementById('hidden-' + selectedPassengerIndex).value.split('|')[1];
                     document.getElementById('select-' + selectedPassengerIndex).innerHTML = 'Penumpang ' + selectedPassengerIndex + ' - ' + hiddenInput_name + ' - ' + 'Kursi ' + seatNumber;

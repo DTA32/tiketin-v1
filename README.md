@@ -27,11 +27,8 @@ dummy login register news
 
 catatan tambahan (low priority):
 
--   progress bar
--   selector metode pembayaran
 -   nomor identitas n gender penumpang
 
--   return with message masih belum bisa
 -   db bisa di-optimize chatgpt
 
 ---

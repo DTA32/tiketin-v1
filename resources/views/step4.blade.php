@@ -3,6 +3,20 @@
 @include('includes.head')
 <body>
     <x-header></x-header>
+    <div>
+        <div class="progress mt-1" role="progressbar" aria-label="Progress" aria-valuenow="51" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar bg-secondary" style="width:51%"></div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <span style="font-size: 10px"> </span>
+            <span style="font-size: 10px">1</span>
+            <span style="font-size: 10px">2</span>
+            <span style="font-size: 10px">3</span>
+            <span style="font-size: 10px">4</span>
+            <span style="font-size: 10px">5</span>
+            <span style="font-size: 10px"> </span>
+        </div>
+    </div>
     <div class="fs-5 text-center mt-1">
         <p>Ringkasan Pemesanan</p>
     </div>
