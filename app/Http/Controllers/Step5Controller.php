@@ -49,23 +49,30 @@ class Step5Controller extends Controller
         foreach($penumpangs as $penumpang){
             $arr = str_split($penumpang['kursi_penerbangan']);
             $row = $arr[0];
-            if($arr[1] == 'A'){
+            $key = 0;
+            if(sizeof($arr) > 3){
+                $key = 3;
+            }
+            else{
+                $key = 2;
+            }
+            if($arr[$key] == 'A'){
                 $col = 0;
             }
-            else if ($arr[1] == 'B'){
+            else if ($arr[$key] == 'B'){
                 $col = 1;
             }
-            else if ($arr[1] == 'C'){
+            else if ($arr[$key] == 'C'){
                 $col = 2;
             }
-            else if ($arr[1] == 'D'){
+            else if ($arr[$key] == 'D'){
                 $col = 3;
             }
-            else if ($arr[1] == 'E'){
-                $col = 3;
+            else if ($arr[$key] == 'E'){
+                $col = 4;
             }
-            else if ($arr[1] == 'F'){
-                $col = 3;
+            else if ($arr[$key] == 'F'){
+                $col = 5;
             }
             $seatLayout['rows'][intval($row)-1]['seats'][$col]['available'] = false;
         }

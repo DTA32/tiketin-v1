@@ -10,22 +10,19 @@ DB Bandara: localhost:8000/admin/bandara
 
 DB Kelas_Penerbangan: localhost:8000/admin/kelaspenerbangan
 
-~~DB Kursi_Penerbangan: localhost:8000/admin/kursipenerbangan~~ (not longer used)
-
-### Today to-do:
-
-dummy login register news
-
 ### To-do list
 
 -   [x] kursi penerbangan
--   [ ] user authentication
+-   [ ] user authentication (FE done)
 -   [ ] menu admin
--   [ ] news
+-   [ ] menu admin kelas penerbangan (seat layout pake template or auto-generate dari parameter input)
+-   [ ] news (FE done)
 -   [ ] settings
 -   [ ] input validation
 
 catatan tambahan (low priority):
+
+-   suggestion dari & ke di home pake select2 (deprecate typeahead)
 
 -   nomor identitas n gender penumpang
 

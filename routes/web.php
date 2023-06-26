@@ -29,7 +29,10 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::view('/testcomp', 'testcomponent')->name('testcomp');
+Route::view('/testcomp', 'news_detail')->name('testcomp');
+Route::view('/login', 'login')->name('login');
+Route::view('/register', 'register')->name('register');
+
 // ADMIN
 Route::get('/admin/penerbangan', [AdminPenerbangan::class, 'get'])->name('admin.penerbangan');
 Route::post('/admin/penerbangan', [AdminPenerbangan::class, 'add'])->name('admin.penerbangan.add');
