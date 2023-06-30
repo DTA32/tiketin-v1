@@ -32,7 +32,7 @@ catatan tambahan (low priority):
 
 -   db bisa di-optimize chatgpt
 
--   bug back button
+-   fix gitignore
 
 -   guide installation (composer autoload, db seed)
 

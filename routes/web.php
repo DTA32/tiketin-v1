@@ -58,5 +58,5 @@ Route::view('/settings', 'settings')->name('settings');
 
 Route::get('typeahead', 'TypeaheadController@typeahead')->name('typeahead');
 
-Route::get('/news', [NewsController::class, 'get'])->name('news');
+Route::get('/newss', [NewsController::class, 'get'])->name('news');
 Route::get('/news/{id}', [NewsController::class, 'getDetail'])->name('news.detail');

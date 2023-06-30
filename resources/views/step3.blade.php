@@ -5,7 +5,7 @@
     <x-headerBack></x-headerBack>
     <div>
         <div class="progress mt-1" role="progressbar" aria-label="Progress" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100">
-            <div class="progress-bar bg-secondary" style="width:34%"></div>
+            <div class="progress-bar bg-secondary" style="width:51%"></div>
         </div>
         <div class="d-flex justify-content-between">
             <span style="font-size: 10px"> </span>

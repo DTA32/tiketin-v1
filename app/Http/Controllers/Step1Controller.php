@@ -43,7 +43,7 @@ class Step1Controller extends Controller
                     ->get();
         if($results->isEmpty()){
             $request->session()->put('error', 'Penerbangan tidak ditemukan');
-            return view('home');
+            return redirect('/home');
         }
         return view('step1', ['results' => $results, 'penumpang' => $penumpang, 'kelas' => $kelas]);
     }

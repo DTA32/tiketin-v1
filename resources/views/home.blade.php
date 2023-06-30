@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('includes.head')
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Tiketin</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <style>
+            [class^='select2-selection']{
+                border: none !important;
+            }
+            [class^='select2-selection__arrow']{
+                display: none !important;
+            }
+        </style>
+    </head>
 <body>
     <x-header></x-header>
     <div class="container overflow-x-hidden overflow-y-scroll" style="max-height: 80vh">
@@ -18,19 +37,29 @@
                             <label for="dari">Dari</label>
                             <div class="input-text-div ms-2 px-0">
                                 <img src="{{url('/images/bxs_plane-take-off.png')}}" alt="">
-                                <input type="text" name="dari" id="dari" class="input-text" autocomplete="off" style="width: 250px">
+                                <select name="dari" id="dari" class="input-text select2 " autocomplete="off" style="width: 250px" required>
+                                    <option></option>
+                                    @foreach($towns as $town)
+                                        <option value="{{$town->kota}}">{{$town->kota}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="mb-2 row">
                             <label for="ke">Ke</label>
                             <div class="input-text-div ms-2 px-0">
                                 <img src="{{url('/images/bxs_plane-land.png')}}" alt="">
-                                <input type="text" name="ke" id="ke" class="input-text" autocomplete="off" style="width: 250px">
+                                <select name="ke" id="ke" class="input-text select2" autocomplete="off" style="width: 250px" required>
+                                    <option></option>
+                                    @foreach($towns as $town)
+                                        <option value="{{$town->kota}}">{{$town->kota}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="mb-2 row">
                             <label for="tanggal">Tanggal Keberangkatan</label>
-                            <input type="date" name="tanggal" id="tanggal" class="input-other ms-2 ps-1 pe-0">
+                            <input type="date" name="tanggal" id="tanggal" class="input-other ms-2 ps-1 pe-0" required>
                         </div>
                     </div>
                     <div class="col ms-3 mt-2 pt-4">
@@ -95,7 +124,7 @@
                 <div class="d-inline-block me-2">
                     <a class="text-decoration-none" href="{{route('news.detail', $newsss->id)}}">
                         <div class="card" style="width: 140px; white-space: normal">
-                            <img src="{{Storage::url('app/public/'.$newsss->image)}}" class="card-img-top" alt="">
+                            <img src="{{Storage::url($newsss->image)}}" class="card-img-top" alt="">
                             <div class="card-body p-2">
                                 <p class="card-title fw-bold" style="font-size: 12px">{{$newsss->title}}</p>
                                 <p class="card-text text-secondary" style="font-size: 10px">{{Str::limit($newsss->content, 80)}}</p>
@@ -108,32 +137,16 @@
         </div>
     </div>
     <x-footer></x-footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
     <script>
-        var path = "{{ route('typeahead') }}";
-        $('#dari').typeahead({
-            source:  function (query, process) {
-            return $.get(path, { query: query }, function (data) {
-                    console.log(process(data));
-                    return process(data);
-                });
-            }
-        });
-        $('#ke').typeahead({
-            source:  function (query, process) {
-            return $.get(path, { query: query }, function (data) {
-                    console.log(process(data));
-                    return process(data);
-                });
-            }
-        });
         function swapSearch(){
             var dari = document.getElementById('dari').value;
             var ke = document.getElementById('ke').value;
             document.getElementById('dari').value = ke;
             document.getElementById('ke').value = dari;
         };
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
     </script>
 </body>
 </html>
