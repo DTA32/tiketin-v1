@@ -4,6 +4,9 @@
 <body>
     <x-headerBack></x-headerBack>
     <div>
+        @if ($pemesanan == null)
+        <p class="text-center text-danger mt-5 fw-bold fs-3">History not found or doesn't exist</p>
+        @else
         <div class="fs-5 text-center mt-1">
             <p>Pemesanan</p>
         </div>
@@ -120,6 +123,7 @@
             <p class="fs-5 mb-0">Butuh bantuan?</p>
             <button class="button text-center" style="width: 240px">Hubungi Kami</button>
         </div>
+        @endif
     </div>
 </body>
 </html>

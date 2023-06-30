@@ -12,6 +12,7 @@ use App\Http\Controllers\Step5Controller;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\Step3Controller;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::view('/testcomp', 'news_detail')->name('testcomp');
+Route::view('/testcomp', 'home')->name('testcomp');
 Route::view('/login', 'login')->name('login');
 Route::view('/register', 'register')->name('register');
 
@@ -56,3 +57,6 @@ Route::get('/history/{id}', [HistoryController::class, 'getDetail'])->name('hist
 Route::view('/settings', 'settings')->name('settings');
 
 Route::get('typeahead', 'TypeaheadController@typeahead')->name('typeahead');
+
+Route::get('/news', [NewsController::class, 'get'])->name('news');
+Route::get('/news/{id}', [NewsController::class, 'getDetail'])->name('news.detail');

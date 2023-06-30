@@ -10,13 +10,17 @@ DB Bandara: localhost:8000/admin/bandara
 
 DB Kelas_Penerbangan: localhost:8000/admin/kelaspenerbangan
 
+**TBA:**
+
+DB News
+
 ### To-do list
 
 -   [x] kursi penerbangan
 -   [ ] user authentication (FE done)
 -   [ ] menu admin
 -   [ ] menu admin kelas penerbangan (seat layout pake template or auto-generate dari parameter input)
--   [ ] news (FE done)
+-   [x] news
 -   [ ] settings
 -   [ ] input validation
 
@@ -27,6 +31,10 @@ catatan tambahan (low priority):
 -   nomor identitas n gender penumpang
 
 -   db bisa di-optimize chatgpt
+
+-   bug back button
+
+-   guide installation (composer autoload, db seed)
 
 ---
 

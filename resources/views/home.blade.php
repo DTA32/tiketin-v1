@@ -3,7 +3,7 @@
 @include('includes.head')
 <body>
     <x-header></x-header>
-    <div class="container">
+    <div class="container overflow-x-hidden overflow-y-scroll" style="max-height: 80vh">
         <div class="greeting mb-2 pb-1">
             <p class="fs-6 lh-sm mb-0">Halo, User!</p>
             <p class="fs-5 fw-bold lh-sm mb-0">Mau kemana?</p>
@@ -81,12 +81,30 @@
             </div>
             </form>
         </div>
-        {{-- belum jalan --}}
         <p class="text-center text-success">{{ Session::pull('success') }}</p>
         <p class="text-center text-danger">{{ Session::pull('error') }}</p>
-        <div class="search-box mb-3 pb-3">
-            <div class="fs-5 pt-2 mb-5">News</div>
-            <p class="text-secondary text-center mb-5">No news yet...</p>
+        <div class="search-box pb-3">
+            <a class="d-inline-flex text-black text-decoration-none pt-2 my-2 w-100" href="{{route('news')}}">
+                <div class="fs-5">
+                    <span>News</span>
+                    <span class="ms-2 text-secondary" style="display: inline-block;transform: scale(1.5,1)">&#10093;</span>
+                </div>
+            </a>
+            <div class="overflow-x-scroll overflow-y-hidden" style="white-space: nowrap">
+                @foreach ($news as $newsss)
+                <div class="d-inline-block me-2">
+                    <a class="text-decoration-none" href="{{route('news.detail', $newsss->id)}}">
+                        <div class="card" style="width: 140px; white-space: normal">
+                            <img src="{{Storage::url('app/public/'.$newsss->image)}}" class="card-img-top" alt="">
+                            <div class="card-body p-2">
+                                <p class="card-title fw-bold" style="font-size: 12px">{{$newsss->title}}</p>
+                                <p class="card-text text-secondary" style="font-size: 10px">{{Str::limit($newsss->content, 80)}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+            </div>
         </div>
     </div>
     <x-footer></x-footer>
