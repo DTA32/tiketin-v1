@@ -16,6 +16,22 @@ class PenerbanganSeeder extends Seeder
         $penerbangan = [
             [
                 'bandara_asal_id' => 1,
+                'bandara_tujuan_id' => 2,
+                'waktu_berangkat' => '2023-06-19 08:00:00',
+                'waktu_sampai' => '2023-06-19 10:00:00',
+                'maskapai' => 'Garuda Indonesia',
+                'tipe_pesawat' => 'A320',
+            ],
+            [
+                'bandara_asal_id' => 2,
+                'bandara_tujuan_id' => 1,
+                'waktu_berangkat' => '2023-06-19 13:00:00',
+                'waktu_sampai' => '2023-06-19 15:00:00',
+                'maskapai' => 'Garuda Indonesia',
+                'tipe_pesawat' => 'A320',
+            ],
+            [
+                'bandara_asal_id' => 1,
                 'bandara_tujuan_id' => 3,
                 'waktu_berangkat' => '2023-06-19 08:00:00',
                 'waktu_sampai' => '2023-06-19 10:00:00',

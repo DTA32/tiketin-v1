@@ -34,7 +34,7 @@ DB News
 -   [x] user authentication
 -   [ ] menu admin [kelas penerbangan: seat layout pake template or auto-generate dari parameter input]
 -   [x] news
--   [ ] settings (baru about)
+-   [x] settings (kurang CS)
 -   [ ] custom scrollbar
 -   [ ] step1 filter n sort
 -   [ ] export e-ticket

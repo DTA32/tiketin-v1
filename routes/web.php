@@ -70,7 +70,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/news', [NewsController::class, 'get'])->name('news');
     Route::get('/news/{id}', [NewsController::class, 'getDetail'])->name('news.detail');
-    Route::get('/profile', [ProfileController::class, 'get'])->name('profile');
     Route::view('/settings', 'settings')->name('settings');
+    Route::get('/settings/profile', [ProfileController::class, 'get'])->name('profile');
+    Route::put('/settings/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::view('/settings/about', 'about')->name('settings.about');
 });
