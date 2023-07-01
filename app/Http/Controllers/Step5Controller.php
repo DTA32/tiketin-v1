@@ -48,13 +48,16 @@ class Step5Controller extends Controller
         $seatLayout = json_decode($kelas->seat_layout, true);
         foreach($penumpangs as $penumpang){
             $arr = str_split($penumpang['kursi_penerbangan']);
-            $row = $arr[0];
+            $row = 0;
             $key = 0;
-            if(sizeof($arr) > 3){
-                $key = 3;
+            $col = 0;
+            if(sizeof($arr) == 3){
+                $row = $arr[0].$arr[1];
+                $key = 2;
             }
             else{
-                $key = 2;
+                $row = $arr[0];
+                $key = 1;
             }
             if($arr[$key] == 'A'){
                 $col = 0;

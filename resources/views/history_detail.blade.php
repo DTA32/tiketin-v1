@@ -114,14 +114,16 @@
                 </div>
             </div>
         </div>
-        <div class="border border-secondary-subtle mt-3 py-2 px-3 bg-white" style="border: 1px solid #868686; cursor: pointer;">
-            <img src="{{url('images/ic_baseline-local-printshop.png')}}" alt="">
-            <span class="ps-2">Print E-Ticket</span>
-        </div>
+        <a class="text-black text-decoration-none" href="{{route('under_construction')}}">
+            <div class="border border-secondary-subtle mt-3 py-2 px-3 bg-white" style="border: 1px solid #868686">
+                <img src="{{url('images/ic_baseline-local-printshop.png')}}" alt="">
+                <span class="ps-2">Print E-Ticket</span>
+            </div>
+        </a>
         @endif
         <div class="text-center pb-4" style="margin-top: 120px">
             <p class="fs-5 mb-0">Butuh bantuan?</p>
-            <button class="button text-center" style="width: 240px">Hubungi Kami</button>
+            <a class="d-inline-block button text-center text-decoration-none pt-1" href="{{route('under_construction')}}" style="width: 240px;">Hubungi Kami</a>
         </div>
         @endif
     </div>

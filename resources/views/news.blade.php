@@ -8,7 +8,7 @@
         <div class="container">
             @foreach ($news as $newsss)
                 @if ($loop->iteration % 2 == 1)
-                    <div class="row row-cols-2 gx-5 gy-0 mb-3">
+                    <div class="row row-cols-2 gx-4 gy-0 mb-3">
                 @endif
                 <div class="col">
                     <a class="text-decoration-none" href="{{route('news.detail', $newsss->id)}}">

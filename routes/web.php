@@ -13,6 +13,7 @@ use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\Step3Controller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::view('/testcomp', 'home')->name('testcomp');
+Route::view('/testcomp', '')->name('testcomp');
 Route::view('/login', 'login')->name('login');
 Route::view('/register', 'register')->name('register');
 
@@ -55,8 +56,9 @@ Route::get('/history', [HistoryController::class, 'get'])->name('history');
 Route::get('/history/{id}', [HistoryController::class, 'getDetail'])->name('history.detail');
 
 Route::view('/settings', 'settings')->name('settings');
-
-Route::get('typeahead', 'TypeaheadController@typeahead')->name('typeahead');
-
-Route::get('/newss', [NewsController::class, 'get'])->name('news');
+Route::get('/news', [NewsController::class, 'get'])->name('news');
 Route::get('/news/{id}', [NewsController::class, 'getDetail'])->name('news.detail');
+Route::get('/profile', [ProfileController::class, 'get'])->name('profile');
+Route::view('/underconstruction', 'under_construction')->name('under_construction');
+Route::view('/settings/about', 'about')->name('settings.about');
+// Route::get('/logout' , 'Auth\LoginController@logout')->name('logout');

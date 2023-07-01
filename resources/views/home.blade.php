@@ -112,7 +112,7 @@
         </div>
         <p class="text-center text-success">{{ Session::pull('success') }}</p>
         <p class="text-center text-danger">{{ Session::pull('error') }}</p>
-        <div class="search-box pb-3">
+        <div class="search-box pb-3 pe-0">
             <a class="d-inline-flex text-black text-decoration-none pt-2 my-2 w-100" href="{{route('news')}}">
                 <div class="fs-5">
                     <span>News</span>
@@ -139,10 +139,10 @@
     <x-footer></x-footer>
     <script>
         function swapSearch(){
-            var dari = document.getElementById('dari').value;
-            var ke = document.getElementById('ke').value;
-            document.getElementById('dari').value = ke;
-            document.getElementById('ke').value = dari;
+            var dari = $('#dari').val();
+            var ke = $('#ke').val();
+            $('#dari').val(ke).trigger('change');
+            $('#ke').val(dari).trigger('change');
         };
         $(document).ready(function() {
             $('.select2').select2();

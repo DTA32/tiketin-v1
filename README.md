@@ -21,16 +21,19 @@ DB News
 -   [ ] menu admin
 -   [ ] menu admin kelas penerbangan (seat layout pake template or auto-generate dari parameter input)
 -   [x] news
--   [ ] settings
+-   [ ] settings (baru about)
+-   [ ] custom scrollbar
+-   [ ] step1 filter n sort
+-   [ ] export e-ticket
 -   [ ] input validation
 
 catatan tambahan (low priority):
 
--   suggestion dari & ke di home pake select2 (deprecate typeahead)
-
 -   nomor identitas n gender penumpang
 
 -   db bisa di-optimize chatgpt
+
+-   customer service (form db nama user, 'judul, keluhan', respon, status)
 
 -   fix gitignore
 

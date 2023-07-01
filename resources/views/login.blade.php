@@ -4,7 +4,7 @@
 <body style="background: url('{{url('images/login_bg.png')}}') no-repeat center">
 <div class="d-flex flex-column justify-content-center align-items-center min-vh-100">
     <div class="d-flex flex-column justify-content-center align-items-center">
-        <img src="{{url('images/logo.png')}}" alt="" class="text-center mb-3" style="height: 100px; width:100px;">
+        <img src="{{url('images/logo_ori.png')}}" alt="" class="text-center mb-3" style="height: 100px">
         <h4 class="text-center mb-0 text-white mb-1">Welcome to</h4>
         <h2 class="text-center mb-0 text-white mb-3">TIKETIN</h2>
     </div>
@@ -23,7 +23,7 @@
                 <input type="text" name="password" id="password" class="input-text" autocomplete="off" style="width: 200px; background: transparent">
             </div>
         </div>
-        <button type="submit" onclick="{{route('home')}}" class="button mb-4" style="width: 240px;">
+        <button type="submit" class="button mb-4" style="width: 240px;">
             Login
         </button>
         <p class="text-center mb-0">Doesn't have account?</p>
