@@ -32,11 +32,13 @@
             </div>
         </a>
     </div>
-    <div class="d-flex border border-secondary-subtle py-2 mt-1 px-3 bg-danger-subtle" style="cursor: pointer; margin-bottom: 240px">
-        <span class="d-flex align-items-center"><img src="{{url('images/mdi_logout.png')}}" alt="" style="height: 24px; width: 24px" class="d-flex align-items-center"></span>
-        <span class="d-flex ps-2 flex-grow-1 align-items-center">Logout</span>
-        <span class="ms-2 text-secondary fs-5" style="display: inline-block;transform: scale(1.5,1)">&#10093;</span>
-    </div>
+    <a class="text-black text-decoration-none" href="{{route('logout')}}">
+        <div class="d-flex border border-secondary-subtle py-2 mt-1 px-3 bg-danger-subtle" style="cursor: pointer; margin-bottom: 240px">
+            <span class="d-flex align-items-center"><img src="{{url('images/mdi_logout.png')}}" alt="" style="height: 24px; width: 24px" class="d-flex align-items-center"></span>
+            <span class="d-flex ps-2 flex-grow-1 align-items-center">Logout</span>
+            <span class="ms-2 text-secondary fs-5" style="display: inline-block;transform: scale(1.5,1)">&#10093;</span>
+        </div>
+    </a>
     <x-footer></x-footer>
 </body>
 </html>

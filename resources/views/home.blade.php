@@ -24,7 +24,7 @@
     <x-header></x-header>
     <div class="container overflow-x-hidden overflow-y-scroll" style="max-height: 80vh">
         <div class="greeting mb-2 pb-1">
-            <p class="fs-6 lh-sm mb-0">Halo, User!</p>
+            <p class="fs-6 lh-sm mb-0">Halo, {{Auth::user() ? Auth::user()->name : 'NULL'}}</p>
             <p class="fs-5 fw-bold lh-sm mb-0">Mau kemana?</p>
         </div>
         <div class="search-box mb-3">

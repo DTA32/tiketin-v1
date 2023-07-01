@@ -2,7 +2,21 @@
 
 User Main Page: localhost:8000/home
 
-Management Admin:
+Default Account (use db:seed first):
+
+-   Admin
+
+email: admin@email.com
+
+password: admin
+
+-   User
+
+email: user@email.com
+
+password: user
+
+**Management Admin:**
 
 DB Penerbangan: localhost:8000/admin/penerbangan
 
@@ -17,9 +31,8 @@ DB News
 ### To-do list
 
 -   [x] kursi penerbangan
--   [ ] user authentication (FE done)
--   [ ] menu admin
--   [ ] menu admin kelas penerbangan (seat layout pake template or auto-generate dari parameter input)
+-   [x] user authentication
+-   [ ] menu admin [kelas penerbangan: seat layout pake template or auto-generate dari parameter input]
 -   [x] news
 -   [ ] settings (baru about)
 -   [ ] custom scrollbar

@@ -22,41 +22,45 @@
                 </div>
             </div>
         </div>
-        <div class="mb-5">
-            <div class="mb-2" style="width: 240px">
-                <label for="nama">Nama Lengkap</label>
-                <div class="input-text-div px-0 w-100">
-                    <img src="{{url('/images/ic_baseline-person.png')}}" alt="">
-                    <input type="text" name="nama" id="nama" class="input-text" autocomplete="off" style="width: 200px; background: transparent">
+        <form method="POST" action="{{route('register')}}">
+            @csrf
+            <div class="mb-5">
+                <div class="mb-2" style="width: 240px">
+                    <label for="name">Nama Lengkap</label>
+                    <div class="input-text-div px-0 w-100">
+                        <img src="{{url('/images/ic_baseline-person.png')}}" alt="">
+                        <input type="text" name="name" id="name" class="input-text" autocomplete="off" style="width: 200px; background: transparent" required>
+                    </div>
+                </div>
+                <div class="mb-2" style="width: 240px">
+                    <label for="email">Email</label>
+                    <div class="input-text-div px-0 w-100">
+                        <img src="{{url('/images/ic_baseline-email.png')}}" alt="">
+                        <input type="text" name="email" id="email" class="input-text" autocomplete="off" style="width: 200px; background: transparent" required>
+                    </div>
+                </div>
+                <div class="mb-2" style="width: 240px">
+                    <label for="password">Password</label>
+                    <div class="input-text-div px-0 w-100">
+                        <img src="{{url('/images/ic_baseline-key.png')}}" alt="">
+                        <input type="password" name="password" id="password" class="input-text" autocomplete="off" style="width: 200px; background: transparent" required>
+                    </div>
+                </div>
+                <div class="mb-4" style="width: 240px">
+                    <label for="conf_password">Konfirmasi Password</label>
+                    <div class="input-text-div px-0 w-100">
+                        <img src="{{url('/images/ic_baseline-key.png')}}" alt="">
+                        <input type="password" name="conf_password" id="conf_password" class="input-text" autocomplete="off" style="width: 200px; background: transparent" required>
+                    </div>
                 </div>
             </div>
-            <div class="mb-2" style="width: 240px">
-                <label for="email">Email</label>
-                <div class="input-text-div px-0 w-100">
-                    <img src="{{url('/images/ic_baseline-email.png')}}" alt="">
-                    <input type="text" name="email" id="email" class="input-text" autocomplete="off" style="width: 200px; background: transparent">
-                </div>
+            <div>
+                <button type="submit" class="button mb-4" style="width: 240px;">
+                    Register
+                </button>
             </div>
-            <div class="mb-2" style="width: 240px">
-                <label for="password">Password</label>
-                <div class="input-text-div px-0 w-100">
-                    <img src="{{url('/images/ic_baseline-key.png')}}" alt="">
-                    <input type="text" name="password" id="password" class="input-text" autocomplete="off" style="width: 200px; background: transparent">
-                </div>
-            </div>
-            <div class="mb-4" style="width: 240px">
-                <label for="conf_password">Konfirmasi Password</label>
-                <div class="input-text-div px-0 w-100">
-                    <img src="{{url('/images/ic_baseline-key.png')}}" alt="">
-                    <input type="text" name="conf_password" id="conf_password" class="input-text" autocomplete="off" style="width: 200px; background: transparent">
-                </div>
-            </div>
-        </div>
-        <div>
-            <button type="submit" class="button mb-4" style="width: 240px;">
-                Register
-            </button>
-        </div>
+        </form>
+        <p class="text-center text-danger">{{ Session::pull('error') }}</p>
     </div>
 </div>
 </body>
