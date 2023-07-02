@@ -32,25 +32,33 @@ DB News
 
 -   [x] kursi penerbangan
 -   [x] user authentication
--   [ ] menu admin [kelas penerbangan: seat layout pake template or auto-generate dari parameter input]
+-   [ ] menu admin (detail below)
 -   [x] news
--   [x] settings (kurang CS)
+-   [x] settings (kurang CS, profile update password)
 -   [ ] custom scrollbar
 -   [ ] step1 filter n sort
--   [ ] export e-ticket
 -   [ ] input validation
+-   [ ] export e-ticket
+
+menu admin:
+
+**ALL USE DB MODEL ELOQUENT**
+
+-   bandara: UD
+-   penerbangan: masukin menu kelas penerbangan, UD
+-   kelas penerbangan: C seat layout pake template or auto-generate dari parameter input, U gabisa update seat layout, D
+-   pemesanan: show data aja, jangan CUD
+-   news: CRUD
+-   user: C bikin menu buat bikin akun admin baru, R only show name email, UD
 
 catatan tambahan (low priority):
 
 -   nomor identitas n gender penumpang
-
 -   db bisa di-optimize chatgpt
-
 -   customer service (form db nama user, 'judul, keluhan', respon, status)
-
 -   fix gitignore
-
 -   guide installation (composer autoload, db seed)
+-   report admin
 
 ---
 
