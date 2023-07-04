@@ -9,45 +9,45 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="d-flex navbar-nav">
-                <a class="text-decoration-none text-black" href="{{route('admin')}}">
+                <a class="text-decoration-none text-white" href="{{route('admin')}}">
                     <div class="d-flex rounded py-2 px-3 mx-2 my-1 bg-primary-subtle">
-                        <span class="d-flex align-items-center"><img src="{{url('images/ic_outline-home.png')}}" alt="" style="height: 24px; width: 24px"></span>
+                        <span class="d-flex align-items-center"><img src="{{url('images/ic_outline-home.png')}}" alt="" style="height: 24px; width: 24px" class="navitem-logo"></span>
                         <span class="d-flex ps-2 flex-grow-1 align-items-center">Home</span>
                     </div>
                 </a>
-                <a class="text-decoration-none text-black" href="">
+                <a class="text-decoration-none text-white" href="{{route('admin.bandara')}}">
                     <div class="d-flex rounded py-2 px-3 mx-2 my-1 bg-primary-subtle">
-                        <span class="d-flex align-items-center"><img src="{{url('images/bxs_plane-land.png')}}" alt="" style="height: 24px; width: 24px"></span>
+                        <span class="d-flex align-items-center"><img src="{{url('images/bxs_plane-take-off.png')}}" alt="" style="height: 24px; width: 24px" class="navitem-logo"></span>
                         <span class="d-flex ps-2 flex-grow-1 align-items-center">Bandara</span>
                     </div>
                 </a>
-                <a class="text-decoration-none text-black" href="">
+                <a class="text-decoration-none text-white" href="{{route('admin.penerbangan')}}">
                     <div class="d-flex rounded py-2 px-3 mx-2 my-1 bg-primary-subtle">
-                        <span class="d-flex align-items-center"><img src="{{url('images/bxs_plane-land.png')}}" alt="" style="height: 24px; width: 24px"></span>
+                        <span class="d-flex align-items-center"><img src="{{url('images/bxs_plane-land.png')}}" alt="" style="height: 24px; width: 24px" class="navitem-logo"></span>
                         <span class="d-flex ps-2 flex-grow-1 align-items-center">Penerbangan</span>
                     </div>
                 </a>
-                <a class="text-decoration-none text-black" href="">
+                <a class="text-decoration-none text-white" href="{{route('admin.pemesanan')}}">
                     <div class="d-flex rounded py-2 px-3 mx-2 my-1 bg-primary-subtle">
-                        <span class="d-flex align-items-center"><img src="{{url('images/ic_outline-airplane-ticket.png')}}" alt="" style="height: 24px; width: 24px"></span>
+                        <span class="d-flex align-items-center"><img src="{{url('images/ic_outline-airplane-ticket.png')}}" alt="" style="height: 24px; width: 24px" class="navitem-logo"></span>
                         <span class="d-flex ps-2 flex-grow-1 align-items-center">Pemesanan</span>
                     </div>
                 </a>
-                <a class="text-decoration-none text-black" href="">
+                <a class="text-decoration-none text-white" href="">
                     <div class="d-flex rounded py-2 px-3 mx-2 my-1 bg-primary-subtle">
-                        <span class="d-flex align-items-center"><img src="{{url('images/ic_baseline-local-printshop.png')}}" alt="" style="height: 24px; width: 24px"></span>
+                        <span class="d-flex align-items-center"><img src="{{url('images/ic_baseline-local-printshop.png')}}" alt="" style="height: 24px; width: 24px" class="navitem-logo"></span>
                         <span class="d-flex ps-2 flex-grow-1 align-items-center">News</span>
                     </div>
                 </a>
-                <a class="text-decoration-none text-black" href="">
+                <a class="text-decoration-none text-white" href="">
                     <div class="d-flex rounded py-2 px-3 mx-2 my-1 bg-primary-subtle">
-                        <span class="d-flex align-items-center"><img src="{{url('images/ic_baseline-person.png')}}" alt="" style="height: 24px; width: 24px"></span>
+                        <span class="d-flex align-items-center"><img src="{{url('images/ic_baseline-person.png')}}" alt="" style="height: 24px; width: 24px" class="navitem-logo"></span>
                         <span class="d-flex ps-2 flex-grow-1 align-items-center">Users</span>
                     </div>
                 </a>
-                <a class="text-decoration-none text-black" href="{{route('logout')}}">
+                <a class="text-decoration-none text-white" href="{{route('logout')}}">
                     <div class="d-flex rounded py-2 px-3 mx-2 my-1 bg-primary-subtle">
-                        <span class="d-flex align-items-center"><img src="{{url('images/mdi_logout.png')}}" alt="" style="height: 24px; width: 24px"></span>
+                        <span class="d-flex align-items-center"><img src="{{url('images/mdi_logout.png')}}" alt="" style="height: 24px; width: 24px" class="navitem-logo"></span>
                         <span class="d-flex ps-2 flex-grow-1 align-items-center">Logout</span>
                     </div>
                 </a>

@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminPenerbangan;
 use App\Http\Controllers\AdminBandara;
 use App\Http\Controllers\AdminKursiPenerbangan;
 use App\Http\Controllers\AdminKelasPenerbangan;
+use App\Http\Controllers\AdminPemesanan;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Step1Controller;
 use App\Http\Controllers\Step2Controller;
@@ -44,10 +45,16 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 Route::middleware(['auth', 'isAdmin'])->group(function () {
 
     Route::get('/admin', [AdminController::class, 'get'])->name('admin');
-    Route::get('/admin/penerbangan', [AdminPenerbangan::class, 'get'])->name('admin.penerbangan');
-    Route::post('/admin/penerbangan', [AdminPenerbangan::class, 'add'])->name('admin.penerbangan.add');
     Route::get('/admin/bandara', [AdminBandara::class, 'get'])->name('admin.bandara');
     Route::post('/admin/bandara', [AdminBandara::class, 'add'])->name('admin.bandara.add');
+    Route::delete('/admin/bandara/{id}', [AdminBandara::class, 'delete'])->name('admin.bandara.delete');
+    Route::put('/admin/bandara', [AdminBandara::class, 'update'])->name('admin.bandara.update');
+    Route::get('/admin/pemesanan', [AdminPemesanan::class, 'get'])->name('admin.pemesanan');
+    Route::get('/admin/pemesanan/{id}', [AdminPemesanan::class, 'getDetail'])->name('admin.pemesanan.detail');
+
+    // WIP
+    Route::get('/admin/penerbangan', [AdminPenerbangan::class, 'get'])->name('admin.penerbangan');
+    Route::post('/admin/penerbangan', [AdminPenerbangan::class, 'add'])->name('admin.penerbangan.add');
     Route::get('/admin/kelaspenerbangan', [AdminKelasPenerbangan::class, 'get'])->name('admin.kelaspenerbangan');
     Route::post('/admin/kelaspenerbangan', [AdminKelasPenerbangan::class, 'add'])->name('admin.kelaspenerbangan.add');
 

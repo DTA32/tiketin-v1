@@ -1,64 +1,58 @@
-# Software Engineering Project
+# TIKETIN
+
+## Software Engineering Project
 
 User Main Page: localhost:8000/home
 
+Management Admin: localhost:8000/admin
+
 Default Account (use db:seed first):
 
--   Admin
+- Admin
 
-email: admin@email.com
+email: <admin@email.com>
 
 password: admin
 
--   User
+- User
 
-email: user@email.com
+email: <user@email.com>
 
 password: user
 
-**Management Admin:**
-
-DB Penerbangan: localhost:8000/admin/penerbangan
-
-DB Bandara: localhost:8000/admin/bandara
-
-DB Kelas_Penerbangan: localhost:8000/admin/kelaspenerbangan
-
-**TBA:**
-
-DB News
-
 ### To-do list
 
--   [x] kursi penerbangan
--   [x] user authentication
--   [ ] menu admin (detail below)
--   [x] news
--   [x] settings (kurang CS, profile update password)
--   [ ] custom scrollbar
--   [ ] step1 filter n sort
--   [ ] input validation
--   [ ] export e-ticket
+- [x] kursi penerbangan
+- [x] user authentication
+- [ ] menu admin (detail below)
+- [x] news
+- [x] settings (kurang CS, profile update password)
+- [ ] binding pemesanan to user
+- [ ] custom scrollbar
+- [ ] step1 filter n sort
+- [ ] input validation
+- [ ] export e-ticket
 
-menu admin:
+### menu admin
 
 **ALL USE DB MODEL ELOQUENT**
 
--   bandara: UD
--   penerbangan: masukin menu kelas penerbangan, UD
--   kelas penerbangan: C seat layout pake template or auto-generate dari parameter input, U gabisa update seat layout, D
--   pemesanan: show data aja, jangan CUD
--   news: CRUD
--   user: C bikin menu buat bikin akun admin baru, R only show name email, UD
+- [x] bandara: UD
+- [ ] penerbangan: masukin menu kelas penerbangan, UD
+- [ ] kelas penerbangan: C seat layout pake template or auto-generate dari parameter input, U gabisa update seat layout, D
+- [x] pemesanan: show data aja, jangan CUD (upcoming: Delete)
+- [ ] news: CRUD
+- [ ] user: C bikin menu buat bikin akun admin baru, R only show name email, UD
 
-catatan tambahan (low priority):
+**catatan tambahan (low priority):**
 
--   nomor identitas n gender penumpang
--   db bisa di-optimize chatgpt
--   customer service (form db nama user, 'judul, keluhan', respon, status)
--   fix gitignore
--   guide installation (composer autoload, db seed)
--   report admin
+- nomor identitas n gender penumpang
+- db bisa di-optimize chatgpt
+- customer service (form db nama user, 'judul, keluhan', respon, status)
+- fix gitignore
+- guide installation (composer autoload, db seed)
+- report admin
+- online check-in
 
 ---
 
@@ -75,13 +69,13 @@ catatan tambahan (low priority):
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
--   [Simple, fast routing engine](https://laravel.com/docs/routing).
--   [Powerful dependency injection container](https://laravel.com/docs/container).
--   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
--   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
--   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
--   [Robust background job processing](https://laravel.com/docs/queues).
--   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
@@ -99,19 +93,19 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 
 ### Premium Partners
 
--   **[Vehikl](https://vehikl.com/)**
--   **[Tighten Co.](https://tighten.co)**
--   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
--   **[64 Robots](https://64robots.com)**
--   **[Cubet Techno Labs](https://cubettech.com)**
--   **[Cyber-Duck](https://cyber-duck.co.uk)**
--   **[Many](https://www.many.co.uk)**
--   **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
--   **[DevSquad](https://devsquad.com)**
--   **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
--   **[OP.GG](https://op.gg)**
--   **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
--   **[Lendio](https://lendio.com)**
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[Many](https://www.many.co.uk)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[OP.GG](https://op.gg)**
+- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+- **[Lendio](https://lendio.com)**
 
 ## Contributing
 
