@@ -51,12 +51,19 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::put('/admin/bandara', [AdminBandara::class, 'update'])->name('admin.bandara.update');
     Route::get('/admin/pemesanan', [AdminPemesanan::class, 'get'])->name('admin.pemesanan');
     Route::get('/admin/pemesanan/{id}', [AdminPemesanan::class, 'getDetail'])->name('admin.pemesanan.detail');
-
-    // WIP
     Route::get('/admin/penerbangan', [AdminPenerbangan::class, 'get'])->name('admin.penerbangan');
     Route::post('/admin/penerbangan', [AdminPenerbangan::class, 'add'])->name('admin.penerbangan.add');
-    Route::get('/admin/kelaspenerbangan', [AdminKelasPenerbangan::class, 'get'])->name('admin.kelaspenerbangan');
-    Route::post('/admin/kelaspenerbangan', [AdminKelasPenerbangan::class, 'add'])->name('admin.kelaspenerbangan.add');
+    Route::delete('/admin/penerbangan/{id}', [AdminPenerbangan::class, 'delete'])->name('admin.penerbangan.delete');
+    Route::get('/admin/penerbangan/{id}', [AdminPenerbangan::class, 'getDetail'])->name('admin.penerbangan.detail');
+    Route::put('/admin/penerbangan', [AdminPenerbangan::class, 'update'])->name('admin.penerbangan.update');
+
+    // WIP
+    Route::get('/admin/penerbangan/{id}/kelas/', [AdminKelasPenerbangan::class, 'get'])->name('admin.kelaspenerbangan.get');
+    Route::post('/admin/penerbangan/{id}/kelas/', [AdminKelasPenerbangan::class, 'add'])->name('admin.kelaspenerbangan.add');
+    Route::delete('/admin/penerbangan/{id}/kelas/{id_kelas}', [AdminKelasPenerbangan::class, 'delete'])->name('admin.kelaspenerbangan.delete');
+    Route::put('/admin/penerbangan/{id}/kelas/{id_kelas}', [AdminKelasPenerbangan::class, 'update'])->name('admin.kelaspenerbangan.update');
+    Route::get('/admin/penerbangan/{id}/kelas/{id_kelas}', [AdminKelasPenerbangan::class, 'getDetail'])->name('admin.kelaspenerbangan.detail');
+    Route::get('/admin/penerbangan/{id}/kelas/{id_kelas}/seatlayout', [AdminKelasPenerbangan::class, 'getSeatLayout'])->name('admin.kelaspenerbangan.seatlayout');
 
 });
 

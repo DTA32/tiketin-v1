@@ -38,7 +38,7 @@ password: user
 **ALL USE DB MODEL ELOQUENT**
 
 - [x] bandara: UD
-- [ ] penerbangan: masukin menu kelas penerbangan, UD
+- [x] penerbangan: masukin menu kelas penerbangan, UD
 - [ ] kelas penerbangan: C seat layout pake template or auto-generate dari parameter input, U gabisa update seat layout, D
 - [x] pemesanan: show data aja, jangan CUD (upcoming: Delete)
 - [ ] news: CRUD

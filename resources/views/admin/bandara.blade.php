@@ -65,7 +65,6 @@
                         <td>{{ $airport->kode_bandara }}</td>
                         <td>{{ $airport->kota }}</td>
                         <td>
-                            {{-- <a class="btn bg-warning-subtle text-decoration-none py-0">Edit</a> --}}
                             <button type="button" class="btn bg-warning-subtle text-decoration-none py-0" data-bs-toggle="modal" data-bs-target="#editBandara"
                             data-bs-id="{{$airport->id}}" data-bs-nama="{{$airport->nama_bandara}}" data-bs-kode="{{$airport->kode_bandara}}" data-bs-kota="{{$airport->kota}}">
                                 Edit
