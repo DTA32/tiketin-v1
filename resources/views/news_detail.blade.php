@@ -7,7 +7,7 @@
         <p class="text-center text-danger mt-5 fw-bold fs-3">News not found or doesn't exist</p>
     @else
         <div class="mt-1">
-            <img src="{{Storage::url($news->image)}}" alt="" style="width: 100%; height: 190px; object-fit: cover; background-repeat: no-repeat">
+            <img src="{{Storage::url('news/'.$news->id.'.jpg')}}" alt="" style="width: 100%; height: 190px; object-fit: cover; background-repeat: no-repeat">
         </div>
         <div class="pt-3 pb-5 px-3 bg-white" style="overflow:auto; max-height: 80vh">
             <p class="mb-0 fs-4 fw-bold">{{$news->title}}</p>

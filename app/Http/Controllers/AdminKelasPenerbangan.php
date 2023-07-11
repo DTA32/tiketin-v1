@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\kelas_penerbangan;
+use App\Models\penerbangan;
+use Illuminate\Support\Facades\Storage;
 
 class AdminKelasPenerbangan extends Controller
 {
@@ -17,16 +19,23 @@ class AdminKelasPenerbangan extends Controller
             'penerbangan_id' => 'required',
             'tipe_kelas' => 'required',
             'harga' => 'required',
-            'jumlah_kursi' => 'required',
-            'seat_layout' => 'required'
         ]);
+        $tipePesawatRaw = penerbangan::where('id', $data['penerbangan_id'])->first()->tipe_pesawat;
+        $tipePesawatSplit = explode(' ', $tipePesawatRaw);
+        // TBA: Other types
+        if($tipePesawatSplit[1] === 'A320'){
+            $data['jumlah_kursi'] = 80;
+            $data['seat_layout'] = Storage::disk('local')->get('seatLayout/'.$data['tipe_kelas'].'/'.$tipePesawatSplit[1].'.json');
+        }
         $newKelasPenerbangan = kelas_penerbangan::create($data);
-        return redirect()->route('admin.kelaspenerbangan');
+        $request->session()->flash('success', 'Kelas Penerbangan berhasil ditambahkan');
+        return redirect()->route('admin.kelaspenerbangan.get', $data['penerbangan_id']);
     }
     public function delete(Request $request, $id, $id_kelas){
         $kelas_penerbangan = kelas_penerbangan::find($id_kelas);
         $kelas_penerbangan->delete();
-        return redirect()->route('admin.kelaspenerbangan', $id);
+        $request->session()->flash('success', 'Kelas Penerbangan berhasil dihapus');
+        return redirect()->route('admin.kelaspenerbangan.get', $id);
     }
     public function update(Request $request){
         $data = $request->validate([
@@ -34,22 +43,25 @@ class AdminKelasPenerbangan extends Controller
             'edit_penerbangan_id' => 'required',
             'edit_tipe_kelas' => 'required',
             'edit_harga' => 'required',
+            'edit_jumlah_kursi' => 'required',
         ]);
         $kelas_penerbangan = kelas_penerbangan::find(intval($data['edit_id_kelas_penerbangan']));
         $kelas_penerbangan->penerbangan_id = $data['edit_penerbangan_id'];
         $kelas_penerbangan->tipe_kelas = $data['edit_tipe_kelas'];
         $kelas_penerbangan->harga = $data['edit_harga'];
+        $kelas_penerbangan->jumlah_kursi = $data['edit_jumlah_kursi'];
         $kelas_penerbangan->save();
-        return redirect()->route('admin.kelaspenerbangan', $data['edit_penerbangan_id']);
+        $request->session()->flash('success', 'Kelas Penerbangan berhasil diubah');
+        return redirect()->route('admin.kelaspenerbangan.get', $data['edit_penerbangan_id']);
     }
-    public function getDetail($id)
+    public function getDetail($id, $id_kelas)
     {
-        $kelas_penerbangan = kelas_penerbangan::find($id);
-        return response()->json(['kelas_penerbangan' =>$kelas_penerbangan]);
+        $kelas_penerbangan = kelas_penerbangan::find($id_kelas);
+        return response()->json([$kelas_penerbangan]);
     }
-    public function getSeatLayout($id)
+    public function getSeatLayout($id, $id_kelas)
     {
-        $kelas_penerbangan = kelas_penerbangan::find($id);
-        return response()->json(['kelas_penerbangan' =>$kelas_penerbangan]);
+        $kelas_penerbangan = kelas_penerbangan::find($id_kelas)->seat_layout;
+        return response()->json($kelas_penerbangan);
     }
 }

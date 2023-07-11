@@ -57,13 +57,17 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/admin/penerbangan/{id}', [AdminPenerbangan::class, 'getDetail'])->name('admin.penerbangan.detail');
     Route::put('/admin/penerbangan', [AdminPenerbangan::class, 'update'])->name('admin.penerbangan.update');
 
-    // WIP
     Route::get('/admin/penerbangan/{id}/kelas/', [AdminKelasPenerbangan::class, 'get'])->name('admin.kelaspenerbangan.get');
     Route::post('/admin/penerbangan/{id}/kelas/', [AdminKelasPenerbangan::class, 'add'])->name('admin.kelaspenerbangan.add');
     Route::delete('/admin/penerbangan/{id}/kelas/{id_kelas}', [AdminKelasPenerbangan::class, 'delete'])->name('admin.kelaspenerbangan.delete');
-    Route::put('/admin/penerbangan/{id}/kelas/{id_kelas}', [AdminKelasPenerbangan::class, 'update'])->name('admin.kelaspenerbangan.update');
+    Route::put('/admin/penerbangan/{id}/kelas/', [AdminKelasPenerbangan::class, 'update'])->name('admin.kelaspenerbangan.update');
     Route::get('/admin/penerbangan/{id}/kelas/{id_kelas}', [AdminKelasPenerbangan::class, 'getDetail'])->name('admin.kelaspenerbangan.detail');
     Route::get('/admin/penerbangan/{id}/kelas/{id_kelas}/seatlayout', [AdminKelasPenerbangan::class, 'getSeatLayout'])->name('admin.kelaspenerbangan.seatlayout');
+
+    Route::get('/admin/news', [NewsController::class, 'getAdmin'])->name('admin.news');
+    Route::delete('/admin/news/{id}', [NewsController::class, 'delete'])->name('admin.news.delete');
+    Route::post('/admin/news', [NewsController::class, 'add'])->name('admin.news.add');
+    Route::put('/admin/news', [NewsController::class, 'update'])->name('admin.news.update');
 
 });
 

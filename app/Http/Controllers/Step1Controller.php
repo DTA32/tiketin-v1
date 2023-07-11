@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 class Step1Controller extends Controller
 {
     public function search(Request $request){
-        $request->session()->flush();
+        $request->session()->forget('penumpang');
         $dari = $request->input('dari');
         $ke = $request->input('ke');
         $tanggal = $request->input('tanggal');
@@ -43,7 +43,7 @@ class Step1Controller extends Controller
                     ->get();
         if($results->isEmpty()){
             $request->session()->put('error', 'Penerbangan tidak ditemukan');
-            return redirect('/home');
+            return to_route('home');
         }
         return view('step1', ['results' => $results, 'penumpang' => $penumpang, 'kelas' => $kelas]);
     }

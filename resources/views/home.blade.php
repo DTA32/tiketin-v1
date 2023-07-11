@@ -124,7 +124,7 @@
                 <div class="d-inline-block me-2">
                     <a class="text-decoration-none" href="{{route('news.detail', $newsss->id)}}">
                         <div class="card" style="width: 140px; white-space: normal">
-                            <img src="{{Storage::url($newsss->image)}}" class="card-img-top" alt="">
+                            <img src="{{Storage::url('news/'.$newsss->id.'.jpg')}}" class="card-img-top" alt="">
                             <div class="card-body p-2">
                                 <p class="card-title fw-bold" style="font-size: 12px">{{$newsss->title}}</p>
                                 <p class="card-text text-secondary" style="font-size: 10px">{{Str::limit($newsss->content, 80)}}</p>

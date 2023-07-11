@@ -83,6 +83,8 @@ class Step5Controller extends Controller
         $kelas->seat_layout = json_encode($seatLayout, JSON_PRETTY_PRINT);
         $kelas->save();
 
+        $request->session()->forget('penumpang');
+
         return view('step5', ['pemesanan' => $pemesanan]);
     }
 
@@ -116,8 +118,7 @@ class Step5Controller extends Controller
             ]);
         }
         $pemesanan->save();
-        $request->session()->flush();
         $request->session()->put('success', 'Pemesanan berhasil!');
-        return redirect('/home');
+        return to_route('home');
     }
 }

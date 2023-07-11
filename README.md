@@ -27,7 +27,7 @@ password: user
 - [ ] menu admin (detail below)
 - [x] news
 - [x] settings (kurang CS, profile update password)
-- [ ] binding pemesanan to user
+- [ ] binding pemesanan to user sekalian cobain ubah kelas_penerbangan_id di pemesanan
 - [ ] custom scrollbar
 - [ ] step1 filter n sort
 - [ ] input validation
@@ -39,9 +39,9 @@ password: user
 
 - [x] bandara: UD
 - [x] penerbangan: masukin menu kelas penerbangan, UD
-- [ ] kelas penerbangan: C seat layout pake template or auto-generate dari parameter input, U gabisa update seat layout, D
+- [ ] kelas penerbangan: C seat layout pake template or auto-generate dari parameter input, ~~U gabisa update seat layout, D~~
 - [x] pemesanan: show data aja, jangan CUD (upcoming: Delete)
-- [ ] news: CRUD
+- [x] news: CRUD (belum delete image)
 - [ ] user: C bikin menu buat bikin akun admin baru, R only show name email, UD
 
 **catatan tambahan (low priority):**

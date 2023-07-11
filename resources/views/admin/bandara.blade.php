@@ -8,7 +8,7 @@
     <div class="px-4">
         <p class="text-center fw-bold fs-5 my-2">Bandara</p>
         <div class="my-3">
-            <button type="button" class="btn bg-primary-subtle" data-bs-toggle="modal" data-bs-target="#tambahBandara">
+            <button type="button" class="btn btn-dark bg-primary-subtle" data-bs-toggle="modal" data-bs-target="#tambahBandara">
                 Tambah
             </button>
             <div class="modal fade" id="tambahBandara" tabindex="-1" aria-labelledby="tambahBandaraLabel" aria-hidden="true">

@@ -12,7 +12,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">ID Pemesanan</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Status</th>
                         <th scope="col">Metode Pembayaran</th>
                         <th scope="col">Referensi Pembayaran</th>
