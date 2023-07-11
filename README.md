@@ -41,8 +41,8 @@ password: user
 - [x] penerbangan: masukin menu kelas penerbangan, UD
 - [ ] kelas penerbangan: C seat layout pake template or auto-generate dari parameter input, ~~U gabisa update seat layout, D~~
 - [x] pemesanan: show data aja, jangan CUD (upcoming: Delete)
-- [x] news: CRUD (belum delete image)
-- [ ] user: C bikin menu buat bikin akun admin baru, R only show name email, UD
+- [x] news: CRUD
+- [x] user: C bikin menu buat bikin akun admin baru, R only show name email, UD
 
 **catatan tambahan (low priority):**
 

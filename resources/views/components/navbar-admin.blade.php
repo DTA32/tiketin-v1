@@ -39,7 +39,7 @@
                         <span class="d-flex ps-2 flex-grow-1 align-items-center text-white">News</span>
                     </div>
                 </a>
-                <a class="text-decoration-none text-white" href="">
+                <a class="text-decoration-none text-white" href="{{route('admin.user')}}">
                     <div class="d-flex rounded py-2 px-3 mx-2 my-1 btn btn-outline-primary">
                         <span class="d-flex align-items-center"><img src="{{url('images/ic_baseline-person.png')}}" alt="" style="height: 24px; width: 24px" class="navitem-logo"></span>
                         <span class="d-flex ps-2 flex-grow-1 align-items-center text-white">Users</span>

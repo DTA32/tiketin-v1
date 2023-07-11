@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminBandara;
 use App\Http\Controllers\AdminKursiPenerbangan;
 use App\Http\Controllers\AdminKelasPenerbangan;
 use App\Http\Controllers\AdminPemesanan;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Step1Controller;
 use App\Http\Controllers\Step2Controller;
@@ -69,6 +70,10 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('/admin/news', [NewsController::class, 'add'])->name('admin.news.add');
     Route::put('/admin/news', [NewsController::class, 'update'])->name('admin.news.update');
 
+    Route::get('/admin/user', [AdminUserController::class, 'get'])->name('admin.user');
+    Route::delete('/admin/user/{id}', [AdminUserController::class, 'delete'])->name('admin.user.delete');
+    Route::put('/admin/user', [AdminUserController::class, 'update'])->name('admin.user.update');
+    Route::post('/admin/user', [AdminUserController::class, 'add'])->name('admin.user.add');
 });
 
 // USER ROUTING
