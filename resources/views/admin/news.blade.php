@@ -102,7 +102,7 @@
                         @csrf
                         @method('PUT')
                         <div class="modal-body">
-                            <div class="mb-3">
+                            <div class="mb-3 d-none">
                                 <label for="edit_id" class="form-label">ID</label>
                                 <input type="text" name="edit_id" id="edit_id" class="form-control" readonly>
                             </div>
@@ -130,11 +130,11 @@
         editBtn.forEach(btn => {
             btn.addEventListener('click', () => {
                 const id = btn.getAttribute('data-news-id');
-                const title = document.querySelector(`#title${id}`).innerHTML;
-                const content = document.querySelector(`#content${id}`).innerHTML;
-                document.querySelector('#edit_id').value = id;
-                document.querySelector('#edit_title').value = title;
-                document.querySelector('#edit_content').value = content;
+                const title = document.getElementById(`title${id}`).innerHTML;
+                const content = document.getElementById(`content${id}`).innerHTML;
+                document.getElementById('edit_id').value = id;
+                document.getElementById('edit_title').value = title;
+                document.getElementById('edit_content').value = content;
             })
         })
     </script>

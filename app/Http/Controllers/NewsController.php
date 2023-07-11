@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\News;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\File;
 
 
 class NewsController extends Controller
@@ -32,7 +33,9 @@ class NewsController extends Controller
     }
     public function delete($id){
         $news = News::find($id);
-        // Storage::delete('public/news/'.$news->id.'.jpg');
+        if(File::exists('storage/news/'.$news->id.'.'.$news->image)){
+            File::delete('storage/news/'.$news->id.'.'.$news->image);
+        }
         $news->delete();
         Session::flash('success', 'Berita berhasil dihapus');
         return redirect()->route('admin.news');
@@ -44,7 +47,7 @@ class NewsController extends Controller
             'author' => 'required',
             'content' => 'required',
         ]);
-        $data['image'] = 0;
+        $data['image'] = $request->file('image')->extension();
         $newNews = News::create($data);
         $path = $request->file('image')->storeAs('news', $newNews->id.'.'.$request->image->extension(), 'public');
         Session::flash('success', 'Berita berhasil ditambahkan');

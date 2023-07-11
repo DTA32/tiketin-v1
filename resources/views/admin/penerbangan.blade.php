@@ -140,7 +140,7 @@
                         @csrf
                         @method('PUT')
                         <div class="modal-body">
-                            <div class="mb-3">
+                            <div class="mb-3 d-none">
                                 <label for="edit_id" class="form-label">ID</label>
                                 <input type="text" class="form-control" id="edit_id" name="edit_id" readonly>
                             </div>

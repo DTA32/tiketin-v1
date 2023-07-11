@@ -143,11 +143,11 @@
                         @csrf
                         @method('PUT')
                         <div class="modal-body">
-                            <div class="mb-3">
+                            <div class="mb-3 d-none">
                                 <label for="edit_id_kelas_penerbangan" class="form-label">ID Kelas Penerbangan</label>
                                 <input type="text" name="edit_id_kelas_penerbangan" id="edit_id_kelas_penerbangan" readonly class="form-control">
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 d-none">
                                 <label for="edit_penerbangan_id" class="form-label">ID Penerbangan</label>
                                 <input type="text" name="edit_penerbangan_id" id="edit_penerbangan_id" value="{{$id}}" readonly class="form-control">
                             </div>
