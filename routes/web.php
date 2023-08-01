@@ -94,6 +94,7 @@ Route::middleware(['auth'])->group(function () {
     Route::view('/settings', 'settings')->name('settings');
     Route::get('/settings/profile', [ProfileController::class, 'get'])->name('profile');
     Route::put('/settings/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/settings/profilePwd', [ProfileController::class, 'updatePwd'])->name('profile.updatepassword');
     Route::view('/settings/about', 'about')->name('settings.about');
 
 });

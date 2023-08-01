@@ -23,10 +23,16 @@ class AdminKelasPenerbangan extends Controller
         $tipePesawatRaw = penerbangan::where('id', $data['penerbangan_id'])->first()->tipe_pesawat;
         $tipePesawatSplit = explode(' ', $tipePesawatRaw);
         // TBA: Other types
+        /*
         if($tipePesawatSplit[1] === 'A320'){
             $data['jumlah_kursi'] = 80;
             $data['seat_layout'] = Storage::disk('local')->get('seatLayout/'.$data['tipe_kelas'].'/'.$tipePesawatSplit[1].'.json');
         }
+        */
+        // sementara all type pake A320, males ngisi macem2 tipe
+        $data['jumlah_kursi'] = 80;
+        $data['seat_layout'] = Storage::disk('local')->get('seatLayout/1/A320.json');
+
         $newKelasPenerbangan = kelas_penerbangan::create($data);
         $request->session()->flash('success', 'Kelas Penerbangan berhasil ditambahkan');
         return redirect()->route('admin.kelaspenerbangan.get', $data['penerbangan_id']);

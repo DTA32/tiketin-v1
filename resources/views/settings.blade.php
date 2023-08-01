@@ -13,7 +13,7 @@
         <a class="text-black text-decoration-none" href="{{route('profile')}}">
             <div class="d-flex border border-secondary-subtle py-2 px-3 bg-white">
                 <span class="d-flex align-items-center"><img src="{{url('images/ic_baseline-person.png')}}" alt="" style="height: 24px; width: 24px"></span>
-                <span class="d-flex ps-2 flex-grow-1 align-items-center">Account Settings</span>
+                <span class="d-flex ps-2 flex-grow-1 align-items-center">Profile</span>
                 <span class="ms-2 text-secondary fs-5" style="display: inline-block;transform: scale(1.5,1)">&#10093;</span>
             </div>
         </a>

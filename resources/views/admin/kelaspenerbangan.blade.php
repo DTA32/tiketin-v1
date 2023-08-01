@@ -42,7 +42,7 @@
                             <td id="kelas{{$kelas->id}}Harga">{{$kelas->harga}}</td>
                             <td id="kelas{{$kelas->id}}Kursi">{{$kelas->jumlah_kursi}}</td>
                             <td>
-                                <button class="btn bg-primary-subtle text-decoration-none py-0 btn-detail" data-kelas-id="{{$kelas->id}}" data-penerbangan-id="{{$id}}" data-bs-toggle="modal" data-bs-target="#lihatSeat">Lihat</a>
+                                <button class="btn bg-primary-subtle text-decoration-none py-0 btn-detail" data-kelas-id="{{$kelas->id}}" data-penerbangan-id="{{$id}}" data-bs-toggle="modal" data-bs-target="#lihatSeat">Lihat</button>
                             </td>
                             <td>
                                 <button type="button" class="btn bg-warning-subtle text-decoration-none py-0" data-bs-toggle="modal" data-bs-target="#editKelas"

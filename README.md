@@ -2,11 +2,25 @@
 
 ## Software Engineering Project
 
-User Main Page: localhost:8000/home
+Aplikasi website sederhana pemesanan tiket pesawat yang dibuat untuk tugas akhir mata kuliah Software Engineering
 
-Management Admin: localhost:8000/admin
+---
 
-Default Account (use db:seed first):
+### Navigation
+
+Login Page: SERVER_URL/login
+
+User Main Page: SERVER_URL/home
+
+Management Admin: SERVER_URL/admin
+
+(SERVER_URL default is localhost:8000)
+
+---
+
+### Default Account
+
+(use db:seed first)
 
 - Admin
 
@@ -20,17 +34,20 @@ email: <user@email.com>
 
 password: user
 
+---
+
 ### To-do list
 
 - [x] kursi penerbangan
 - [x] user authentication
-- [ ] menu admin (detail below)
+- [x] menu admin (detail below)
 - [x] news
-- [x] settings (kurang CS, profile update password)
+- [x] settings
 - [ ] binding pemesanan to user sekalian cobain ubah kelas_penerbangan_id di pemesanan
 - [ ] custom scrollbar
 - [ ] step1 filter n sort
 - [ ] input validation
+- [ ] possible bug fix (step 123 etc (use alert if back))
 - [ ] export e-ticket
 
 ### menu admin
@@ -39,20 +56,22 @@ password: user
 
 - [x] bandara: UD
 - [x] penerbangan: masukin menu kelas penerbangan, UD
-- [ ] kelas penerbangan: C seat layout pake template or auto-generate dari parameter input, ~~U gabisa update seat layout, D~~
+- [x] kelas penerbangan: C seat layout pake template or auto-generate dari parameter input, U gabisa update seat layout, D (dianggap beres dulu karena terlalu ribet)
 - [x] pemesanan: show data aja, jangan CUD (upcoming: Delete)
 - [x] news: CRUD
 - [x] user: C bikin menu buat bikin akun admin baru, R only show name email, UD
 
 **catatan tambahan (low priority):**
 
+- kelas penerbangan seed JSON seat_layout berbagai tipe pesawat
 - nomor identitas n gender penumpang
 - db bisa di-optimize chatgpt
-- customer service (form db nama user, 'judul, keluhan', respon, status)
+- customer service on settings (form db nama user, 'judul, keluhan', respon, status)
 - fix gitignore
-- guide installation (composer autoload, db seed)
+- guide installation (composer autoload, db seed (isi n fix dulu))
 - report admin
 - online check-in
+- readme: project description (from tugas), disclaimer (using dummy data), recommended improvement (db transaction)
 
 ---
 

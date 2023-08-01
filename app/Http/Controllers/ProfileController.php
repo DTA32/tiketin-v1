@@ -15,6 +15,7 @@ class ProfileController extends Controller
         $email = Auth::user()->email;
         return view('profile', compact('name', 'email'));
     }
+
     public function update(Request $request)
     {
         $input = $request->validate([
@@ -31,6 +32,27 @@ class ProfileController extends Controller
         $user->email = $input['email'];
         $user->save();
         $request->session()->put('success', 'Profile updated successfully.');
+        return redirect('/settings');
+    }
+
+    public function updatePwd(Request $request){
+        $input = $request->validate([
+            'old_password' => ['required'],
+            'new_password' => ['required'],
+            'confirm_password' => ['required'],
+        ]);
+        $user = User::find(Auth::id());
+        if(!Hash::check($input['old_password'], $user->password)){
+            $request->session()->put('error', 'Old password is incorrect.');
+            return back();
+        }
+        if($input['new_password'] !== $input['confirm_password']){
+            $request->session()->put('error', 'New password and confirm password does not match.');
+            return back();
+        }
+        $user->password = Hash::make($input['new_password']);
+        $user->save();
+        $request->session()->put('success', 'Password updated successfully.');
         return redirect('/settings');
     }
 }
