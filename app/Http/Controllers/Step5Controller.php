@@ -13,12 +13,15 @@ class Step5Controller extends Controller
 {
     public function post(Request $request){
         // buat pemesanan baru
+        $kelas_penerbangan_id = kelas_penerbangan::where('penerbangan_id', $request->input('penerbangan_id'))
+                                                ->where('tipe_kelas', $request->input('kelas'))
+                                                ->first()->id;
         $pemesanan = pemesanan::create([
             'penerbangan_id' => $request->input('penerbangan_id'),
             'status' => 0,
             'metode_pembayaran' => 0,
             'referensi_pembayaran' => '0',
-            'kelas_penerbangan_id' => $request->input('kelas'),
+            'kelas_penerbangan_id' => $kelas_penerbangan_id,
             'userId' => auth()->user()->id
         ]);
         $pemesanan->save();
@@ -39,13 +42,12 @@ class Step5Controller extends Controller
             'biaya_layanan' => $harga['biaya_layanan'],
             'total' => $harga['total']
         ]);
-        kelas_penerbangan::where('penerbangan_id', $request->input('penerbangan_id'))
-                        ->where('tipe_kelas', $pemesanan->kelas_penerbangan_id)
+        kelas_penerbangan::where('id', $kelas_penerbangan_id)
                         ->decrement('jumlah_kursi', count($penumpangs));
 
-        // TO-DO: update seat_layout
+        // update seat_layout
 
-        $kelas = kelas_penerbangan::where('penerbangan_id', $request->input('penerbangan_id'))->first();
+        $kelas = kelas_penerbangan::where('id', $kelas_penerbangan_id)->first();
         $seatLayout = json_decode($kelas->seat_layout, true);
         foreach($penumpangs as $penumpang){
             $arr = str_split($penumpang['kursi_penerbangan']);

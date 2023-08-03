@@ -35,7 +35,7 @@
                 </div>
                 <div class="d-flex justify-content-between">
                     <p style="font-size: 12px">ID: {{$pemesanan->penerbangan->id}}</p>
-                    <p>{{($pemesanan->kelas_penerbangan_id == 1) ? 'Ekonomi' : (($pemesanan->kelas_penerbangan_id == 2) ? 'Bisnis' : 'First')}}</p>
+                    <p>{{($pemesanan->kelas_penerbangan->tipe_kelas == 1) ? 'Ekonomi' : (($pemesanan->kelas_penerbangan->tipe_kelas == 2) ? 'Bisnis' : 'First')}}</p>
                 </div>
                 <div class="d-flex justify-content-center">
                     <p class="mb-0">{{$pemesanan->penerbangan->waktu_berangkat->format('D, d M Y')}}</p>

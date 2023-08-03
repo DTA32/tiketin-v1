@@ -26,4 +26,12 @@ class pemesanan extends Model
     {
         return $this->hasMany(pemesanan_penumpang::class);
     }
+    public function userId(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'id');
+    }
+    public function kelas_penerbangan(): BelongsTo
+    {
+        return $this->belongsTo(kelas_penerbangan::class)->select('id', 'penerbangan_id', 'tipe_kelas', 'harga', 'jumlah_kursi');
+    }
 }

@@ -43,8 +43,9 @@ password: user
 - [x] menu admin (detail below)
 - [x] news
 - [x] settings
-- [ ] binding pemesanan to user sekalian cobain ubah kelas_penerbangan_id di pemesanan
+- [x] binding pemesanan to user sekalian cobain ubah kelas_penerbangan_id di pemesanan
 - [ ] custom scrollbar
+- [ ] styling add more icon illust etc
 - [ ] step1 filter n sort
 - [ ] input validation
 - [ ] possible bug fix (step 123 etc (use alert if back))
@@ -64,7 +65,7 @@ password: user
 **catatan tambahan (low priority):**
 
 - kelas penerbangan seed JSON seat_layout berbagai tipe pesawat
-- nomor identitas n gender penumpang
+- step 2 pemesanan tambahin nomor identitas n gender penumpang
 - customer service on settings (form db nama user, 'judul, keluhan', id pemesanan (0 = sistem), respon, status)
 - db bisa di-optimize chatgpt
 - report admin
@@ -72,6 +73,13 @@ password: user
 - fix gitignore
 - guide installation (composer autoload, db seed (isi n fix dulu))
 - readme: project description (from tugas), disclaimer (using dummy data), recommended improvement (db transaction)
+
+notes from figma comment:
+
+- harusnya db pesawat (maskapai + tipe) dipisah sendiri buat callsign
+- step 0 pemesanan opsi pulang pergi
+- step 3 tambahin addons (bagasi, asuransi, etc)
+- step 5 tambah konfirmasi sweetalert "apakah anda yakin dengan pesanan anda? [ (kecil) pesanan akan diproses setelah ini dan tidak dapat diubah kembali ]"
 
 ---
 

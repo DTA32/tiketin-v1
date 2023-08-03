@@ -59,7 +59,7 @@
                         </div>
                         <div class="mb-2 row">
                             <label for="tanggal">Tanggal Keberangkatan</label>
-                            <input type="date" name="tanggal" id="tanggal" class="input-other ms-2 ps-1 pe-0" required>
+                            <input type="date" name="tanggal" id="tanggal" class="input-other ms-2 ps-1 pe-0" required min="{{ date('Y-m-d') }}">
                         </div>
                     </div>
                     <div class="col ms-3 mt-2 pt-4">

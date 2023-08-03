@@ -4,15 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\pemesanan;
-use App\Models\penerbangan;
-use App\Models\pemesanan_harga;
-use App\Models\pemesanan_penumpang;
+use App\Models\User;
 
 
 class HistoryController extends Controller
 {
     public function get(){
-        $pemesanan = pemesanan::where('userId', auth()->user()->id)->orderBy('id', 'desc')->get();
+        // $pemesanan = pemesanan::where('userId', auth()->user()->id)->orderBy('id', 'desc')->get();
+        $pemesanan = User::find(auth()->user()->id)->pemesanan()->orderBy('id', 'desc')->get();
         return view('history', ['pemesanan' => $pemesanan]);
     }
     public function getDetail($id){

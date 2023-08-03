@@ -40,7 +40,7 @@
                             @endif
                         </td>
                         <td>{{ $order->referensi_pembayaran }}</td>
-                        <td>{{ ($order->kelas_penerbangan_id == 1) ? 'Ekonomi' : (($order->kelas_penerbangan_id == 2) ? 'Bisnis' : (($order->kelas_penerbangan_id == 3) ? 'First' : 'Error/Unlisted')) }}</td>
+                        <td>{{ ($order->kelas_penerbangan_id == 1) ? 'Ekonomi (err)' : (($order->kelas_penerbangan->tipe_kelas == 1) ? 'Ekonomi' : (($order->kelas_penerbangan->tipe_kelas == 2) ? 'Bisnis' : (($order->kelas_penerbangan->tipe_kelas == 3) ? 'First' : 'Error/Unlisted'))) }}</td>
                         <td>{{ $order->userId }}</td>
                         <td>
                             <button class="btn bg-primary-subtle text-decoration-none py-0 btn-detail" data-pemesanan-id="{{$order->id}}">Detail</a>
@@ -97,7 +97,7 @@
                         html += '<p class="mb-1">' + ((responseData.status == 0) ? 'Gagal' : ((responseData.status == 1) ? 'Berhasil' : 'Error/Unlisted')) + '</p>';
                         html += '<p class="mb-1">' + ((responseData.metode_pembayaran == 0) ? 'Error' : ((responseData.metode_pembayaran == 1) ? 'Kartu Kredit/Debit' : ((responseData.metode_pembayaran == 2) ? 'Virtual Account' : ((responseData.metode_pembayaran == 3) ? 'QRIS' : 'Unlisted')))) + '</p>';
                         html += '<p class="mb-1">' + responseData.referensi_pembayaran + '</p>';
-                        html += '<p class="mb-1">' + ((responseData.kelas_penerbangan_id == 1) ? 'Ekonomi' : ((responseData.kelas_penerbangan_id == 2) ? 'Bisnis' : ((responseData.kelas_penerbangan_id == 3) ? 'First' : 'Error/Unlisted'))) + '</p>';
+                        html += '<p class="mb-1">' + ((responseData.kelas_penerbangan.tipe_kelas == 1) ? 'Ekonomi' : ((responseData.kelas_penerbangan_id == 2) ? 'Bisnis' : ((responseData.kelas_penerbangan_id == 3) ? 'First' : 'Error/Unlisted'))) + '</p>';
                         html += '<p class="mb-1">' + responseData.userId + '</p>';
                         html += '</div>';
                         html += '</div>';

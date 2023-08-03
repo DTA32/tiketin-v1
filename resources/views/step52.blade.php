@@ -26,7 +26,7 @@
                 <p class="mb-2" style="font-size: 16px">Booking ID: {{$pemesanan->id}}</p>
                 <p class="mb-2" style="font-size: 18px">{{$pemesanan->penerbangan->bandara_asal->kota}} - {{$pemesanan->penerbangan->bandara_tujuan->kota}}</p>
                 <p class="mb-2" style="font-size: 12px">{{$pemesanan->penerbangan->waktu_berangkat->format('D, d M')}} | {{$pemesanan->pemesanan_harga->kuantitas}} pax |
-                    {{($pemesanan->kelas_penerbangan_id == 1) ? 'Ekonomi' : (($pemesanan->kelas_penerbangan_id == 2) ? 'Bisnis' : 'First')}}</p>
+                    {{($pemesanan->kelas_penerbangan->tipe_kelas == 1) ? 'Ekonomi' : (($pemesanan->kelas_penerbangan->tipe_kelas == 2) ? 'Bisnis' : 'First')}}</p>
             </div>
             <div class="col d-flex justify-content-end align-items-center">
                 <p style="font-size: 21px">{{rupiah($pemesanan->pemesanan_harga->total)}} </p>

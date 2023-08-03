@@ -29,7 +29,7 @@
                         <div class="row">
                             <div class="col">
                                 <p class="mb-0" style="font-size: 14px">{{$p->penerbangan->waktu_berangkat->format('D, d M')}} | {{$p->pemesanan_harga->kuantitas}} pax |
-                                {{($p->kelas_penerbangan_id == 1) ? 'Ekonomi' : (($p->kelas_penerbangan_id == 2) ? 'Bisnis' : 'First')}}</p>
+                                {{($p->kelas_penerbangan->tipe_kelas == 1) ? 'Ekonomi' : (($p->kelas_penerbangan->tipe_kelas == 2) ? 'Bisnis' : 'First')}}</p>
                             </div>
                             <div class="col-4">
                                 @if ($p->status)
