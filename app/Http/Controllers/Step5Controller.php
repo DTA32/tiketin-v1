@@ -18,7 +18,8 @@ class Step5Controller extends Controller
             'status' => 0,
             'metode_pembayaran' => 0,
             'referensi_pembayaran' => '0',
-            'kelas_penerbangan_id' => $request->input('kelas')
+            'kelas_penerbangan_id' => $request->input('kelas'),
+            'userId' => auth()->user()->id
         ]);
         $pemesanan->save();
 

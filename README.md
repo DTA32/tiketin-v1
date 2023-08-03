@@ -56,7 +56,7 @@ password: user
 
 - [x] bandara: UD
 - [x] penerbangan: masukin menu kelas penerbangan, UD
-- [x] kelas penerbangan: C seat layout pake template or auto-generate dari parameter input, U gabisa update seat layout, D (dianggap beres dulu karena terlalu ribet)
+- [x] kelas penerbangan: C seat layout pake template or auto-generate dari parameter input, U gabisa update seat layout, D (C dianggap beres dulu karena terlalu ribet)
 - [x] pemesanan: show data aja, jangan CUD (upcoming: Delete)
 - [x] news: CRUD
 - [x] user: C bikin menu buat bikin akun admin baru, R only show name email, UD
@@ -65,12 +65,12 @@ password: user
 
 - kelas penerbangan seed JSON seat_layout berbagai tipe pesawat
 - nomor identitas n gender penumpang
+- customer service on settings (form db nama user, 'judul, keluhan', id pemesanan (0 = sistem), respon, status)
 - db bisa di-optimize chatgpt
-- customer service on settings (form db nama user, 'judul, keluhan', respon, status)
-- fix gitignore
-- guide installation (composer autoload, db seed (isi n fix dulu))
 - report admin
 - online check-in
+- fix gitignore
+- guide installation (composer autoload, db seed (isi n fix dulu))
 - readme: project description (from tugas), disclaimer (using dummy data), recommended improvement (db transaction)
 
 ---

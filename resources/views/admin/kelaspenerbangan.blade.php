@@ -90,7 +90,7 @@
                                 <input type="text" name="harga" id="harga" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <p class="text-center">Mulai sekarang, jumlah kursi dan seat layout akan otomatis diisikan sistem bergantung kepada tipe pesawat dan tipe kelasnya</p>
+                                <p class="text-center">Jumlah kursi dan seat layout akan otomatis diisikan sistem bergantung kepada tipe pesawat dan tipe kelasnya</p>
                             </div>
                         </div>
                         <div class="modal-footer">

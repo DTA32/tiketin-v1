@@ -12,7 +12,7 @@ use App\Models\pemesanan_penumpang;
 class HistoryController extends Controller
 {
     public function get(){
-        $pemesanan = pemesanan::has('pemesanan_harga')->orderBy('id', 'desc')->get();
+        $pemesanan = pemesanan::where('userId', auth()->user()->id)->orderBy('id', 'desc')->get();
         return view('history', ['pemesanan' => $pemesanan]);
     }
     public function getDetail($id){

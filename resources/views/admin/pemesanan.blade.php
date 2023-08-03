@@ -17,7 +17,7 @@
                         <th scope="col">Metode Pembayaran</th>
                         <th scope="col">Referensi Pembayaran</th>
                         <th scope="col">Kelas Penerbangan</th>
-                        <th scope="col">Username</th>
+                        <th scope="col">User ID</th>
                         <th scope="col">Detail</th>
                     </tr>
                 </thead>
@@ -83,15 +83,17 @@
                         html += '<div class="col-6">';
                         html += '<p class="mb-1 ">ID Pemesanan</p>';
                         html += '<p class="mb-1 ">ID Penerbangan</p>';
+                        html += '<p class="mb-1 ">Tanggal Pemesanan</p>';
                         html += '<p class="mb-1 ">Status</p>';
                         html += '<p class="mb-1 ">Metode Pembayaran</p>';
                         html += '<p class="mb-1 ">Referensi Pembayaran</p>';
                         html += '<p class="mb-1 ">Kelas Penerbangan</p>';
-                        html += '<p class="mb-1 ">Username</p>';
+                        html += '<p class="mb-1 ">User ID</p>';
                         html += '</div>';
                         html += '<div class="col-6">';
                         html += '<p class="mb-1">' + responseData.id + '</p>';
                         html += '<p class="mb-1">' + responseData.penerbangan_id + '</p>';
+                        html += '<p class="mb-1">' + new Date(responseData.created_at).toLocaleString() + '</p>';
                         html += '<p class="mb-1">' + ((responseData.status == 0) ? 'Gagal' : ((responseData.status == 1) ? 'Berhasil' : 'Error/Unlisted')) + '</p>';
                         html += '<p class="mb-1">' + ((responseData.metode_pembayaran == 0) ? 'Error' : ((responseData.metode_pembayaran == 1) ? 'Kartu Kredit/Debit' : ((responseData.metode_pembayaran == 2) ? 'Virtual Account' : ((responseData.metode_pembayaran == 3) ? 'QRIS' : 'Unlisted')))) + '</p>';
                         html += '<p class="mb-1">' + responseData.referensi_pembayaran + '</p>';

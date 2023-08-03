@@ -14,6 +14,10 @@
             <p class="my-1">Booking ID</p>
             <p class="my-1">{{$pemesanan->id}}</p>
         </div>
+        <div class="border border-secondary-subtle py-1 px-3 bg-white d-flex justify-content-between align-items-center">
+            <p class="my-1">Tanggal Pemesanan</p>
+            <p class="my-1">{{$pemesanan->created_at->format('D, d M y')}}</p>
+        </div>
         <div class="border border-secondary-subtle py-1 px-3 bg-white d-flex justify-content-between align-items-center py-2" style="border: 1px solid #868686;">
             <p class="my-1">Status</p>
             @if ($pemesanan->status)

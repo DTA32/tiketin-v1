@@ -24,7 +24,7 @@
                                     <label for="bandara_asal_id" class="form-label">Bandara asal</label>
                                     <select name="bandara_asal_id" id="bandara_asal_id" class="form-select">
                                         @foreach ($bandara as $item)
-                                            <option value="{{$item->id}}">{{$item->nama_bandara}}</option>
+                                            <option value="{{$item->id}}">{{$item->nama_bandara . ' (' . $item->kode_bandara . ')'  . ' (' . $item->kota . ')'}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -32,7 +32,7 @@
                                     <label for="bandara_tujuan_id" class="form-label">Bandara tujuan</label>
                                     <select name="bandara_tujuan_id" id="bandara_tujuan_id" class="form-select">
                                         @foreach ($bandara as $item)
-                                            <option value="{{$item->id}}">{{$item->nama_bandara}}</option>
+                                            <option value="{{$item->id}}">{{$item->nama_bandara . ' (' . $item->kode_bandara . ')'  . ' (' . $item->kota . ')'}}</option>
                                         @endforeach
                                     </select>
                                 </div>
