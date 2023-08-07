@@ -3,8 +3,11 @@
 @include('includes.head')
 <body>
     <x-headerBack></x-headerBack>
-    <div class="border border-secondary-subtle py-4 px-4 my-1 bg-white" style="overflow:auto; max-height: 80vh">
-        <p class="mb-2 fs-5">News</p>
+    <div class="border border-secondary-subtle py-4 px-4 my-1 bg-white scrollbar" style="overflow:auto; max-height: 80vh">
+        <div class="mb-2 d-inline-flex align-items-center">
+            <img src="{{url('images/ic_news.png')}}" alt="" style="height: 24px; width: 24px" class="me-1">
+            <span class="fs-5">News</span>
+        </div>
         <div class="container">
             @foreach ($news as $newsss)
                 @if ($loop->iteration % 2 == 1)

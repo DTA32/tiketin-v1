@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('includes.head')
-<body>
+<body class="scrollbar">
     <x-headerBack></x-headerBack>
     <div>
         @if ($pemesanan == null)

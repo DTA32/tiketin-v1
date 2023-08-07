@@ -44,8 +44,8 @@ password: user
 - [x] news
 - [x] settings
 - [x] binding pemesanan to user sekalian cobain ubah kelas_penerbangan_id di pemesanan
-- [ ] custom scrollbar
-- [ ] styling add more icon illust etc
+- [x] custom scrollbar
+- [x] styling add more icon illust etc
 - [ ] step1 filter n sort
 - [ ] input validation
 - [ ] possible bug fix (step 123 etc (use alert if back))

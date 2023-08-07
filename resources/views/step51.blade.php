@@ -40,7 +40,7 @@
             @method('PUT')
             <input type="hidden" name="pemesanan_id" value="{{$pemesanan->id}}">
             <input type="hidden" name="metode_pembayaran" value="1">
-            <div class="container mt-4 mb-5">
+            <div class="container mt-4">
                 <div class="row mb-2">
                     <div class="col">
                         <label for="nomorKartu">Nomor Kartu</label>
@@ -61,6 +61,7 @@
                     </div>
                 </div>
             </div>
+            <img src="{{url('images/payment_1.png')}}" alt="" style="height: 36px" class="mt-2">
             <div class="text-center mt-5">
                 <button type="submit" class="button text-center" style="width: 240px">Bayar</button>
             </div>

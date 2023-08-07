@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('includes.head')
-<body>
+<body class="scrollbar">
     <x-headerBack></x-headerBack>
     <div>
         <div class="progress mt-1" role="progressbar" aria-label="Progress" aria-valuenow="17" aria-valuemin="0" aria-valuemax="100">

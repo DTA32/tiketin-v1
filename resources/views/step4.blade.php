@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('includes.head')
-<body>
+<body class="scrollbar">
     <x-header></x-header>
     <div>
         <div class="progress mt-1" role="progressbar" aria-label="Progress" aria-valuenow="51" aria-valuemin="0" aria-valuemax="100">
@@ -91,7 +91,7 @@
     <div>
         <p class="fs-5 mt-3 ps-3 mb-2">Detail Harga</p>
         <div class="border border-secondary-subtle my-0 py-2 px-3 bg-white d-flex justify-content-between align-items-center ">
-            <p class="my-1">{{$penerbangan->maskapai}} ({{Session::get('harga')['kuantitas']}})</p>
+            <p class="my-1">{{$penerbangan->maskapai}} ({{Session::get('harga')['kuantitas']}})x</p>
             <p class="my-1">{{rupiah(Session::get('harga')['biaya_dasar'])}}</p>
         </div>
         <div class="border border-secondary-subtle my-0 py-2 px-3 bg-white d-flex justify-content-between align-items-center ">

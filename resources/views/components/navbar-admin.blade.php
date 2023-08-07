@@ -35,7 +35,7 @@
                 </a>
                 <a class="text-decoration-none text-white" href="{{route('admin.news')}}">
                     <div class="d-flex rounded py-2 px-3 mx-2 my-1 btn btn-outline-primary">
-                        <span class="d-flex align-items-center"><img src="{{url('images/ic_baseline-local-printshop.png')}}" alt="" style="height: 24px; width: 24px" class="navitem-logo"></span>
+                        <span class="d-flex align-items-center"><img src="{{url('images/ic_news.png')}}" alt="" style="height: 24px; width: 24px" class="navitem-logo"></span>
                         <span class="d-flex ps-2 flex-grow-1 align-items-center text-white">News</span>
                     </div>
                 </a>

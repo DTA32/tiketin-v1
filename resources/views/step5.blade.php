@@ -54,18 +54,21 @@
                 <input type="radio" id="kartu" name="metode_pembayaran" value="1">
                 <div class="border border-secondary-subtle my-0 py-2 px-3">
                     Kartu Kredit/Debit
+                    <span class="ms-1"> <img src="{{url('images/payment_1.png')}}" alt="" style="height: 24px"></span>
                 </div>
             </label>
             <label for="va" class="labl w-100">
                 <input type="radio" id="va" name="metode_pembayaran" value="2">
                 <div class="border border-secondary-subtle my-0 py-2 px-3">
                     Virtual Account
+                    <span class="ms-1"> <img src="{{url('images/mdi_bank.png')}}" alt="" style="height: 24px"></span>
                 </div>
             </label>
             <label for="qris" class="labl w-100">
                 <input type="radio" id="qris" name="metode_pembayaran" value="3">
                 <div class="border border-secondary-subtle my-0 py-2 px-3">
                     QRIS
+                    <span class="ms-1"> <img src="{{url('images/qris.jpg')}}" alt="" style="height: 24px"></span>
                 </div>
             </label>
         </div>

@@ -11,20 +11,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-        <style>
-            [class^='select2-selection']{
-                border: none !important;
-            }
-            [class^='select2-selection__arrow']{
-                display: none !important;
-            }
-        </style>
     </head>
-<body>
+<body style="overflow:hidden">
     <x-header></x-header>
-    <div class="container overflow-x-hidden overflow-y-scroll" style="max-height: 80vh">
+    <div class="container overflow-x-hidden overflow-y-scroll scrollbar" style="max-height: 80vh">
         <div class="greeting mb-2 pb-1">
-            <p class="fs-6 lh-sm mb-0">Halo, {{Auth::user() ? Auth::user()->name : 'Error loading name!!!'}}</p>
+            <p class="fs-6 lh-sm mb-0">Halo, {{Auth::user() ? Auth::user()->name : 'Authentication Error!'}}</p>
             <p class="fs-5 fw-bold lh-sm mb-0">Mau kemana?</p>
         </div>
         <div class="search-box mb-3">
@@ -115,11 +107,12 @@
         <div class="search-box pb-3 pe-0">
             <a class="d-inline-flex text-black text-decoration-none pt-2 my-2 w-100" href="{{route('news')}}">
                 <div class="fs-5">
+                    <img src="{{url('images/ic_news.png')}}" alt="" style="height: 24px; width: 24px">
                     <span>News</span>
                     <span class="ms-2 text-secondary" style="display: inline-block;transform: scale(1.5,1)">&#10093;</span>
                 </div>
             </a>
-            <div class="overflow-x-scroll overflow-y-hidden" style="white-space: nowrap">
+            <div class="overflow-x-auto overflow-y-hidden scrollbar" style="white-space: nowrap; scrollbar-width:thin">
                 @foreach ($news as $newsss)
                 <div class="d-inline-block me-2">
                     <a class="text-decoration-none" href="{{route('news.detail', $newsss->id)}}">

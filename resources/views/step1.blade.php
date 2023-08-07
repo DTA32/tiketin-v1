@@ -59,40 +59,42 @@
                 <p class="ps-2 text-center fs-5 mb-0">Sort</p>
             </div>
         </div>
-        @foreach($results as $hasil)
-        <a class="text-black text-decoration-none" href="{{route('step2', ['penerbangan_id' => $hasil->id, 'penumpang' => $penumpang, 'kelas' => $kelas])}}">
-            <div class="border border-secondary-subtle my-1 pt-2 pb-3 px-3 bg-white">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <p class="fs-5">{{$hasil->maskapai}}</p>
-                            <div class="row text-center">
-                                <p class="col mb-0">{{date('H:i', strtotime($hasil->waktu_berangkat))}}</p>
-                                @php
-                                    $time1 = new DateTime($hasil->waktu_berangkat);
-                                    $time2 = new DateTime($hasil->waktu_sampai);
-                                    $interval = $time1->diff($time2);
-                                @endphp
-                                <p class="col mb-0 d-flex justify-content-center align-items-end" style="font-size: 12px">{{$interval->format('%hj %im')}}</p>
-                                <p class="fs-6 col mb-0">{{date('H:i', strtotime($hasil->waktu_sampai))}}</p>
+        <div class="overflow-y-auto scrollbar">
+            @foreach($results as $hasil)
+            <a class="text-black text-decoration-none" href="{{route('step2', ['penerbangan_id' => $hasil->id, 'penumpang' => $penumpang, 'kelas' => $kelas])}}">
+                <div class="border border-secondary-subtle my-1 pt-2 pb-3 px-3 bg-white">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <p class="fs-5">{{$hasil->maskapai}}</p>
+                                <div class="row text-center">
+                                    <p class="col mb-0">{{date('H:i', strtotime($hasil->waktu_berangkat))}}</p>
+                                    @php
+                                        $time1 = new DateTime($hasil->waktu_berangkat);
+                                        $time2 = new DateTime($hasil->waktu_sampai);
+                                        $interval = $time1->diff($time2);
+                                    @endphp
+                                    <p class="col mb-0 d-flex justify-content-center align-items-end" style="font-size: 12px">{{$interval->format('%hj %im')}}</p>
+                                    <p class="fs-6 col mb-0">{{date('H:i', strtotime($hasil->waktu_sampai))}}</p>
+                                </div>
+                                <div class="row text-center">
+                                    <p class="fs-6 col" style="font-size: 14px">{{$hasil->bandara_asal->kode_bandara}}</p>
+                                    <img src="{{url('images/mdi_arrow-right-thin.png')}}" alt="" class="col" style="width: 54px; height:24px">
+                                    <p class="fs-6 col" style="font-size: 14px">{{$hasil->bandara_tujuan->kode_bandara}}</p>
+                                </div>
+                                <div class="row">
+                                    <p class="fs-5">{{rupiah($hasil->kelas_penerbangan[0]->harga)}}</p>
+                                </div>
                             </div>
-                            <div class="row text-center">
-                                <p class="fs-6 col" style="font-size: 14px">{{$hasil->bandara_asal->kode_bandara}}</p>
-                                <img src="{{url('images/mdi_arrow-right-thin.png')}}" alt="" class="col" style="width: 54px; height:24px">
-                                <p class="fs-6 col" style="font-size: 14px">{{$hasil->bandara_tujuan->kode_bandara}}</p>
+                            <div class="col d-flex justify-content-end align-items-center">
+                                <img src="/images/next.png" alt="">
                             </div>
-                            <div class="row">
-                                <p class="fs-5">{{rupiah($hasil->kelas_penerbangan[0]->harga)}}</p>
-                            </div>
-                        </div>
-                        <div class="col d-flex justify-content-end align-items-center">
-                            <img src="/images/next.png" alt="">
                         </div>
                     </div>
                 </div>
-            </div>
-        </a>
-        @endforeach
+            </a>
+            @endforeach
+        </div>
     </div>
 </body>
 </html>

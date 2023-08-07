@@ -3,7 +3,7 @@
 @include('includes.head')
 <body>
     <x-header></x-header>
-    <div class="container overflow-x-hidden overflow-y-scroll" style="overflow: auto; max-height: 80vh">
+    <div class="container overflow-x-hidden overflow-y-auto scrollbar" style="max-height: 80vh">
         @if($pemesanan->isEmpty())
             <div class="text-center my-1 py-2 px-3">
                 <p class="fs-4">Tidak ada riwayat pemesanan</p>
@@ -14,7 +14,7 @@
                     <div class="border border-secondary-subtle my-1 py-2 px-3 bg-white container">
                         <div class="row">
                             <div class="col">
-                                <p class="text-end pe-3">Booking ID: {{$p->id}}</p>
+                                <p class="text-center">Booking ID: {{$p->id}}</p>
                             </div>
                             <div class="col">
                                 <p class="text-end">{{rupiah($p->pemesanan_harga->total)}}</p>
@@ -22,7 +22,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <p class="text-center fs-5 ps-2" style="white-space: nowrap">{{$p->penerbangan->bandara_asal->kota}} - {{$p->penerbangan->bandara_tujuan->kota}}</p>
+                                <p class="text-center fs-5" style="white-space: nowrap">{{$p->penerbangan->bandara_asal->kota}} - {{$p->penerbangan->bandara_tujuan->kota}}</p>
                             </div>
                             <div class="col"></div>
                         </div>
