@@ -31,9 +31,7 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/home');
 
 // No Middleware (Authentication routing)
 Route::get('/login', [LoginController::class, 'get'])->name('login');

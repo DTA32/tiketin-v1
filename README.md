@@ -51,21 +51,31 @@ password: user
 - [ ] possible bug fix (step 123 etc (use alert if back))
 - [ ] export e-ticket
 
-### menu admin
+### step1 filter n sort
 
-**ALL USE DB MODEL ELOQUENT**
+**sort**
 
-- [x] bandara: UD
-- [x] penerbangan: masukin menu kelas penerbangan, UD
-- [x] kelas penerbangan: C seat layout pake template or auto-generate dari parameter input, U gabisa update seat layout, D (C dianggap beres dulu karena terlalu ribet)
-- [x] pemesanan: show data aja, jangan CUD (upcoming: Delete)
-- [x] news: CRUD
-- [x] user: C bikin menu buat bikin akun admin baru, R only show name email, UD
+- [x] harga terendah
+
+below untested because lack of data
+
+- [x] durasi tercepat
+- [x] keberangkatan paling awal
+- [x] kedatangan paling awal
+
+**filter**
+
+- [x] maskapai
+- [x] range waktu keberangkatan
+
+- [ ] range durasi
+- [ ] range harga
 
 **catatan tambahan (low priority):**
 
 - kelas penerbangan seed JSON seat_layout berbagai tipe pesawat
-- step 2 pemesanan tambahin nomor identitas n gender penumpang
+- refactor: pecah bagian2 html jadi component (use extends, yield, section)
+- step 2 pemesanan tambahin nomor identitas, gender penumpang, tipe (dewasa, anak)(tipe very optional)
 - customer service on settings (form db nama user, 'judul, keluhan', id pemesanan (0 = sistem), respon, status)
 - db bisa di-optimize chatgpt
 - report admin
@@ -82,6 +92,17 @@ notes from figma comment:
 - step 5 tambah konfirmasi sweetalert "apakah anda yakin dengan pesanan anda? [ (kecil) pesanan akan diproses setelah ini dan tidak dapat diubah kembali ]"
 
 ---
+
+### menu admin
+
+**ALL USE DB MODEL ELOQUENT**
+
+- [x] bandara: UD
+- [x] penerbangan: masukin menu kelas penerbangan, UD
+- [x] kelas penerbangan: C seat layout pake template or auto-generate dari parameter input, U gabisa update seat layout, D (C dianggap beres dulu karena terlalu ribet)
+- [x] pemesanan: show data aja, jangan CUD (upcoming: Delete)
+- [x] news: CRUD
+- [x] user: C bikin menu buat bikin akun admin baru, R only show name email, UD
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
