@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminPenerbangan;
 use App\Http\Controllers\AdminBandara;
-use App\Http\Controllers\AdminKursiPenerbangan;
 use App\Http\Controllers\AdminKelasPenerbangan;
 use App\Http\Controllers\AdminPemesanan;
 use App\Http\Controllers\AdminUserController;

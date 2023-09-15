@@ -9,17 +9,26 @@
             @csrf
             @method('PUT')
             <div class="container">
-                <div class="mb-3 row">
+                <div class="mb-3 row align-items-center">
                     <label for="nama" class="col">Nama Lengkap:</label>
                     <input type="text" name="name" id="name" class="col-7 input-text px-0 me-2" autocomplete="off" style="border-bottom: 1px solid #000000;" value="{{$name}}">
+                    @error('name')
+                        <div class="row justify-content-end text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
-                <div class="mb-3 row">
+                <div class="mb-3 row align-items-center">
                     <label for="email" class="col">Email:</label>
                     <input type="text" name="email" id="email" class="col-7 input-text px-0 me-2" autocomplete="off" style="border-bottom: 1px solid #000000;" value="{{$email}}">
+                    @error('email')
+                        <div class="row justify-content-end text-danger">{{$message}}</div>
+                    @enderror
                 </div>
-                <div class="mb-4 row">
+                <div class="mb-4 row align-items-center">
                     <label for="password" class="col">Current Password:</label>
                     <input type="password" name="password" id="password" class="col-7 input-text px-0 me-2" autocomplete="off" style="border-bottom: 1px solid #000000;">
+                    @error('password')
+                        <div class="row justify-content-end px-0 text-danger">{{$message}}</div>
+                    @enderror
                 </div>
             </div>
                 <div class="text-center">
@@ -28,7 +37,6 @@
                 </button>
             </div>
             <p class="text-center text-success">{{ Session::pull('success') }}</p>
-            <p class="text-center text-danger">{{ Session::pull('error') }}</p>
         </form>
     </div>
     <button class="text-black text-decoration-none d-inline p-0 border-0 w-100" data-bs-toggle="modal" data-bs-target="#changePwd">
@@ -52,14 +60,23 @@
                         <div class="mb-3">
                             <label for="old_password" class="form-label">Current Password</label>
                             <input type="password" name="old_password" id="old_password" class="form-control">
+                            @error('old_password')
+                                <div class="text-danger">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label for="new_password" class="form-label">New Password</label>
                             <input type="password" name="new_password" id="new_password" class="form-control">
+                            @error('new_password')
+                                <div class="text-danger">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label for="confirm_password" class="form-label">Reenter New Password</label>
                             <input type="password" name="confirm_password" id="confirm_password" class="form-control">
+                            @error('confirm_password')
+                                <div class="text-danger">{{$message}}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="modal-footer">

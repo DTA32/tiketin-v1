@@ -12,6 +12,10 @@ class Step1Controller extends Controller
         $request->session()->forget('penumpang');
         $dari = $request->input('dari');
         $ke = $request->input('ke');
+        if($dari == $ke){
+            $request->session()->put('error', 'Kota asal dan tujuan tidak boleh sama');
+            return back();
+        }
         $tanggal = $request->input('tanggal');
         $kelas = $request->input('kelas');
         $penumpang = $request->input('penumpang');

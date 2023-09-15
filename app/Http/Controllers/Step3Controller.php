@@ -18,6 +18,10 @@ class Step3Controller extends Controller
         // detail penumpang
         $penumpangArray = [];
         foreach($request->input('nama_lengkap') as $penumpangs){
+            if($penumpangs == null){
+                $request->session()->put('error', 'Harap isi semua data penumpang');
+                return back();
+            }
             $penumpangA = [
                 'nama' => $penumpangs,
                 'kursi_penerbangan' => null

@@ -46,30 +46,10 @@ password: user
 - [x] binding pemesanan to user sekalian cobain ubah kelas_penerbangan_id di pemesanan
 - [x] custom scrollbar
 - [x] styling add more icon illust etc
-- [ ] step1 filter n sort
-- [ ] input validation
-- [ ] possible bug fix (step 123 etc (use alert if back))
+- [ ] step1 filter n sort (- range durasi n harga)
+- [x] input validation
+- [x] possible bug fix (step 123 etc (use alert if back)) (gajadi, step 4 kalo dibuat back terlalu ribet)
 - [ ] export e-ticket
-
-### step1 filter n sort
-
-**sort**
-
-- [x] harga terendah
-
-below untested because lack of data
-
-- [x] durasi tercepat
-- [x] keberangkatan paling awal
-- [x] kedatangan paling awal
-
-**filter**
-
-- [x] maskapai
-- [x] range waktu keberangkatan
-
-- [ ] range durasi
-- [ ] range harga
 
 **catatan tambahan (low priority):**
 
@@ -80,16 +60,19 @@ below untested because lack of data
 - db bisa di-optimize chatgpt
 - report admin
 - online check-in
+- use API from internet to seed db
 - fix gitignore
 - guide installation (composer autoload, db seed (isi n fix dulu))
 - readme: project description (from tugas), disclaimer (using dummy data), recommended improvement (db transaction)
+- use db transaction for kursi penerbangan (use timeout for step 4 n 5) (modify step 4 and step 5 controller (sekalian back button))
+- reactivate function buat bayar kalo pesanan ada yang belum dibayar (selama masih dalam batas waktu) (status order: menunggu pembayaran)
 
 notes from figma comment:
 
 - harusnya db pesawat (maskapai + tipe) dipisah sendiri buat callsign
 - step 0 pemesanan opsi pulang pergi
 - step 3 tambahin addons (bagasi, asuransi, etc)
-- step 5 tambah konfirmasi sweetalert "apakah anda yakin dengan pesanan anda? [ (kecil) pesanan akan diproses setelah ini dan tidak dapat diubah kembali ]"
+- step 5 tambah konfirmasi sweetalert "apakah anda yakin dengan pesanan anda? [ (kecil) pesanan akan diproses setelah ini dan tidak dapat diubah kembali ]" (tambahin kalo step 4 udah ada back button)
 
 ---
 

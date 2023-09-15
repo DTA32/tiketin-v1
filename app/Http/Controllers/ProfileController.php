@@ -25,14 +25,12 @@ class ProfileController extends Controller
         ]);
         $user = User::find(Auth::id());
         if(!Hash::check($input['password'], $user->password)){
-            $request->session()->put('error', 'Password is incorrect.');
-            return back();
+            return back()->withErrors(['password' => 'Password is incorrect.']);
         }
         $user->name = $input['name'];
         $user->email = $input['email'];
         $user->save();
-        $request->session()->put('success', 'Profile updated successfully.');
-        return redirect('/settings');
+        return redirect('/settings')->with('success', 'Profile updated successfully.');
     }
 
     public function updatePwd(Request $request){
@@ -43,16 +41,13 @@ class ProfileController extends Controller
         ]);
         $user = User::find(Auth::id());
         if(!Hash::check($input['old_password'], $user->password)){
-            $request->session()->put('error', 'Old password is incorrect.');
-            return back();
+            return back()->withErrors(['old_password' => 'Old password is incorrect.']);
         }
         if($input['new_password'] !== $input['confirm_password']){
-            $request->session()->put('error', 'New password and confirm password does not match.');
-            return back();
+            return back()->withErrors(['confirm_password' => 'New password and confirm password does not match.']);
         }
         $user->password = Hash::make($input['new_password']);
         $user->save();
-        $request->session()->put('success', 'Password updated successfully.');
-        return redirect('/settings');
+        return redirect('/settings')->with('success', 'Password updated successfully.');
     }
 }

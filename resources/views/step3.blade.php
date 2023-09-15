@@ -2,7 +2,7 @@
 <html lang="en">
 @include('includes.head')
 <body class="scrollbar">
-    <x-headerBack></x-headerBack>
+    <x-headerBackAlert  ></x-headerBackAlert>
     <div>
         <div class="progress mt-1" role="progressbar" aria-label="Progress" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100">
             <div class="progress-bar bg-secondary" style="width:51%"></div>
@@ -37,6 +37,7 @@
             @endforeach
         </select>
     </div>
+    <div class="text-center text-danger my-2" id="validationStatus" style="display: none">Ada penumpang yang belum memilih kursi!</div>
     <div class="border border-secondary-subtle my-1 pt-2 pb-5 px-3 bg-white">
         <p class="text-center fs-5 mb-4">{{$penerbangan->maskapai}} - {{$penerbangan->tipe_pesawat}} - {{($kelas_penerbangan->tipe_kelas == 1) ? 'Ekonomi' : (($kelas_penerbangan->tipe_kelas == 2) ? 'Bisnis' : 'First')}}</p>
         <div id="layout container">
@@ -91,7 +92,27 @@
     </div>
     <script>
         document.getElementById("nextt").addEventListener("click", function() {
-            document.getElementById("formm").submit();
+            Swal.fire({
+                title: 'Apakah anda yakin dengan pilihan anda?',
+                text: "Kursi yang telah dipilih tidak dapat diubah lagi",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Lanjutkan',
+                cancelButtonText: 'Kembali',
+                width: '24em'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    for(i = 1; i <= {{count(Session::get('penumpang'))}}; i++){
+                        if(document.getElementById('hidden-' + i).value.split('|')[2] == ''){
+                            document.getElementById("validationStatus").style.display = "block";
+                            return false;
+                        }
+                    }
+                    return document.getElementById("formm").submit();
+                }
+            });
         });
 
         // Assume you have an HTML element with the ID 'seat-layout' wrapping the seat layout display

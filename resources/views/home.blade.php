@@ -29,7 +29,7 @@
                             <label for="dari">Dari</label>
                             <div class="input-text-div ms-2 px-0">
                                 <img src="{{url('/images/bxs_plane-take-off.png')}}" alt="">
-                                <select name="dari" id="dari" class="input-text select2 " autocomplete="off" style="width: 250px" required>
+                                <select name="dari" id="dari" class="input-text select2 " autocomplete="off" style="width: 250px" required oninvalid="this.setCustomValidity('Pilih kota keberangkatan')" oninput="this.setCustomValidity('')">
                                     <option></option>
                                     @foreach($towns as $town)
                                         <option value="{{$town->kota}}">{{$town->kota}}</option>
@@ -41,7 +41,7 @@
                             <label for="ke">Ke</label>
                             <div class="input-text-div ms-2 px-0">
                                 <img src="{{url('/images/bxs_plane-land.png')}}" alt="">
-                                <select name="ke" id="ke" class="input-text select2" autocomplete="off" style="width: 250px" required>
+                                <select name="ke" id="ke" class="input-text select2" autocomplete="off" style="width: 250px" required  oninvalid="this.setCustomValidity('Pilih kota kedatangan')" oninput="this.setCustomValidity('')">
                                     <option></option>
                                     @foreach($towns as $town)
                                         <option value="{{$town->kota}}">{{$town->kota}}</option>
@@ -49,14 +49,14 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="mb-2 row">
-                            <label for="tanggal">Tanggal Keberangkatan</label>
-                            <input type="date" name="tanggal" id="tanggal" class="input-other ms-2 ps-1 pe-0" required min="{{ date('Y-m-d') }}">
-                        </div>
                     </div>
-                    <div class="col ms-3 mt-2 pt-4">
+                    <div class="col d-flex justify-content-center align-items-center">
                         <a onclick="swapSearch()"><img src="{{url('images/reverse.png')}}" alt="" style="cursor: pointer"></a>
                     </div>
+                </div>
+                <div class="mb-2 row">
+                    <label for="tanggal">Tanggal Keberangkatan</label>
+                    <input type="date" name="tanggal" id="tanggal" class="input-other ms-2 ps-1 pe-0" required min="{{ date('Y-m-d') }}"  oninvalid="this.setCustomValidity('Pilih tanggal keberangkatan')" oninput="this.setCustomValidity('')">
                 </div>
                 <div class="mb-3">
                     <div class="row">
