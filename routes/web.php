@@ -86,6 +86,8 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/final', [Step5Controller::class, 'update'])->name('home.finalized');
     Route::get('/history', [HistoryController::class, 'get'])->name('history');
     Route::get('/history/{id}', [HistoryController::class, 'getDetail'])->name('history.detail');
+    Route::get('/history/{id}/eticket', [HistoryController::class, 'eticket'])->name('history.eticket');
+    Route::get('/history/{id}/eticket/print', [HistoryController::class, 'print'])->name('history.print');
     Route::get('/news', [NewsController::class, 'get'])->name('news');
     Route::get('/news/{id}', [NewsController::class, 'getDetail'])->name('news.detail');
     Route::view('/settings', 'settings')->name('settings');

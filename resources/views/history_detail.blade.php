@@ -118,10 +118,10 @@
                 </div>
             </div>
         </div>
-        <a class="text-black text-decoration-none" href="{{route('under_construction')}}">
+        <a class="text-black text-decoration-none" href="{{route('history.eticket', $pemesanan->id)}}">
             <div class="border border-secondary-subtle mt-3 py-2 px-3 bg-white" style="border: 1px solid #868686">
-                <img src="{{url('images/ic_baseline-local-printshop.png')}}" alt="">
-                <span class="ps-2">Print E-Ticket</span>
+                <img src="{{url('images/ic_outline-airplane-ticket.png')}}" alt="">
+                <span class="ps-2">Lihat E-ticket</span>
             </div>
         </a>
         @endif
