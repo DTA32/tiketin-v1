@@ -44,6 +44,7 @@ class Step1Controller extends Controller
                     ->whereHas('kelas_penerbangan', function($query) use ($penumpang){
                         $query->where('jumlah_kursi', '>=', $penumpang);
                     })
+                    ->orderBy('waktu_berangkat', 'asc')
                     ->get();
         if($results->isEmpty()){
             $request->session()->put('error', 'Penerbangan tidak ditemukan');

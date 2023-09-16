@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-@include('includes.head')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tiketin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{asset('js/step1.js')}}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/theme.min.css" integrity="sha512-hbs/7O+vqWZS49DulqH1n2lVtu63t3c3MTAn0oYMINS5aT8eIAbJGDXgLt6IxDHcWyzVTgf9XyzZ9iWyVQ7mCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
 <body>
     {{-- header --}}
     <div class="header-container container text-center">
@@ -118,17 +132,23 @@
                     </div>
                 </div>
                 <div>
-                    <div class="d-flex border border-secondary-subtle px-2 py-1 bg-white" style="cursor: pointer">
+                    <div class="d-flex border border-secondary-subtle px-2 py-1 bg-white" style="cursor: pointer" id="durasiFilterButton">
                         <span class="d-flex flex-grow-1 align-items-center">Durasi</span>
                         <span class="ms-2 text-secondary fs-5" style="display: inline-block;transform: scale(1.5,1)">&#10093;</span>
                     </div>
-                    <div class="mb-2 border border-secondary-subtle p-2" id="durasiRange" style="display: none">
+                    <div class="mb-2 border border-secondary-subtle p-2" id="durasiRangeGroup" style="display: none">
+                        <div id="durasiSlider" class="mt-2 mx-2"></div>
+                        <p id="durasiRange" class="text-center my-2"></p>
                     </div>
                 </div>
                 <div>
-                    <div class="d-flex border border-secondary-subtle px-2 py-1 bg-white" style="cursor: pointer">
+                    <div class="d-flex border border-secondary-subtle px-2 py-1 bg-white" style="cursor: pointer" id="hargaFilterButton">
                         <span class="d-flex flex-grow-1 align-items-center">Harga</span>
                         <span class="ms-2 text-secondary fs-5" style="display: inline-block;transform: scale(1.5,1)">&#10093;</span>
+                    </div>
+                    <div class="mb-2 border border-secondary-subtle p-2" id="hargaRangeGroup" style="display: none">
+                        <div id="hargaSlider" class="mt-2 mx-2"></div>
+                        <p id="hargaRange" class="text-center my-2"></p>
                     </div>
                 </div>
             </div>
@@ -174,173 +194,5 @@
             @endforeach
         </div>
     </div>
-    <script>
-        $(document).ready(function(){
-            const dataCount = $("#cardGroup").children().length;
-            var maskapaiArray = [];
-            for(let i = 0; i < dataCount; i++){
-                const maskapai = $("#"+i+"_maskapai").text();
-                if(!maskapaiArray.includes(maskapai)){
-                    maskapaiArray.push(maskapai);
-                    $("#maskapaiCheckGroup").append("<div class='form-check'><input class='form-check-input' type='checkbox' value='"+maskapai+"' id='maskapaiCheck_"+i+"'><label class='form-check-label' for='maskapaiCheck_"+i+"'>"+maskapai+"</label></div>")
-                }
-            }
-            // function
-            // sort
-            $("#sortButton").click(function(){
-                $("#filterMenu").hide();
-                $("#sortMenu").slideToggle();
-            })
-            $("#sortSubmit").click(function(){
-                const sortValue = $("input[name='sortRadio']:checked").val();
-                const dataCount = $("#cardGroup").children().length;
-                resetOrder();
-                if(sortValue == 1){
-                    for(let i = 0; i < dataCount; i++){
-                        for(let j = 0; j < dataCount; j++){
-                            const harga1 = parseInt($("#"+j+"_harga").data('value'));
-                            const harga2 = parseInt($("#"+(j+1)+"_harga").data('value'));
-                            if(harga1 > harga2){
-                                $("#card_"+j).before($("#card_"+(j+1)));
-
-                            }
-                        }
-                    }
-                }
-                else if(sortValue == 2){
-                    for(let i = 0; i < dataCount; i++){
-                        for(let j = 0; j < dataCount; j++){
-                            const durasi1 = parseInt($("#"+j+"_durasi").data('value'));
-                            const durasi2 = parseInt($("#"+(j+1)+"_durasi").data('value'));
-                            if(durasi1 > durasi2){
-                                $("#card_"+j).before($("#card_"+(j+1)));
-                            }
-
-                        }
-                    }
-                }
-                else if(sortValue == 3){
-                    for(let i = 0; i < dataCount; i++){
-                        for(let j = 0; j < dataCount; j++){
-                            const keberangkatan1 = parseInt($("#"+j+"_keberangkatan").data('value'));
-                            const keberangkatan2 = parseInt($("#"+(j+1)+"_keberangkatan").data('value'));
-                            if(keberangkatan1 > keberangkatan2){
-                                $("#card_"+j).before($("#card_"+(j+1)));
-                            }
-                        }
-                    }
-                }
-                else if(sortValue == 4){
-                    for(let i = 0; i < dataCount; i++){
-                        for(let j = 0; j < dataCount; j++){
-                            const kedatangan1 = parseInt($("#"+j+"_kedatangan").data('value'));
-                            const kedatangan2 = parseInt($("#"+(j+1)+"_kedatangan").data('value'));
-                            if(kedatangan1 > kedatangan2){
-                                $("#card_"+j).before($("#card_"+(j+1)));
-                            }
-                        }
-                    }
-                }
-                sortSuccess();
-            })
-            $("#sortReset").click(function(){
-                resetOrder();
-                $('input[name="sortRadio"]').prop('checked', false);
-            })
-            function resetOrder() {
-                for(let i = 0; i < $("#cardGroup").children().length; i++){
-                    $("#cardGroup").append($("#card_"+i));
-                }
-            }
-            function sortSuccess(){
-                $("#statusText").text("Sorted successfully");
-                $("#statusText").show();
-                setTimeout(function(){
-                    $("#statusText").hide();
-                }, 2000);
-            }
-            // filter
-            $("#filterButton").click(function(){
-                $("#sortMenu").hide();
-                $("#filterMenu").slideToggle();
-            })
-            $("#maskapaiFilterButton").click(function(){
-                $("#maskapaiCheckGroup").slideToggle();
-            })
-            $("#keberangkatanFilterButton").click(function(){
-                $("#keberangkatanCheckGroup").slideToggle();
-            })
-            $("#filterSubmit").click(function(){
-                const maskapaiFilter = [];
-                const keberangkatanFilter = [];
-                for(let i = 0; i < maskapaiArray.length; i++){
-                    if($("#maskapaiCheck_"+i).is(":checked")){
-                        maskapaiFilter.push($("#maskapaiCheck_"+i).val());
-                    }
-                }
-                for(let i = 1; i <= 4; i++){
-                    if($("#keb"+i).is(":checked")){
-                        const range = $("#keb"+i).val().split(",");
-                        keberangkatanFilter.push(range);
-                    }
-                }
-                if(keberangkatanFilter.length == 0 && maskapaiFilter.length == 0){
-                    $("#filterReset").trigger("click");
-                }
-                else{
-                    for(let i = 0; i < dataCount; i++){
-                        const maskapai = $("#"+i+"_maskapai").text();
-                        const keberangkatan = parseInt($("#"+i+"_keberangkatan").data('value'));
-                        // if(maskapaiFilter.length > 0){
-                        //     if(!maskapaiFilter.includes(maskapai)){
-                        //         $("#card_"+i).hide();
-                        //     }
-                        //     else{
-                        //         $("#card_"+i).show();
-                        //     }
-                        // }
-                        // if(keberangkatanFilter.length > 0){
-                        //     for(let j = 0; j < keberangkatanFilter.length; j++){
-                        //         if(keberangkatan >= keberangkatanFilter[j][0] && keberangkatan <= keberangkatanFilter[j][1]){
-                        //             $("#card_"+i).show();
-                        //             break;
-                        //         }
-                        //         else{
-                        //             $("#card_"+i).hide();
-                        //         }
-                        //     }
-                        // }
-                        const maskapaiFilterCondition = maskapaiFilter.length > 0 ? maskapaiFilter.includes(maskapai) : true;
-                        const keberangkatanFilterCondition = keberangkatanFilter.length > 0 ? keberangkatanFilter.some(range => keberangkatan >= range[0] && keberangkatan <= range[1]) : true;
-                        if(maskapaiFilterCondition && keberangkatanFilterCondition){
-                            $("#card_"+i).show();
-                        }
-                        else{
-                            $("#card_"+i).hide();
-                        }
-                    }
-                }
-                filterSuccess();
-            })
-            $("#filterReset").click(function(){
-                for(let i = 0; i < maskapaiArray.length; i++){
-                    $("#maskapaiCheck_"+i).prop('checked', false);
-                }
-                for(let i = 0; i < 4; i++){
-                    $("#keberangkatanCheck_"+i).prop('checked', false);
-                }
-                for(let i = 0; i < dataCount; i++){
-                    $("#card_"+i).show();
-                }
-            })
-            function filterSuccess(){
-                $("#statusText").text("Filtered successfully");
-                $("#statusText").show();
-                setTimeout(function(){
-                    $("#statusText").hide();
-                }, 2000);
-            }
-        })
-    </script>
 </body>
 </html>

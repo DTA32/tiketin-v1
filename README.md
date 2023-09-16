@@ -46,13 +46,15 @@ password: user
 - [x] binding pemesanan to user sekalian cobain ubah kelas_penerbangan_id di pemesanan
 - [x] custom scrollbar
 - [x] styling add more icon illust etc
-- [ ] step1 filter n sort (- range durasi n harga)
+- [x] step1 filter n sort
 - [x] input validation
 - [x] possible bug fix (step 123 etc (use alert if back)) (gajadi, step 4 kalo dibuat back terlalu ribet)
 - [ ] export e-ticket
 
 **catatan tambahan (low priority):**
 
+- input validation admin (lupa, hehe)
+- alert when user clicking home while still on step 2345
 - kelas penerbangan seed JSON seat_layout berbagai tipe pesawat
 - refactor: pecah bagian2 html jadi component (use extends, yield, section)
 - step 2 pemesanan tambahin nomor identitas, gender penumpang, tipe (dewasa, anak)(tipe very optional)
