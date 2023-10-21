@@ -14,7 +14,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 </head>
 
-<body>
+<body onload="window.print()">
 <div>
     @if ($pemesanan == null) <p class="text-center text-danger mt-5 fw-bold fs-3">Data fetching error, please try again</p>
     @else
@@ -89,10 +89,6 @@
                     @endforeach
                     </tbody>
                 </table>
-            </div>
-            <div style="height: 240px"></div>
-            <div class="text-center">
-                <img src="{{url('/images/logo.png')}}" alt="logo" >
             </div>
         </div>
     @endif

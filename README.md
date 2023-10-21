@@ -49,7 +49,7 @@ password: user
 - [x] step1 filter n sort
 - [x] input validation
 - [x] possible bug fix (step 123 etc (use alert if back)) (gajadi, step 4 kalo dibuat back terlalu ribet)
-- [ ] export e-ticket
+- [x] export e-ticket
 
 **catatan tambahan (low priority):**
 
