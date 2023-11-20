@@ -8,6 +8,7 @@ use App\Models\pemesanan_penumpang;
 use App\Models\pemesanan_harga;
 use Illuminate\Support\Facades\Session;
 use App\Models\kelas_penerbangan;
+use Illuminate\Support\Str;
 
 class Step5Controller extends Controller
 {
@@ -22,7 +23,8 @@ class Step5Controller extends Controller
             'metode_pembayaran' => 0,
             'referensi_pembayaran' => '0',
             'kelas_penerbangan_id' => $kelas_penerbangan_id,
-            'userId' => auth()->user()->id
+            'userId' => auth()->user()->id,
+            'booking_code' => strtoupper(Str::random(8))
         ]);
         $pemesanan->save();
 

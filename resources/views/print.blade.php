@@ -39,7 +39,7 @@
                             <p class="mb-0 text-secondary">{{($pemesanan->kelas_penerbangan->tipe_kelas == 1) ? 'Ekonomi' : (($pemesanan->kelas_penerbangan->tipe_kelas == 2) ? 'Bisnis' : 'First')}}</p>
                         </div>
                         <p class="mb-0">Kode Booking Maskapai (PNR)</p>
-                        <h3>AABBCCDD</h3>
+                        <h3>{{$pemesanan->booking_code}}</h3>
                     </div>
                     <div class="col">
                         <div class="row">

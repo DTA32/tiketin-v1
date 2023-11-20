@@ -20,18 +20,16 @@ class AdminKelasPenerbangan extends Controller
             'tipe_kelas' => 'required',
             'harga' => 'required',
         ]);
-        $tipePesawatRaw = penerbangan::where('id', $data['penerbangan_id'])->first()->tipe_pesawat;
-        $tipePesawatSplit = explode(' ', $tipePesawatRaw);
-        // TBA: Other types
-        /*
-        if($tipePesawatSplit[1] === 'A320'){
-            $data['jumlah_kursi'] = 80;
-            $data['seat_layout'] = Storage::disk('local')->get('seatLayout/'.$data['tipe_kelas'].'/'.$tipePesawatSplit[1].'.json');
+        if($data['tipe_kelas'] == 1){
+            $data['jumlah_kursi'] = 60;
+            $data['seat_layout'] = Storage::disk('local')->get('seatLayout/economy.json');
+        } else if($data['tipe_kelas'] == 2){
+            $data['jumlah_kursi'] = 12;
+            $data['seat_layout'] = Storage::disk('local')->get('seatLayout/business.json');
+        } else if($data['tipe_kelas'] == 3){
+            $data['jumlah_kursi'] = 8;
+            $data['seat_layout'] = Storage::disk('local')->get('seatLayout/first.json');
         }
-        */
-        // sementara all type pake A320, males ngisi macem2 tipe
-        $data['jumlah_kursi'] = 80;
-        $data['seat_layout'] = Storage::disk('local')->get('seatLayout/1/A320.json');
 
         $newKelasPenerbangan = kelas_penerbangan::create($data);
         $request->session()->flash('success', 'Kelas Penerbangan berhasil ditambahkan');

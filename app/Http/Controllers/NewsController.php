@@ -33,8 +33,8 @@ class NewsController extends Controller
     }
     public function delete($id){
         $news = News::find($id);
-        if(File::exists('storage/news/'.$news->id.'.'.$news->image)){
-            File::delete('storage/news/'.$news->id.'.'.$news->image);
+        if(File::exists('images/news/'.$news->id.'.jpg')){
+            File::delete('images/news/'.$news->id.'.jpg');
         }
         $news->delete();
         Session::flash('success', 'Berita berhasil dihapus');
@@ -47,9 +47,8 @@ class NewsController extends Controller
             'author' => 'required',
             'content' => 'required',
         ]);
-        $data['image'] = $request->file('image')->extension();
         $newNews = News::create($data);
-        $path = $request->file('image')->storeAs('news', $newNews->id.'.'.$request->image->extension(), 'public');
+        $request->file('image')->move('images/news/', $newNews->id.'.jpg');
         Session::flash('success', 'Berita berhasil ditambahkan');
         return redirect()->route('admin.news');
     }

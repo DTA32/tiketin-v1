@@ -17,7 +17,9 @@ return new class extends Migration
             $table->integer('status');
             $table->integer('metode_pembayaran');
             $table->text('referensi_pembayaran');
-            $table->integer('kelas_penerbangan_id')->unsigned();
+            $table->foreignId('kelas_penerbangan_id')->constrained('kelas_penerbangan');
+            $table->foreignId('userId')->constrained('users');
+            $table->string('booking_code');
             $table->timestamps();
         });
     }

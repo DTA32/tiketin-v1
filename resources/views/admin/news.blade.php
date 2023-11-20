@@ -3,12 +3,14 @@
 <!DOCTYPE html>
 <html data-bs-theme="dark">
 @include('includes.headAdmin')
+
 <body>
     <x-navbarAdmin></x-navbarAdmin>
     <div class="px-4">
         <p class="text-center fw-bold fs-5 my-2">News</p>
         <div class="my-3">
-            <button type="button" class="btn btn-dark bg-primary-subtle" data-bs-toggle="modal" data-bs-target="#tambahNews">
+            <button type="button" class="btn btn-dark bg-primary-subtle" data-bs-toggle="modal"
+                data-bs-target="#tambahNews">
                 Tambah
             </button>
             <p class="text-success">{{ Session::pull('success') }}</p>
@@ -30,28 +32,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ( $news as $newsss )
-                    <tr>
-                        <th scope="row">{{ $newsss->id }}</th>
-                        <td id="title{{$newsss->id}}">{{ $newsss->title }}</td>
-                        <td>{{ $newsss->author }}</td>
-                        <td><img src="{{Storage::url('news/'.$newsss->id.'.jpg')}}" style="width: 128px"></td>
-                        <td id="content{{$newsss->id}}">{{ $newsss->content }}</td>
-                        <td>{{ $newsss->created_at }}</td>
-                        <td>
-                            <button type="button" id="editBtn" class="btn bg-warning-subtle text-decoration-none py-0" data-bs-toggle="modal" data-bs-target="#editNews"
-                            data-news-id="{{$newsss->id}}">
-                                Edit
-                            </button>
-                        </td>
-                        <td>
-                            <form action="{{route('admin.news.delete', $newsss->id)}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn bg-danger-subtle text-decoration-none py-0">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
+                    @foreach ($news as $newsss)
+                        <tr>
+                            <th scope="row">{{ $newsss->id }}</th>
+                            <td id="title{{ $newsss->id }}">{{ $newsss->title }}</td>
+                            <td>{{ $newsss->author }}</td>
+                            <td><img src="{{ '/images/news/' . $newsss->id . '.jpg' }}" style="width: 128px"></td>
+                            <td id="content{{ $newsss->id }}">{{ $newsss->content }}</td>
+                            <td>{{ $newsss->created_at }}</td>
+                            <td>
+                                <button type="button" id="editBtn"
+                                    class="btn bg-warning-subtle text-decoration-none py-0" data-bs-toggle="modal"
+                                    data-bs-target="#editNews" data-news-id="{{ $newsss->id }}">
+                                    Edit
+                                </button>
+                            </td>
+                            <td>
+                                <form action="{{ route('admin.news.delete', $newsss->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="btn bg-danger-subtle text-decoration-none py-0">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
@@ -63,7 +67,7 @@
                     <div class="modal-header">
                         <p class="mb-1 fw-bold">Tambah Berita</p>
                     </div>
-                    <form method="POST" action="{{route('admin.news.add')}}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.news.add') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body">
                             <div class="mb-3">
@@ -76,7 +80,8 @@
                             </div>
                             <div class="mb-3">
                                 <label for="image" class="form-label">Image</label>
-                                <input type="file" name="image" id="image" class="form-control" accept="image/jpeg,image/png">
+                                <input type="file" name="image" id="image" class="form-control"
+                                    accept="image/jpeg,image/png">
                             </div>
                             <div class="mb-3">
                                 <label for="content" class="form-label">Content</label>
@@ -84,7 +89,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn bg-secondary-subtle" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn bg-secondary-subtle"
+                                data-bs-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn bg-primary-subtle">Tambah</button>
                         </div>
                     </form>
@@ -98,7 +104,7 @@
                     <div class="modal-header">
                         <p class="mb-1 fw-bold">Edit Berita</p>
                     </div>
-                    <form method="POST" action="{{route('admin.news.update')}}">
+                    <form method="POST" action="{{ route('admin.news.update') }}">
                         @csrf
                         @method('PUT')
                         <div class="modal-body">
@@ -117,7 +123,8 @@
                             <p>Author dan image tidak dapat diubah</p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn bg-secondary-subtle" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn bg-secondary-subtle"
+                                data-bs-dismiss="modal">Cancel</button>
                             <button type="submit" class="btn bg-primary-subtle">Update</button>
                         </div>
                     </form>
@@ -139,4 +146,5 @@
         })
     </script>
 </body>
+
 </html>

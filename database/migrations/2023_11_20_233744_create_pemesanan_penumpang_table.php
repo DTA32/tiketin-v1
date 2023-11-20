@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('pemesanan_penumpang', function (Blueprint $table) {
-            $table->text('kursi_penerbangan')->nullable();
+        Schema::create('pemesanan_penumpang', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('pemesanan_id')->constrained('pemesanan');
+            $table->text('nama');
+            $table->text('kursi_penerbangan');
+            $table->timestamps();
         });
     }
 
@@ -21,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('pemesanan_penumpang');
     }
 };

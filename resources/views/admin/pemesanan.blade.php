@@ -89,6 +89,7 @@
                         html += '<p class="mb-1 ">Referensi Pembayaran</p>';
                         html += '<p class="mb-1 ">Kelas Penerbangan</p>';
                         html += '<p class="mb-1 ">User ID</p>';
+                        html += '<p class="mb-1 ">Booking Code</p>';
                         html += '</div>';
                         html += '<div class="col-6">';
                         html += '<p class="mb-1">' + responseData.id + '</p>';
@@ -99,6 +100,7 @@
                         html += '<p class="mb-1">' + responseData.referensi_pembayaran + '</p>';
                         html += '<p class="mb-1">' + ((responseData.kelas_penerbangan.tipe_kelas == 1) ? 'Ekonomi' : ((responseData.kelas_penerbangan_id == 2) ? 'Bisnis' : ((responseData.kelas_penerbangan_id == 3) ? 'First' : 'Error/Unlisted'))) + '</p>';
                         html += '<p class="mb-1">' + responseData.userId + '</p>';
+                        html += '<p class="mb-1">' + responseData.booking_code + '</p>';
                         html += '</div>';
                         html += '</div>';
                         // Load Penerbangan
