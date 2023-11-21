@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('tipe_kelas');
             $table->unsignedBigInteger('harga');
             $table->integer('jumlah_kursi');
-            $table->json('seat_layout')->default('[]');
+            $table->json('seat_layout');
             $table->timestamps();
         });
     }

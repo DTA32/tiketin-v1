@@ -11,21 +11,29 @@ Disclaimer:
 
 ---
 
-### Navigation
+## How to install
 
-Login Page: SERVER_URL/login
+Execute these lines in your terminal
 
-User Main Page: SERVER_URL/home
+1. `composer install`
+1. `npm install`
+1. `cp .env.example .env (or copy and rename .env.example to .env)`
+1. `php artisan migrate`
+1. `php artisan db:seed`
+1. `php artisan key:generate`
+1. `php artisan storage:link`
 
-Management Admin: SERVER_URL/admin
+To run this project, execute
 
-(SERVER_URL default is localhost:8000)
+`php artisan serve`
 
 ---
 
-### Default Account
+## Default data
 
-(use db:seed first)
+After executing db:seed, these data will be available:
+
+### Credentials
 
 - Admin
 
@@ -39,15 +47,8 @@ email: <user@email.com>
 
 password: user
 
+### Flights
+
+Flights are available tomorrow, starting from db:seed was executed
+
 ---
-
-# How to install
-
-Execute these lines in your terminal
-
-1. composer install
-1. npm install
-1. cp .env.example .env (or copy and rename .env.example to .env)
-1. php artisan migrate
-1. php artisan key:generate
-1. php artisan storage:link
